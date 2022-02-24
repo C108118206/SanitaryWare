@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('news') }}" :active="request()->routeIs('news')">
-                        最新消息
+                        {{ __('最新消息') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('product') }}" :active="request()->routeIs('product')">
                         {{ __('產品介紹') }}

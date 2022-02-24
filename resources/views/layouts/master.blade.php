@@ -19,16 +19,8 @@
             }
         </style>
     </head>
-    <body>
-        <div class="header">
-            @section('navbar')
-                側邊攔
-            @show
-        </div>
+    <body class="font-sans">
 
 
-        <div class="container">
-            @yield('content')
-        </div>
     </body>
 </html>
