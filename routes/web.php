@@ -17,8 +17,10 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('dashboard');
 
+// 最新消息
+
 Route::get('/news', function () {
-    return view('dashboard');
+    return view('news');
 })->name('news');
 Route::get('/product', function () {
     return view('dashboard');
@@ -27,3 +29,27 @@ Route::get('/information', function () {
     return view('dashboard');
 })->name('information');
 
+// 產品介紹
+Route::get('glass', function () {
+    return view('dashboard');
+});
+
+Route::get('/shower', function () {
+    return view('dashboard');
+});
+
+Route::get('/toilet', function () {
+    return view('dashboard');
+});
+
+Route::get('/clothes-hanger', function () {
+    return view('dashboard');
+});
+
+Route::get('/floor', function () {
+    return view('dashboard');
+});
+
+Route::get('/VAF', function () {
+    return view('dashboard');
+});

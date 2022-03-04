@@ -1,7 +1,7 @@
-<div class="mx-auto h-40 bg-sky-800 text-white">
-    <div class="max-w-7xl mx-auto py-4 flex justify-between space-x-16">
+<div class="mx-auto lg:h-40 sm:h-80 w-auto bg-sky-800 text-white">
+    <div class="max-w-7xl mx-auto py-4 flex justify-between ">
         
-        <div class="flex space-x-20">
+        <div class="flex  flex-wrap">
             <div class="flex-col w-40">
                 <div class="font-bold">產品介紹</div>
                 <div class="flex-wrap mt-2 space-y-2">
@@ -37,7 +37,7 @@
                 <div class="font-bold">客服中心</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
-                        <a class="mr-2" href="#">ＤＩＹ維護教學</a>
+                        <a class="mr-2" href="#">DIY維護教學</a>
                     </div>
                     <div>
                         <a class="mr-2" href="#">維修通報</a>
@@ -48,7 +48,7 @@
                 <div class="font-bold">後台登入</div>
             </div>
         </div>
-        <div class="mt-12 flex-col">
+        <div class="lg:mt-12 sm:mt-16 flex-col">
             <p>堡家麗</p>
             <p>服務時間：09:00-18:00</p>
             <p>連絡電話：07-123-4567</p>
