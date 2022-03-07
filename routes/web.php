@@ -17,17 +17,39 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('dashboard');
 
-// 最新消息
+// dashboard 上方nav
 
 Route::get('/news', function () {
     return view('news');
 })->name('news');
+
 Route::get('/product', function () {
-    return view('dashboard');
+    return view('product');
 })->name('product');
-Route::get('/information', function () {
+
+Route::get('/product_details', function () {
+    return view('product_details');
+})->name('product_details');
+
+Route::get('/about_us', function () {
+    return view('about_us');
+})->name('about_us');
+
+Route::get('/fix', function () {
+    return view('fix');
+})->name('fix');
+
+Route::get('/customer_service', function () {
+    return view('customer_service');
+})->name('customer_service');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::get('/search', function () {
     return view('dashboard');
-})->name('information');
+})->name('search');
 
 // 產品介紹
 Route::get('glass', function () {

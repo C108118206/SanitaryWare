@@ -11,22 +11,57 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('news') }}" :active="request()->routeIs('news')">
-                        {{ __('最新消息') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('product') }}" :active="request()->routeIs('product')">
-                        {{ __('產品介紹') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('information') }}" :active="request()->routeIs('information')">
-                        {{ __('關於我們') }}
-                    </x-jet-nav-link>
+                <div class="hidden sm:-my-px sm:ml-10 sm:flex">
+
+                    <a href="{{ route('news') }}" class="flex items-center text-lg mx-4 {{ request()->is('news') ? 'hidden' : 'active'}}">
+                        <img class="h-7" src="img/icon/news_black.svg"/>
+                        <div>最新消息</div> 
+                    </a>
+                    <a href="{{ route('news') }}" class="flex items-center text-lg mx-4 {{ request()->is('news') ? 'active' : 'hidden'}}">
+                        <img class="h-7" src="img/icon/news_blue.svg"/>
+                        <div class="text-blue-500">最新消息</div> 
+                    </a>
+
+                    <a href="{{ route('product') }}" class="flex items-center text-lg mx-4 {{ request()->is('product') ? 'hidden' : 'active'}}">
+                        <img class="h-7" src="img/icon/product_black.svg"/>
+                        <div>產品介紹</div> 
+                    </a>
+                    <a href="{{ route('product') }}" class="flex items-center text-lg mx-4 {{ request()->is('product') ? 'active' : 'hidden'}}">
+                        <img class="h-7" src="img/icon/product_blue.svg"/>
+                        <div class="text-blue-500">產品介紹</div> 
+                    </a>
+
+                    <a href="{{ route('about_us') }}" class="flex items-center text-lg mx-4 {{ request()->is('about_us') ? 'hidden' : 'active'}}">
+                        <img class="h-7" src="img/icon/about_black.svg"/>
+                        <div>關於我們</div> 
+                    </a>
+                    <a href="{{ route('about_us') }}" class="flex items-center text-lg mx-4 {{ request()->is('about_us') ? 'active' : 'hidden'}}">
+                        <img class="h-7" src="img/icon/about_blue.svg"/>
+                        <div class="text-blue-500">關於我們</div> 
+                    </a>
 
                 </div>
             </div>
 
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <!-- Settings Dropdown -->
+            <div class="hidden sm:flex sm:items-center sm:ml-6 ">
+                <!-- nav right -->
+
+                <a href="{{ route('search') }}" class="flex items-center text-lg  {{ request()->is('search') ? 'hidden' : 'active'}}">
+                    <img class="h-7" src="img/icon/search_black.svg"/>
+                </a>
+                <a href="{{ route('search') }}" class="flex items-center text-lg  {{ request()->is('search') ? 'active' : 'hidden'}}">
+                    <img class="h-7" src="img/icon/search_blue.svg"/>
+                </a>
+                <div class="mx-3">|</div>
+                <a href="{{ route('customer_service') }}" class="flex items-center text-lg  {{ request()->is('customer_service') ? 'hidden' : 'active'}}">
+                    <img class="h-7" src="img/icon/customer service_black.svg"/>
+                </a>
+                <a href="{{ route('customer_service') }}" class="flex items-center text-lg  {{ request()->is('customer_service') ? 'active' : 'hidden'}}">
+                    <img class="h-7" src="img/icon/customer service_blue.svg"/>
+                </a>
+
+                <img src="img/icon/member_blue.svg" class="h-12 px-4">
+                {{-- <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -78,7 +113,7 @@
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">

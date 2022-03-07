@@ -1,17 +1,22 @@
 <x-app-layout>
-    <div class="h-contact-us-height relative">
+    <div class="h-64 relative">
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <div class="">
-                <div class="text-center py-8 text-2xl  font-bold">
-                    標題
-                </div>
-                <div class="py-8 px-4 text-center">
-                    <a href="#" class="rounded bg-sky-800 text-white text-xl px-12 py-2">
-                        聯絡我們
-                    </a>
-                </div>
+            <div class="text-center py-8 text-3xl  text-white tracking-wider font-black">
+                最新消息
             </div>
         </div>
         <img src="/img/picture/index/contact-us-background.jpg" class="opacity-70 object-cover h-full w-full"/>
     </div>
+    <div class="px-32 py-6 space-y-6">
+        <div class="">
+            <div class="text-md text-gray-400">首頁 > 最新消息 > 全新商品熱銷中</div>
+        </div>
+        <div class="text-blue-500 font-bold text-2xl">新品即將上市 預購熱銷中</div>
+        <div class="font-medium text-lg">content - Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab excepturi molestiae magnam! Odio fugit dolorem quam possimus adipisci et eos itaque obcaecati eveniet. Labore odit consequatur corporis exercitationem animi nemo.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt soluta placeat consequatur qui, consectetur maxime similique. Tenetur voluptates consectetur, quae dolore perspiciatis minima eum harum deleniti! Aliquid nulla exercitationem quidem.
+        </div>
+        <img class="h-60 w-max block items-center" src="/img/picture/index/title_img.jpg">
+    </div>
+    
+    
 </x-app-layout>
