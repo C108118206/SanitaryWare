@@ -9,11 +9,11 @@
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col">
         <div class="">
-            <div class="text-md text-gray-400">首頁 > 最新消息 > 全新商品熱銷中</div>
+            <div class="text-md text-gray-400">首頁 > 關於我們</div>
         </div>
         <div class="flex space-x-4">
             <div>
-                <div class="text-blue-500 font-bold text-2xl">新品即將上市 預購熱銷中</div>
+                <div class="text-blue-500 font-bold text-2xl py-6">品牌優勢</div>
                 <div class="font-medium text-lg block">content - Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab excepturi molestiae magnam! Odio fugit dolorem quam possimus adipisci et eos itaque obcaecati eveniet. Labore odit consequatur corporis exercitationem animi nemo.
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt soluta placeat consequatur qui, consectetur maxime similique. Tenetur voluptates consectetur, quae dolore perspiciatis minima eum harum deleniti! Aliquid nulla exercitationem quidem.
                 </div>

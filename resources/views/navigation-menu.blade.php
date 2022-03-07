@@ -13,31 +13,19 @@
                 <!-- Navigation Links -->
                 <div class="hidden sm:-my-px sm:ml-10 sm:flex">
 
-                    <a href="{{ route('news') }}" class="flex items-center text-lg mx-4 {{ request()->is('news') ? 'hidden' : 'active'}}">
-                        <img class="h-7" src="img/icon/news_black.svg"/>
-                        <div>最新消息</div> 
-                    </a>
-                    <a href="{{ route('news') }}" class="flex items-center text-lg mx-4 {{ request()->is('news') ? 'active' : 'hidden'}}">
-                        <img class="h-7" src="img/icon/news_blue.svg"/>
-                        <div class="text-blue-500">最新消息</div> 
+                    <a href="{{ route('news') }}" class="flex items-center text-lg mx-4">
+                        <img class="h-7" src="img/icon/news_{{ request()->is('news') ? 'blue' : 'black'}}.svg"/>
+                        <div class="{{ request()->is('news') ? 'text-blue-500' : ''}}">最新消息</div> 
                     </a>
 
-                    <a href="{{ route('product') }}" class="flex items-center text-lg mx-4 {{ request()->is('product') ? 'hidden' : 'active'}}">
-                        <img class="h-7" src="img/icon/product_black.svg"/>
-                        <div>產品介紹</div> 
-                    </a>
-                    <a href="{{ route('product') }}" class="flex items-center text-lg mx-4 {{ request()->is('product') ? 'active' : 'hidden'}}">
-                        <img class="h-7" src="img/icon/product_blue.svg"/>
-                        <div class="text-blue-500">產品介紹</div> 
+                    <a href="{{ route('product') }}" class="flex items-center text-lg mx-4">
+                        <img class="h-7" src="img/icon/product_{{ request()->is('product') ? 'blue' : 'black'}}.svg"/>
+                        <div class="{{ request()->is('product') ? 'text-blue-500' : ''}}">產品介紹</div> 
                     </a>
 
-                    <a href="{{ route('about_us') }}" class="flex items-center text-lg mx-4 {{ request()->is('about_us') ? 'hidden' : 'active'}}">
-                        <img class="h-7" src="img/icon/about_black.svg"/>
-                        <div>關於我們</div> 
-                    </a>
-                    <a href="{{ route('about_us') }}" class="flex items-center text-lg mx-4 {{ request()->is('about_us') ? 'active' : 'hidden'}}">
-                        <img class="h-7" src="img/icon/about_blue.svg"/>
-                        <div class="text-blue-500">關於我們</div> 
+                    <a href="{{ route('about_us') }}" class="flex items-center text-lg mx-4">
+                        <img class="h-7" src="img/icon/about_{{ request()->is('about_us') ? 'blue' : 'black'}}.svg"/>
+                        <div class="{{ request()->is('about_us') ? 'text-blue-500' : ''}}">關於我們</div> 
                     </a>
 
                 </div>
@@ -46,76 +34,34 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6 ">
                 <!-- nav right -->
 
-                <a href="{{ route('search') }}" class="flex items-center text-lg  {{ request()->is('search') ? 'hidden' : 'active'}}">
-                    <img class="h-7" src="img/icon/search_black.svg"/>
-                </a>
-                <a href="{{ route('search') }}" class="flex items-center text-lg  {{ request()->is('search') ? 'active' : 'hidden'}}">
-                    <img class="h-7" src="img/icon/search_blue.svg"/>
+                <a href="{{ route('search') }}" class="flex items-center text-lg ">
+                    <img class="h-7" src="img/icon/search_{{ request()->is('search') ? 'blue' : 'black'}}.svg"/>
                 </a>
                 <div class="mx-3">|</div>
-                <a href="{{ route('customer_service') }}" class="flex items-center text-lg  {{ request()->is('customer_service') ? 'hidden' : 'active'}}">
-                    <img class="h-7" src="img/icon/customer service_black.svg"/>
-                </a>
-                <a href="{{ route('customer_service') }}" class="flex items-center text-lg  {{ request()->is('customer_service') ? 'active' : 'hidden'}}">
-                    <img class="h-7" src="img/icon/customer service_blue.svg"/>
+                <a href="{{ route('customer_service') }}" class="flex items-center text-lg">
+                    <img class="h-7" src="img/icon/customer service_{{ request()->is('customer_service') ? 'blue' : 'black'}}.svg"/>
                 </a>
 
-                <img src="img/icon/member_blue.svg" class="h-12 px-4">
-                {{-- <!-- Settings Dropdown -->
+                <a href="{{ route('login') }}"><img src="img/icon/member_blue.svg" class="h-12 px-4"></a>
+                <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
-                    <x-jet-dropdown align="right" width="48">
-                        <x-slot name="trigger">
-                            @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                    <img class="h-8 w-8 rounded-full object-cover" src="" alt="" />
-                                </button>
-                            @else
-                                <span class="inline-flex rounded-md">
-                                    <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                    <x-slot name="content">
+                        
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
 
-
-                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                </span>
-                            @endif
-                        </x-slot>
-
-                        <x-slot name="content">
-                            <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
-                            </div>
-
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                            <x-jet-dropdown-link href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                                {{ __('Log Out') }}
                             </x-jet-dropdown-link>
-
-                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                    {{ __('API Tokens') }}
-                                </x-jet-dropdown-link>
-                            @endif
-
-                            <div class="border-t border-gray-100"></div>
-
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <x-jet-dropdown-link href="{{ route('logout') }}"
-                                         onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </x-jet-dropdown-link>
-                            </form>
-                        </x-slot>
-                    </x-jet-dropdown>
+                        </form>
+                    </x-slot>
                 </div>
-            </div> --}}
+            </div> 
 
-            <!-- Hamburger -->
+            <!-- 選單 三 -->
             <div class="-mr-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -129,39 +75,33 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-jet-responsive-nav-link>
-        </div>
+        <a href="{{ route('news') }}" class="flex items-center text-lg mx-4 my-4">
+            <img class="h-7" src="img/icon/news_{{ request()->is('news') ? 'blue' : 'black'}}.svg"/>
+            <div class="{{ request()->is('news') ? 'text-blue-500' : ''}}">最新消息</div> 
+        </a>
+
+        <a href="{{ route('product') }}" class="flex items-center text-lg mx-4 my-4">
+            <img class="h-7" src="img/icon/product_{{ request()->is('product') ? 'blue' : 'black'}}.svg"/>
+            <div class="{{ request()->is('product') ? 'text-blue-500' : ''}}">產品介紹</div> 
+        </a>
+
+        <a href="{{ route('about_us') }}" class="flex items-center text-lg mx-4 my-4">
+            <img class="h-7" src="img/icon/about_{{ request()->is('about_us') ? 'blue' : 'black'}}.svg"/>
+            <div class="{{ request()->is('about_us') ? 'text-blue-500' : ''}}">關於我們</div> 
+        </a>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="flex items-center px-4">
-                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                    <div class="shrink-0 mr-3">
-                        <img class="h-10 w-10 rounded-full object-cover" src="" alt="" />
-                    </div>
-                @endif
+            
 
-                <div>
-                    <div class="font-medium text-base text-gray-800"></div>
-                    <div class="font-medium text-sm text-gray-500"></div>
-                </div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
-                </x-jet-responsive-nav-link>
-
-                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                    <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
-                        {{ __('API Tokens') }}
-                    </x-jet-responsive-nav-link>
-                @endif
-
+            <div class="mt-3 space-y-1 flex">
+                <a href="{{ route('search') }}" class="flex items-center text-lg ">
+                    <img class="h-7" src="img/icon/search_{{ request()->is('search') ? 'blue' : 'black'}}.svg"/>
+                </a>
+                <div class="mx-3">|</div>
+                <a href="{{ route('customer_service') }}" class="flex items-center text-lg">
+                    <img class="h-7" src="img/icon/customer service_{{ request()->is('customer_service') ? 'blue' : 'black'}}.svg"/>
+                </a>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -172,37 +112,6 @@
                         {{ __('Log Out') }}
                     </x-jet-responsive-nav-link>
                 </form>
-
-                <!-- Team Management -->
-                @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                    <div class="border-t border-gray-200"></div>
-
-                    <div class="block px-4 py-2 text-xs text-gray-400">
-                        {{ __('Manage Team') }}
-                    </div>
-
-                    <!-- Team Settings -->
-                    <x-jet-responsive-nav-link href="" :active="request()->routeIs('teams.show')">
-                        {{ __('Team Settings') }}
-                    </x-jet-responsive-nav-link>
-
-                    @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                        <x-jet-responsive-nav-link href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
-                            {{ __('Create New Team') }}
-                        </x-jet-responsive-nav-link>
-                    @endcan
-
-                    <div class="border-t border-gray-200"></div>
-
-                    <!-- Team Switcher -->
-                    <div class="block px-4 py-2 text-xs text-gray-400">
-                        {{ __('Switch Teams') }}
-                    </div>
-
-                    @foreach (Auth::user()->allTeams() as $team)
-                        <x-jet-switchable-team :team="$team" component="jet-responsive-nav-link" />
-                    @endforeach
-                @endif
             </div>
         </div>
     </div>

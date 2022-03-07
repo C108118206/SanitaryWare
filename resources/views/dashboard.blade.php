@@ -7,8 +7,8 @@
         <div class="flex flex-wrap justify-center space-x-8 py-6 ">
             <div class="py-4 px-4">
                 <a href="glass" class="shrink-0 flex-col items-center text-center" >
-                    <img src="img/icon/glass_black.svg"  class="h-16 mx-auto mb-3 {{ request()->is('news') ? 'hidden' : 'active'}}"  />
-                    <img src="img/icon/glass_blue.svg"  class="h-16 mx-auto mb-3 {{ request()->is('news') ? 'active' : 'hidden'}}"/>
+                    <img src="img/icon/glass_black.svg"  class="h-16 mx-auto mb-3 {{ request()->is('glass') ? 'hidden' : 'active'}}"  />
+                    <img src="img/icon/glass_blue.svg"  class="h-16 mx-auto mb-3 {{ request()->is('glass') ? 'active' : 'hidden'}}"/>
                     {{ __('玻璃系列') }}
                 </a>
             </div>

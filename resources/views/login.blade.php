@@ -1,16 +1,29 @@
 <x-app-layout>
-    <div class="h-contact-us-height relative">
+    <div class="news-pic relative">
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <div class="">
-                <div class="text-center py-8 text-2xl  font-bold">
-                    標題
-                </div>
-                <div class="py-8 px-4 text-center">
-                    <a href="#" class="rounded bg-sky-800 text-white text-xl px-12 py-2">
-                        聯絡我們
-                    </a>
-                </div>
+            <div class="text-center py-8 text-3xl  text-white tracking-wider font-black">
+                後台登入
             </div>
+            <form>
+                <div class="flex justify-center items-start py-4">
+                    <p class="px-4 font-black text-lg  text-white">帳號</p>
+                    <input type="text" class=" w-2/3 rounded-md bg-white/50 border border-gray-500/50"/>
+                    
+                </div>
+                <div class="flex justify-center items-start py-4 ">
+                    <p class="px-4 font-black text-lg  text-white">密碼</p>
+                    <input type="text" class=" w-2/3 rounded-md bg-white/50 border border-gray-500/50"/>
+                    
+                </div>
+                
+                <div class="flex justify-center items-start py-4">
+                    <button class=" bg-blue-500 rounded-md w-16 h-10 text-white m-2" type="submit">登入</button>
+                </div>
+                    
+                
+    
+                
+            </form>
         </div>
         <img src="/img/picture/index/contact-us-background.jpg" class="opacity-70 object-cover h-full w-full"/>
     </div>

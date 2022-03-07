@@ -52,26 +52,26 @@ Route::get('/search', function () {
 })->name('search');
 
 // 產品介紹
-Route::get('glass', function () {
+Route::get('/glass', function () {
     return view('dashboard');
-});
+})->name('glass');
 
 Route::get('/shower', function () {
     return view('dashboard');
-});
+})->name('shower');
 
 Route::get('/toilet', function () {
     return view('dashboard');
-});
+})->name('toilet');
 
 Route::get('/clothes-hanger', function () {
     return view('dashboard');
-});
+})->name('clothes-hanger');
 
 Route::get('/floor', function () {
     return view('dashboard');
-});
+})->name('floor');
 
 Route::get('/VAF', function () {
     return view('dashboard');
-});
+})->name('VAF');

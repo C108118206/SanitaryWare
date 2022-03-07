@@ -29,7 +29,7 @@
                 <a href="#" aria-current="page" class="inline-block py-4 px-4 text-md font-bold text-center text-blue-600 border-2 border-b-0 border-gray-300 rounded-t-lg active">詳細介紹</a>
             </li>
             <li class="mr-2">
-                <a href="#" class="inline-block py-4 px-4 text-md font-bold text-center text-gray-500 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300">注意事項</a>
+                <a href="#" class="inline-block py-4 px-4 text-md font-bold text-center text-gray-500 rounded-t-lg hover:text-gray-600 hover:bg-gray-400 dark:text-gray-400  dark:hover:text-gray-300">注意事項</a>
             </li>
         </ul>
         <img src="img/picture/index/title_img.jpg" class="h-72 w-80 block" alt="">
