@@ -47,6 +47,8 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::post('/login', 'App\Http\Controllers\LoginController@loginProcess');
+
 Route::get('/search', function () {
     return view('dashboard');
 })->name('search');
