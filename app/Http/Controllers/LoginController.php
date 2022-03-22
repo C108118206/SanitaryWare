@@ -18,8 +18,10 @@ class LoginController extends Controller
             echo '<script>alert("登入失敗")</script>';
             return view('login');
         }else {
-            echo '<script>alert("登入成功")</script>';
-            return view('login');
+            $url = "/backstage";
+            echo "<script type='text/javascript'>";
+            echo "window.location.href='$url'";
+            echo "</script>";
         }
     }
 }
