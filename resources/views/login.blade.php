@@ -4,7 +4,7 @@
             <div class="text-center py-8 text-3xl  text-white tracking-wider font-black">
                 後台登入
             </div>
-            <form>
+            <form action="{{ route('backstage') }}">
                 <div class="flex justify-center items-start py-4">
                     <p class="px-4 font-black text-lg  text-white">帳號</p>
                     <input type="text" class=" w-2/3 rounded-md bg-white/50 border border-gray-500/50"/>

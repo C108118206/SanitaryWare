@@ -33,7 +33,9 @@
 
             <div class="hidden sm:flex sm:items-center sm:ml-6 ">
                 <!-- nav right -->
-
+                <form action="{{ route('search') }}">
+                    <input type="text" class="bg-gray-300" name="context" placeholder="關鍵字"  id="context">
+                </form>
                 <a href="{{ route('search') }}" class="flex items-center text-lg ">
                     <img class="h-7" src="img/icon/search_{{ request()->is('search') ? 'blue' : 'black'}}.svg"/>
                 </a>

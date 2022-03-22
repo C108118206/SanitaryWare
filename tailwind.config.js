@@ -6,6 +6,8 @@ module.exports = {
     extend: {
       colors: {
         'active_blue': '#174C74',
+        'side_bg' : '#1B3D5C', 
+        'backstage_bg': '#ECF1FF',
       },
       width:{
         'news-pic' : '120rem',
@@ -16,5 +18,7 @@ module.exports = {
     },
     
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }

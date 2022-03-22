@@ -75,3 +75,21 @@ Route::get('/floor', function () {
 Route::get('/VAF', function () {
     return view('dashboard');
 })->name('VAF');
+
+
+/**
+ * backstage
+ */
+
+ Route::get('/backstage', function() {
+     return view('backstage_main');
+ })->name('backstage');
+ Route::get('/backstage/news', function() {
+    return view('backstage_main');
+})->name('backstage-news');
+Route::get('/backstage/product', function() {
+    return view('backstage_main');
+})->name('backstage-product');
+Route::get('/backstage/customer', function() {
+    return view('backstage_main');
+})->name('backstage-customer');
