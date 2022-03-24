@@ -86,6 +86,7 @@ Route::get('/VAF', function () {
  Route::get('/backstage', function() {
      return view('backstage_main');
  })->name('backstage');
+ Route::post('/backstage', 'App\Http\Controllers\productController@FixCreate');
  Route::get('/backstage/news', function() {
     return view('backstage_main');
 })->name('backstage-news');
