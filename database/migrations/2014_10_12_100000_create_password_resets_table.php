@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDIYTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateDIYTable extends Migration
      */
     public function up()
     {
-        Schema::create('_d_i_y', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('detail');
-            $table->string('startDate');
-            $table->string('endDate');
-            $table->timestamps();
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -30,6 +27,6 @@ class CreateDIYTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_d_i_y');
+        Schema::dropIfExists('password_resets');
     }
-}
+};

@@ -4,21 +4,48 @@
             <div class="text-center py-8 text-3xl  text-white tracking-wider font-black">
                 後台登入
             </div>
-            <form action="{{ url('/login') }}" method="POST">
-                <div class="flex justify-center items-start py-4">
-                    <p class="px-4 font-black text-lg  text-white">帳號</p>
-                    <input type="text" class=" w-2/3 rounded-md bg-white/50 border border-gray-500/50" name="userName"/>
+            <x-jet-validation-errors class="mb-4" />
 
+            @if (session('status'))
+                <div class="mb-4 font-medium text-sm text-green-600">
+                    {{ session('status') }}
                 </div>
-                <div class="flex justify-center items-start py-4 ">
-                    <p class="px-4 font-black text-lg  text-white">密碼</p>
-                    <input type="password" name="passWord" class=" w-2/3 rounded-md bg-white/50 border border-gray-500/50"/>
-
+            @endif
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+    
+                <div>
+                    <x-jet-label for="username" value="{{ __('username') }}" />
+                    <x-jet-input id="username" class="block mt-1 w-full" type="username" name="username" :value="old('username')" required autofocus />
                 </div>
-
-                <div class="flex justify-center items-start py-4">
-                    <button class=" bg-blue-500 rounded-md w-16 h-10 text-white m-2" type="submit">登入</button>
+    
+                <div class="mt-4">
+                    <x-jet-label for="password" value="{{ __('Password') }}" />
+                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
                 </div>
+    
+                <div class="block mt-4">
+                    <label for="remember_me" class="flex items-center">
+                        <x-jet-checkbox id="remember_me" name="remember" />
+                        <span class="ml-2 text-sm text-gray-600">{{ __('記住我的資訊') }}</span>
+                    </label>
+                </div>
+    
+                <div class="flex items-center justify-end mt-4">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900 ml-4" href="{{ route('register') }}">
+                        {{ __('註冊帳號') }}
+                    </a>
+                    @if (Route::has('password.request'))
+                        <a class="underline text-sm text-gray-600 hover:text-gray-900 ml-4" href="{{ route('password.request') }}">
+                            {{ __('忘記密碼?') }}
+                        </a>
+                    @endif
+    
+                    <x-jet-button class="ml-4">
+                        {{ __('登入') }}
+                    </x-jet-button>
+                </div>
+            </form>
 
 
 

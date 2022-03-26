@@ -47,7 +47,7 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::post('/login', 'App\Http\Controllers\LoginController@loginProcess');
+
 
 Route::get('/search', function () {
     return view('dashboard');
@@ -78,7 +78,10 @@ Route::get('/VAF', function () {
     return view('dashboard');
 })->name('VAF');
 
-
+Route::get('/passwd',function(){
+    echo Hash::make('lowy');
+    print_r(auth()->users()->name);
+});
 /**
  * backstage
  */
