@@ -47,6 +47,9 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::post('/logout',[App\Http\Controllers\UserController::class,'logout']
+)->name('logout');
+
 
 
 Route::get('/search', function () {
@@ -86,16 +89,20 @@ Route::get('/passwd',function(){
  * backstage
  */
 
- Route::get('/backstage', function() {
-     return view('backstage_main');
- })->name('backstage');
- Route::post('/backstage', 'App\Http\Controllers\productController@FixCreate');
- Route::get('/backstage/news', function() {
-    return view('backstage_main');
-})->name('backstage-news');
-Route::get('/backstage/product', function() {
-    return view('backstage_main');
-})->name('backstage-product');
-Route::get('/backstage/customer', function() {
-    return view('backstage_main');
-})->name('backstage-customer');
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/backstage', function() {
+        return view('backstage_main');
+    })->name('backstage');
+    // Route::post('/backstage', 'App\Http\Controllers\productController@FixCreate');
+    Route::get('/backstage/news', function() {
+        return view('backstage_main');
+    })->name('backstage-news');
+    Route::get('/backstage/product', function() {
+        return view('backstage_main');
+    })->name('backstage-product');
+    Route::get('/backstage/customer', function() {
+        return view('backstage_main');
+    })->name('backstage-customer');
+});
+
+
