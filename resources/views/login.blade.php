@@ -32,7 +32,7 @@
                 </div>
     
                 <div class="flex items-center justify-end mt-4">
-                    {{-- <a class="underline text-sm text-gray-600 hover:text-gray-900 ml-4" href="{{ route('register') }}">
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900 ml-4" href="{{ route('register') }}">
                         {{ __('註冊帳號') }}
                     </a>
                     @if (Route::has('password.request'))
@@ -40,7 +40,7 @@
                             {{ __('忘記密碼?') }}
                         </a>
                     @endif
-     --}}
+    
                     <x-jet-button class="ml-4">
                         {{ __('登入') }}
                     </x-jet-button>

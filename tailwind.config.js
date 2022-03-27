@@ -1,20 +1,28 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-
 module.exports = {
     content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './vendor/laravel/jetstream/**/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
+      './resources/**/*.blade.php',
+      './resources/**/*/js',
+      './resources/**/*.vue',
     ],
-
     theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
+      extend: {
+        
+        colors: {
+          'active_blue': '#174C74',
+          'side_bg' : '#1B3D5C', 
+          'backstage_bg': '#ECF1FF',
         },
+        width:{
+          'news-pic' : '120rem',
+        },
+        backgroundImage: {
+          'contact-us-banner' : "url('/img/picture/index/contact-us-background.jpg')"
+        }
+      },
+      
     },
-
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
-};
+    plugins: [
+      require('flowbite/plugin')
+    ],
+  }
+  
