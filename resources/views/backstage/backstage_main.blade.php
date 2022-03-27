@@ -64,7 +64,7 @@
     </div>
     <div class="flex-col space-y-8 px-6 py-6 justify-center items-center">
         <div class=" font-bold text-2xl text-side_bg">
-            客服管理 >
+            首頁
         </div>
 
 

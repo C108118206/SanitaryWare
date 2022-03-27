@@ -3,18 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\news;
+use App\Models\fix;
+use App\Models\diy;
 
-class newsController extends Controller
+
+class customerController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index_fix()
     {
-        //
+        $fixs = fix::orderBy('created_at','desc')->paginate(10);
+        return view('backstage.customer.backstage_customer_fix',['fixs' => $fixs]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_diy()
+    {
+        $diys = diy::orderBy('created_at','desc')->paginate(10);
+        return view('backstage.customer.backstage_customer_diy',['diys' => $diys]);
     }
 
     /**
@@ -24,8 +38,7 @@ class newsController extends Controller
      */
     public function create()
     {
-        $news = news::orderBy('created_at','desc')->paginate(10);
-        return view('backstage.backstage_news',['news' => $news]);
+        //
     }
 
     /**
@@ -34,17 +47,39 @@ class newsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function diy_store(Request $request)
     {
+        //
         $content = $request->validate([
             'title' => 'required',
+            'content' => 'required',
             'launch_date' => 'required',
             'takedown_date' => 'required',
-            
+            'image_path' => 'required',
         ]);
-        $news = auth()->user()->news()->create($content);
+        diy::create($content);
 
-        return redirect()->route('backstage-news');
+        return redirect()->route('backstage-customer-diy');
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function fix_store(Request $request)
+    {
+        //
+        $content = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'launch_date' => 'required',
+            'takedown_date' => 'required',
+            'image_path' => 'required',
+        ]);
+        fix::create($content);
+
+        return redirect()->route('backstage-customer-fix');
     }
 
     /**

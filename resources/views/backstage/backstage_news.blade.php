@@ -19,30 +19,24 @@
                 </div>
                 <!-- Modal body -->
                 <form action="{{ route("backstage-news-store") }}" method="POST">
+                    @csrf
                     <div class="">
                         <label for="title" class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">消息名稱</label>
                         <input name="title" type="text" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required>
                     </div>
                     <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期</label>
-                        <div class="flex items-center justify-center">
-                            <div class="datepicker relative form-floating mb-3 xl:w-96" data-mdb-toggle-button="false">
-                              <input type="text"
-                                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                placeholder="Select a date" data-mdb-toggle="datepicker" />
-                              <label for="floatingInput" class="text-gray-700">Select a date</label>
-                            </div>
-                          </div>
+                        <label for="launch_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期</label>
+                        <input name="launch_date" type="text" id="launch_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
                     </div>
                     <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">下架日期</label>
-                        <textarea name="productDetail" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
-                        </div>
-                        <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上傳圖片</label>
-                        <input name="productSize" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                        </div>
-                        <span class="block">新增資訊 : {{ Carbon::now() }}</span>
+                        <label for="takedown_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">下架日期</label>
+                        <input name="takedown_date" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+                    </div>
+                    <div class="">
+                        <label for="photo" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上傳圖片</label>
+                        <input name="photo" type="file" id="photo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                    </div>
+                    <span class="block">新增資訊 : {{ Carbon::now() }}</span>
 
                     
                     <!-- Modal footer -->
@@ -60,7 +54,7 @@
         </div>
 
 
-        <div class="bg-white w-3/4 h-96 m-auto" >
+        <div class="bg-white w-3/4 m-auto" >
             <div class=" p-4">
                 <form action="" method="post" class="flex">
                     <label for="name" class="bg-slate-200 border-gray-400 border py-2.5 px-2">名稱</label>
@@ -126,25 +120,26 @@
                                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">刪除</a>
                                 </th>
                                 <td class="px-6 py-4">
-                                    水龍頭組裝
+                                    {{ $new->title }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    2022/2/28
+                                    {{ $new->launch_date }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    2022/3/15
+                                    {{ $new->takedown_date }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">編輯</a>
                                 </td>
                                 <td class="px-6 py-4">
-                                    2022/2/28
+                                    {{ $new->created_at }}
                                 </td>
                             </tr>
                             @endforeach
                             
                         </tbody>
                     </table>
+                    {{ $news->links() }}
                 </div>
             </div>
         </div>

@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class news extends Model
+class product_type extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title','launch_date','takedown_date'
+        'name','main_product_type_id'
     ];
-
-
-    public function user() {
-        return $this->belongsTo('App\Models\User');
+    public function product(){
+        return $this->belongToMany('App\Models\product');
     }
 }
+
