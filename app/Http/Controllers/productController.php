@@ -62,7 +62,7 @@ class productController extends Controller
         return view('product',['product_types' => $product_types , 'product_type' => $id, 'product' => $product]);
     }
 
-    public function front_product_details($id){
+    public function front_product_details($id = null){
         $product = product::find($id);
 
         return view('product_details',['product' => $product]);

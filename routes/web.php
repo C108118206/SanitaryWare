@@ -26,10 +26,10 @@ Route::get('/news', function () {
 Route::get('/product', [App\Http\Controllers\productController::class,'front_product_index']
 )->name('product');
 
-Route::get('/product/{id}', [App\Http\Controllers\productController::class,'front_product_index']
+Route::get('/product/{id?}', [App\Http\Controllers\productController::class,'front_product_index']
 )->name('product-type');
 
-Route::get('/product_details/{id}', [App\Http\Controllers\productController::class,'front_product_details']
+Route::get('/product_details/{id?}', [App\Http\Controllers\productController::class,'front_product_details']
 )->name('product_details');
 
 Route::get('/about_us', function () {

@@ -9,16 +9,20 @@
 
      <!-- Fonts -->
      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+   
      <!-- Styles -->
      <link rel="stylesheet" href="{{ mix('css/app.css') }}">
      @livewireStyles
+     <style>
+        .z-20{
+           z-index: 50 !important;
+        }
+      </style>
 
      <!-- Scripts -->
      <script src="{{ mix('js/app.js') }}" defer></script>
-     <script src="https://unpkg.com/flowbite@1.4.0/dist/datepicker.js"></script>
-     <script src="../path/to/flowbite/dist/flowbite.js"></script>
-     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.0/dist/flowbite.min.css" />
+     <script src="https://unpkg.com/flowbite@1.4.1/dist/datepicker.js"></script>
+     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
 </head>
 <body class="font-sans antialiased bg-gray-100">
     <div class="flex w-screen">

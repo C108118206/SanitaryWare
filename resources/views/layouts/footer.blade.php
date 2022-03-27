@@ -6,16 +6,16 @@
                 <div class="font-bold">產品介紹</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
-                        <a class="mr-2" href="{{ route("product",1) }}">玻璃系列</a>
-                        <a class="ml-2" href="{{ route("product",2) }}">曬衣架</a>
+                        <a class="mr-2" href="/product/1">玻璃系列</a>
+                        <a class="ml-2" href="/product/2">曬衣架</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="{{ route("product",3) }}">淋浴設備</a>
-                        <a class="ml-2" href="{{ route("product",4) }}">隔音地板</a>
+                        <a class="mr-2" href="/product/3">淋浴設備</a>
+                        <a class="ml-2" href="/product/4">隔音地板</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="{{ route("product",5) }}">衛浴設備</a>
-                        <a class="ml-2" href="{{ route("product",6) }}">V A F</a>
+                        <a class="mr-2" href="/product/5">衛浴設備</a>
+                        <a class="ml-2" href="/product/6">V A F</a>
                     </div>
                 </div>
             </div>
