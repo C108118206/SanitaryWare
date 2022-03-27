@@ -133,9 +133,15 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::post('/backstage/customer/fix',[App\Http\Controllers\customerController::class,'fix_store']
     )->name('backstage-fix-store');
+    
+    Route::post('/backstage/diy/find',[App\Http\Controllers\customerController::class,'find_diy']
+    )->name('backstage-diy-find');
 
     Route::post('/backstage/diy/drop',[App\Http\Controllers\customerController::class,'diy_destroy']
     )->name('backstage-diy-drop');
+    
+    Route::post('/backstage/fix/find',[App\Http\Controllers\customerController::class,'find_fix']
+    )->name('backstage-fix-find');
 
     Route::post('/backstage/fix/drop',[App\Http\Controllers\customerController::class,'fix_destroy']
     )->name('backstage-fix-drop');
@@ -144,17 +150,23 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/backstage/news',[App\Http\Controllers\newsController::class,'create']
     )->name('backstage-news');
 
-    Route::post('/backstage/news',[App\Http\Controllers\newsController::class,'store']
+    Route::post('/backstage/news/store',[App\Http\Controllers\newsController::class,'store']
     )->name('backstage-news-store');
+
+    Route::post('/backstage/news/find',[App\Http\Controllers\newsController::class,'find']
+    )->name('backstage-news-find');
 
     Route::get('/backstage/product',[App\Http\Controllers\productController::class,'index']
     )->name('backstage-product');
 
-    Route::post('/backstage/product',[App\Http\Controllers\productController::class,'store']
+    Route::post('/backstage/product/store',[App\Http\Controllers\productController::class,'store']
     )->name('backstage-product-store');
 
     Route::post('/backstage/product/drop',[App\Http\Controllers\productController::class,'destroy']
     )->name('backstage-product-drop');
+
+    Route::post('/backstage/product/find',[App\Http\Controllers\productController::class,'find']
+    )->name('backstage-product-find');
 
     Route::get('/backstage/product/edit/{id}',[App\Http\Controllers\productController::class,'edit']
     )->name('backstage-product-edit');

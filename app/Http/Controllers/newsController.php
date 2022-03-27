@@ -53,9 +53,25 @@ class newsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function find(Request $request)
     {
-        //
+        if (!isset($request->name)) {
+            $request->name = "";
+        }
+        if (!isset($request->start)) {
+            $request->start = '1911/1/1';
+        }
+        if (!isset($request->end)) {
+            $request->end = '9999/12/31';
+        }
+
+        $news = news::where([
+            ['title','like','%'.$request->name.'%'],
+            ['launch_date','>=',$request->start],
+            ['takedown_date','<=',$request->end],
+        ])->orderBy('created_at','desc')->paginate(10);
+
+        return view('backstage.backstage_news',['news' => $news]);
     }
 
     /**

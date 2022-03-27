@@ -137,4 +137,58 @@ class customerController extends Controller
     {
         //
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function find_diy(Request $request)
+    {
+        if (!isset($request->name)) {
+            $request->name = "";
+        }
+        if (!isset($request->start)) {
+            $request->start = '1911/1/1';
+        }
+        if (!isset($request->end)) {
+            $request->end = '9999/12/31';
+        }
+
+        $diys = diy::where([
+            ['title','like','%'.$request->name.'%'],
+            ['launch_date','>=',$request->start],
+            ['takedown_date','<=',$request->end],
+        ])->orderBy('created_at','desc')->paginate(10);
+
+        return view('backstage.customer.backstage_customer_diy',['diys' => $diys]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function find_fix(Request $request)
+    {
+        if (!isset($request->name)) {
+            $request->name = "";
+        }
+        if (!isset($request->start)) {
+            $request->start = '1911/1/1';
+        }
+        if (!isset($request->end)) {
+            $request->end = '9999/12/31';
+        }
+
+        $fixs = fix::where([
+            ['title','like','%'.$request->name.'%'],
+            ['launch_date','>=',$request->start],
+            ['takedown_date','<=',$request->end],
+        ])->orderBy('created_at','desc')->paginate(10);
+
+        return view('backstage.customer.backstage_customer_fix',['fixs' => $fixs]);
+    }
 }
