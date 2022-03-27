@@ -81,27 +81,66 @@ Route::get('/VAF', function () {
     return view('dashboard');
 })->name('VAF');
 
-Route::get('/passwd',function(){
-    echo Hash::make('lowy');
-    print_r(auth()->users()->name);
-});
 /**
  * backstage
  */
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/backstage', function() {
-        return view('backstage_main');
+        return view('backstage.backstage_main');
     })->name('backstage');
-    // Route::post('/backstage', 'App\Http\Controllers\productController@FixCreate');
+    
+    /**
+     * backstage 產品介紹
+     */
+
+    Route::get('/backstage/product/glass',function(){
+        return view('backstage.product.backstage_product_glass');
+    })->name('backstage-product-glass');
+
+    Route::get('/backstage/product/shower',function(){
+        return view('backstage.product.backstage_product_shower');
+    })->name('backstage-product-shower');
+
+    Route::get('/backstage/product/toilet',function(){
+        return view('backstage.product.backstage_product_toilet');
+    })->name('backstage-product-toilet');
+
+    Route::get('/backstage/product/clothes-hanger',function(){
+        return view('backstage.product.backstage_product_clothes-hanger');
+    })->name('backstage-product-clothes-hanger');
+
+    Route::get('/backstage/product/floor',function(){
+        return view('backstage.product.backstage_product_floor');
+    })->name('backstage-product-floor');
+
+    Route::get('/backstage/product/VAF',function(){
+        return view('backstage.product.backstage_product_VAF');
+    })->name('backstage-product-VAF');
+
+    // backstage 產品介紹 end
+
+    /**
+     * backstage customer
+     */
+    Route::get('/backstage/customer/diy',function(){
+        return view('backstage.customer.backstage_customer_diy');
+    })->name('backstage-customer-diy');
+
+    Route::get('/backstage/customer/fix',function(){
+        return view('backstage.customer.backstage_customer_fix');
+    })->name('backstage-customer-fix');
+
+    // backstage customer end
+
     Route::get('/backstage/news', function() {
-        return view('backstage_main');
+        return view('backstage.backstage_main');
     })->name('backstage-news');
     Route::get('/backstage/product', function() {
-        return view('backstage_main');
+        return view('backstage.backstage_main');
     })->name('backstage-product');
     Route::get('/backstage/customer', function() {
-        return view('backstage_main');
+        return view('backstage.backstage_main');
     })->name('backstage-customer');
 });
 
