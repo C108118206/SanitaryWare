@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -132,10 +132,12 @@ Route::group(['middleware' => 'auth'], function(){
     })->name('backstage-customer-fix');
 
     // backstage customer end
+    Route::get('/backstage/news',[App\Http\Controllers\newsController::class,'create']
+    )->name('backstage-news');
 
-    Route::get('/backstage/news', function() {
-        return view('backstage.backstage_main');
-    })->name('backstage-news');
+    Route::post('/backstage/news',[App\Http\Controllers\newsController::class,'store']
+    )->name('backstage-news-store');
+
     Route::get('/backstage/product', function() {
         return view('backstage.backstage_main');
     })->name('backstage-product');

@@ -1,4 +1,4 @@
-
+<?php use Carbon\Carbon; ?>
 @extends('layouts.backstage')
 
 @section('content')
@@ -18,53 +18,45 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form action="{{ url('/backstage') }}" method="POST">
+                <form action="{{ route("backstage-news-store") }}" method="POST">
                     <div class="">
-                        <label for="id" class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品ID</label>
-                        <input name="productId" type="text" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required>
+                        <label for="title" class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">消息名稱</label>
+                        <input name="title" type="text" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required>
                     </div>
                     <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品名稱</label>
-                        <input name="productName" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期</label>
+                        <div class="flex items-center justify-center">
+                            <div class="datepicker relative form-floating mb-3 xl:w-96" data-mdb-toggle-button="false">
+                              <input type="text"
+                                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                placeholder="Select a date" data-mdb-toggle="datepicker" />
+                              <label for="floatingInput" class="text-gray-700">Select a date</label>
+                            </div>
+                          </div>
                     </div>
                     <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">內容介紹</label>
+                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">下架日期</label>
                         <textarea name="productDetail" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
                         </div>
                         <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品大小</label>
+                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上傳圖片</label>
                         <input name="productSize" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                         </div>
-                        <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品材質</label>
-                        <input name="productmaterial" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                        </div>
-                        <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期</label>
-                        <input name="startDate" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                        </div>
-                        <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">下架日期</label>
-                        <input name="endDate" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                        </div>
-                        <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">詳細介紹</label>
-                        <textarea name="detail" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
-                        </div>
-                        <span class="block">新增資訊</span>
+                        <span class="block">新增資訊 : {{ Carbon::now() }}</span>
 
-                    </form>
-                <!-- Modal footer -->
-                <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                    <button  data-modal-toggle="defaultModal" type="submit" class="text-white bg-blue-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">I accept</button>
-                    <button data-modal-toggle="defaultModal" type="button" class="text-white bg-blue-400  rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5  focus:z-10 ">Decline</button>
-                </div>
+                    
+                    <!-- Modal footer -->
+                    <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                        <button type="submit" class="text-white bg-blue-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">送出</button>
+                        <button type="reset" class="text-white bg-blue-400  rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5  focus:z-10 ">清除</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <div class="flex-col space-y-8 px-6 py-6 justify-center items-center">
         <div class=" font-bold text-2xl text-side_bg">
-            客服管理 >
+            最新消息
         </div>
 
 
@@ -107,7 +99,7 @@
                                     功能
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    主題名稱
+                                    消息名稱
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     上架日期
@@ -116,7 +108,7 @@
                                     下架日期
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    上傳檔案
+                                    上傳圖片
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     建立日期
@@ -127,6 +119,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($news as $new)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">編輯</a>
@@ -148,6 +141,8 @@
                                     2022/2/28
                                 </td>
                             </tr>
+                            @endforeach
+                            
                         </tbody>
                     </table>
                 </div>
