@@ -23,13 +23,14 @@ Route::get('/news', function () {
     return view('news');
 })->name('news');
 
-Route::get('/product', function () {
-    return view('product');
-})->name('product');
+Route::get('/product', [App\Http\Controllers\productController::class,'front_product_index']
+)->name('product');
 
-Route::get('/product_details', function () {
-    return view('product_details');
-})->name('product_details');
+Route::get('/product/{id}', [App\Http\Controllers\productController::class,'front_product_index']
+)->name('product-type');
+
+Route::get('/product_details/{id}', [App\Http\Controllers\productController::class,'front_product_details']
+)->name('product_details');
 
 Route::get('/about_us', function () {
     return view('about_us');
@@ -42,6 +43,10 @@ Route::get('/fix', function () {
 Route::get('/customer_service', function () {
     return view('customer_service');
 })->name('customer_service');
+
+Route::get('/customer_service/diy', function () {
+    return view('customer_diy');
+})->name('customer_diy');
 
 Route::get('/login', function () {
     return view('login');
@@ -129,6 +134,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/backstage/customer/fix',[App\Http\Controllers\customerController::class,'fix_store']
     )->name('backstage-fix-store');
 
+    Route::post('/backstage/diy/drop',[App\Http\Controllers\customerController::class,'diy_destroy']
+    )->name('backstage-diy-drop');
+
+    Route::post('/backstage/fix/drop',[App\Http\Controllers\customerController::class,'fix_destroy']
+    )->name('backstage-fix-drop');
+
     // backstage customer end
     Route::get('/backstage/news',[App\Http\Controllers\newsController::class,'create']
     )->name('backstage-news');
@@ -141,6 +152,12 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::post('/backstage/product',[App\Http\Controllers\productController::class,'store']
     )->name('backstage-product-store');
+
+    Route::post('/backstage/product/drop',[App\Http\Controllers\productController::class,'destroy']
+    )->name('backstage-product-drop');
+
+    Route::get('/backstage/product/edit/{id}',[App\Http\Controllers\productController::class,'edit']
+    )->name('backstage-product-edit');
 
     Route::get('/backstage/customer', function() {
         return view('backstage.backstage_main');

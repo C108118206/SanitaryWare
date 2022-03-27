@@ -10,17 +10,17 @@
                 <div class="mb-4 font-medium text-sm text-green-600">
                     {{ session('status') }}
                 </div>
-            @endif
+            @endif 
             <form method="POST" action="{{ route('login') }}">
                 @csrf
     
                 <div>
-                    <x-jet-label for="username" value="{{ __('username') }}" />
+                    <x-jet-label for="username" value="{{ __('帳號') }}" />
                     <x-jet-input id="username" class="block mt-1 w-full" type="username" name="username" :value="old('username')" required autofocus />
                 </div>
     
                 <div class="mt-4">
-                    <x-jet-label for="password" value="{{ __('Password') }}" />
+                    <x-jet-label for="password" value="{{ __('密碼') }}" />
                     <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
                 </div>
     
@@ -32,7 +32,7 @@
                 </div>
     
                 <div class="flex items-center justify-end mt-4">
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 ml-4" href="{{ route('register') }}">
+                    {{-- <a class="underline text-sm text-gray-600 hover:text-gray-900 ml-4" href="{{ route('register') }}">
                         {{ __('註冊帳號') }}
                     </a>
                     @if (Route::has('password.request'))
@@ -40,7 +40,7 @@
                             {{ __('忘記密碼?') }}
                         </a>
                     @endif
-    
+     --}}
                     <x-jet-button class="ml-4">
                         {{ __('登入') }}
                     </x-jet-button>
@@ -52,6 +52,6 @@
 
             </form>
         </div>
-        <img src="/img/picture/index/contact-us-background.jpg" class="opacity-70 object-cover h-full w-full"/>
+        <img src="/img/picture/index/bathpic.png" class="opacity-50 object-cover h-96 w-full"/>
     </div>
 </x-app-layout>

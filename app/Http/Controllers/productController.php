@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\product;
+use App\Models\product_type;
 class productController extends Controller
 {
     /**
@@ -51,6 +52,20 @@ class productController extends Controller
     {
         $product = product::where('product_type_id',6)->orderBy('created_at','desc')->paginate(10);
         return view('backstage.product.backstage_product_VAF',['product' => $product]);
+    }
+
+    public function front_product_index($id = null){
+        $product_types = product_type::all();
+        
+        $product = $id === null ?  product::paginate(8) : product::where('product_type_id',$id)->paginate(8);
+
+        return view('product',['product_types' => $product_types , 'product_type' => $id, 'product' => $product]);
+    }
+
+    public function front_product_details($id){
+        $product = product::find($id);
+
+        return view('product_details',['product' => $product]);
     }
 
     /**

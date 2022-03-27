@@ -133,8 +133,7 @@
                             @foreach ($product as $p)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">編輯</a>
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">刪除</a>
+                                    
                                 </th>
                                 <td class="px-6 py-4">
                                     {{ $p->id }}
@@ -149,7 +148,7 @@
                                     {{ $p->takedown_date }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">編輯</a>
+                                    {{-- 
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $p->created_at }}

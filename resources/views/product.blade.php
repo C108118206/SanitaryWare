@@ -13,103 +13,44 @@
         </div>
 
         <div class="flex space-x-12 text-xl">
-            <a href="#">
-                <p class="{{ request()->is('product') ? 'underline underline-offset-8 decoration-blue-500' : '' }}">沐浴拉門</p>
-            </a>
-            <a href="#">
-                <p class="{{ request()->is('productxxx') ? 'underline underline-offset-8 decoration-blue-500' : '' }}">浴缸</p>
-            </a>
-            <a href="#">
-                <p class="{{ request()->is('productxxx') ? 'underline underline-offset-8 decoration-blue-500' : '' }}">浴櫃</p>
-            </a>
-            <a href="#">
-                <p class="{{ request()->is('productxxx') ? 'underline underline-offset-8 decoration-blue-500' : '' }}">浴缸龍頭</p>
-            </a>
-            <a href="#">
-                <p class="{{ request()->is('productxxx') ? 'underline underline-offset-8 decoration-blue-500' : '' }}">衛浴配件</p>
-            </a>
+            @foreach ($product_types as $type)
+                @if ($type->main_product_type_id === null)
+                    <a href="{{route('product-type',$type->id)}}">
+                        <p class="{{ request()->is($type->id) ? 'underline underline-offset-8 decoration-blue-500' : '' }}">{{ $type->name }}</p>
+                    </a>
+                
+                @endif
+            @endforeach
         </div>
 
         <div class="flex space-x-12 text-xl">
-            <a href="#">
-                <p class="{{ request()->is('product') ? 'text-blue-500 font-medium' : '' }}">無框型</p>
-            </a>
-            <a href="#">
-                <p class="{{ request()->is('product') ? 'text-blue-500 font-medium' : '' }}">有框型</p>
-            </a>
-            <a href="#">
-                <p class="{{ request()->is('productxxx') ? 'text-blue-500 font-medium' : '' }}">單片型</p>
-            </a>
+            @foreach ($product_types as $type)
+                @if(request()->is("product/$type->main_product_type_id"))
+                    <a href="{{route('product-type',$type->main_product_type_id)}}">
+                        {{-- <p class="{{ strpos(request()->path(),$type->main_product_type_id) ? 'text-blue-500 font-medium' : '' }}">{{ $type->name }}</p> --}}
+                        <p class="{{ request()->is('product/'.$type->main_product_type_id) ? '' : 'hidden' }}">{{ $type->name }}</p>
+                    </a>
+                @endif
+            @endforeach
         </div>
 
         <div class="flex flex-wrap">
+            @foreach ($product as $p)
             <div class="flex-col space-y-4 m-8">
                 <img src="/img/picture/index/title_img.jpg" class=" w-60 h-75" alt="">
-                <div class=" font-black text-xl">無框淋浴門</div> 
+                <div class=" font-black text-xl">{{ $p->name }}</div> 
                 <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
-                <div class="text-gray-400">型號：AAA</div>
-                <div class="text-gray-400">材質：BBB</div>
-                <div class="text-gray-400">高度：CCC</div>
-                <div class="text-right underline text-blue-500"><a href="{{ route("product_details")}}">Read more...</a></div>
+                <div class="text-gray-400">{{ $p->content }}</div>
+                <div class="text-gray-400">{{ $p->material }}</div>
+                <div class="text-gray-400">{{ $p->size }}</div>
+                <div class="text-right underline text-blue-500"><a href="{{ route("product_details",$p->id)}}">Read more...</a></div>
             </div>
-            <div class="flex-col space-y-4 m-8">
-                <img src="/img/picture/index/title_img.jpg" class=" w-60 h-75" alt="">
-                <div class=" font-black text-xl">無框淋浴門</div> 
-                <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
-                <div class="text-gray-400">型號：AAA</div>
-                <div class="text-gray-400">材質：BBB</div>
-                <div class="text-gray-400">高度：CCC</div>
-                <div class="text-right underline text-blue-500"><a href="{{ route("product_details")}}">Read more...</a></div>
-            </div>
-            <div class="flex-col space-y-4 m-8">
-                <img src="/img/picture/index/title_img.jpg" class=" w-60 h-75" alt="">
-                <div class=" font-black text-xl">無框淋浴門</div> 
-                <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
-                <div class="text-gray-400">型號：AAA</div>
-                <div class="text-gray-400">材質：BBB</div>
-                <div class="text-gray-400">高度：CCC</div>
-                <div class="text-right underline text-blue-500"><a href="{{ route("product_details")}}">Read more...</a></div>
-            </div>
-            <div class="flex-col space-y-4 m-8">
-                <img src="/img/picture/index/title_img.jpg" class=" w-60 h-75" alt="">
-                <div class=" font-black text-xl">無框淋浴門</div> 
-                <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
-                <div class="text-gray-400">型號：AAA</div>
-                <div class="text-gray-400">材質：BBB</div>
-                <div class="text-gray-400">高度：CCC</div>
-                <div class="text-right underline text-blue-500"><a href="{{ route("product_details")}}">Read more...</a></div>
-            </div>
-            <div class="flex-col space-y-4 m-8">
-                <img src="/img/picture/index/title_img.jpg" class=" w-60 h-75" alt="">
-                <div class=" font-black text-xl">無框淋浴門</div> 
-                <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
-                <div class="text-gray-400">型號：AAA</div>
-                <div class="text-gray-400">材質：BBB</div>
-                <div class="text-gray-400">高度：CCC</div>
-                <div class="text-right underline text-blue-500"><a href="{{ route("product_details")}}">Read more...</a></div>
-            </div>
-            <div class="flex-col space-y-4 m-8">
-                <img src="/img/picture/index/title_img.jpg" class=" w-60 h-75" alt="">
-                <div class=" font-black text-xl">無框淋浴門</div> 
-                <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
-                <div class="text-gray-400">型號：AAA</div>
-                <div class="text-gray-400">材質：BBB</div>
-                <div class="text-gray-400">高度：CCC</div>
-                <div class="text-right underline text-blue-500"><a href="{{ route("product_details")}}">Read more...</a></div>
-            </div>
-            <div class="flex-col space-y-4 m-8">
-                <img src="/img/picture/index/title_img.jpg" class=" w-60 h-75" alt="">
-                <div class=" font-black text-xl">無框淋浴門</div> 
-                <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
-                <div class="text-gray-400">型號：AAA</div>
-                <div class="text-gray-400">材質：BBB</div>
-                <div class="text-gray-400">高度：CCC</div>
-                <div class="text-right underline text-blue-500"><a href="{{ route("product_details")}}">Read more...</a></div>
-            </div>
+            @endforeach
+            
             
         </div>
 
-        <div class="text-center"> < 1 2 3 4 5 ></div>
+        <div class="flex text-center justify-center">{{ $product->links() }}</div>
     </div>
     
     

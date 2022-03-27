@@ -6,16 +6,16 @@
                 <div class="font-bold">產品介紹</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
-                        <a class="mr-2" href="{{ route("glass") }}">玻璃系列</a>
-                        <a class="ml-2" href="{{ route("clothes-hanger") }}">曬衣架</a>
+                        <a class="mr-2" href="{{ route("product",1) }}">玻璃系列</a>
+                        <a class="ml-2" href="{{ route("product",2) }}">曬衣架</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="{{ route("shower") }}">淋浴設備</a>
-                        <a class="ml-2" href="{{ route("floor") }}">隔音地板</a>
+                        <a class="mr-2" href="{{ route("product",3) }}">淋浴設備</a>
+                        <a class="ml-2" href="{{ route("product",4) }}">隔音地板</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="{{ route("toilet") }}">衛浴設備</a>
-                        <a class="ml-2" href="{{ route("VAF") }}">V A F</a>
+                        <a class="mr-2" href="{{ route("product",5) }}">衛浴設備</a>
+                        <a class="ml-2" href="{{ route("product",6) }}">V A F</a>
                     </div>
                 </div>
             </div>
@@ -37,10 +37,10 @@
                 <div class="font-bold">客服中心</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
-                        <a class="mr-2" href="#">DIY維護教學</a>
+                        <a class="mr-2" href="{{ route('customer_diy') }}">DIY維護教學</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="fix">維修通報</a>
+                        <a class="mr-2" href="{{ route('customer_service')}}">維修通報</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,10 @@
             </div>
         </div>
         <div class="lg:mt-12 sm:mt-16 flex-col">
-            <p>堡家麗</p>
+            <div class="flex">
+                <p>堡家麗</p><a href="#"><img src="/img/icon/fb.svg" class=" pl-2 h-6 w-6"></a>
+            </div>
+            
             <p>服務時間：09:00-18:00</p>
             <p>連絡電話：07-123-4567</p>
         </div>

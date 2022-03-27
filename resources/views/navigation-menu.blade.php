@@ -14,17 +14,17 @@
                 <div class="hidden sm:-my-px sm:ml-10 sm:flex">
 
                     <a href="{{ route('news') }}" class="flex items-center text-lg mx-4">
-                        <img class="h-7" src="img/icon/news_{{ request()->is('news') ? 'blue' : 'black'}}.svg"/>
+                        <img class="h-7" src="/img/icon/news_{{ request()->is('news') ? 'blue' : 'black'}}.svg"/>
                         <div class="{{ request()->is('news') ? 'text-blue-500' : ''}}">最新消息</div> 
                     </a>
 
                     <a href="{{ route('product') }}" class="flex items-center text-lg mx-4">
-                        <img class="h-7" src="img/icon/product_{{ request()->is('product') ? 'blue' : 'black'}}.svg"/>
+                        <img class="h-7" src="/img/icon/product_{{ request()->is('product') ? 'blue' : 'black'}}.svg"/>
                         <div class="{{ request()->is('product') ? 'text-blue-500' : ''}}">產品介紹</div> 
                     </a>
 
                     <a href="{{ route('about_us') }}" class="flex items-center text-lg mx-4">
-                        <img class="h-7" src="img/icon/about_{{ request()->is('about_us') ? 'blue' : 'black'}}.svg"/>
+                        <img class="h-7" src="/img/icon/about_{{ request()->is('about_us') ? 'blue' : 'black'}}.svg"/>
                         <div class="{{ request()->is('about_us') ? 'text-blue-500' : ''}}">關於我們</div> 
                     </a>
 
@@ -37,14 +37,14 @@
                     <input type="text" class="bg-gray-300" name="context" placeholder="關鍵字"  id="context">
                 </form>
                 <a href="{{ route('search') }}" class="flex items-center text-lg ">
-                    <img class="h-7" src="img/icon/search_{{ request()->is('search') ? 'blue' : 'black'}}.svg"/>
+                    <img class="h-7" src="/img/icon/search_{{ request()->is('search') ? 'blue' : 'black'}}.svg"/>
                 </a>
                 <div class="mx-3">|</div>
                 <a href="{{ route('customer_service') }}" class="flex items-center text-lg">
-                    <img class="h-7" src="img/icon/customer service_{{ request()->is('customer_service') ? 'blue' : 'black'}}.svg"/>
+                    <img class="h-7" src="/img/icon/customer service_{{ request()->is('customer_service') ? 'blue' : 'black'}}.svg"/>
                 </a>
 
-                <a href="{{ route('login') }}"><img src="img/icon/member_blue.svg" class="h-12 px-4"></a>
+                <a href="{{ route('login') }}"><img src="/img/icon/member_blue.svg" class="h-12 px-4"></a>
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-slot name="content">
@@ -78,17 +78,17 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <a href="{{ route('news') }}" class="flex items-center text-lg mx-4 my-4">
-            <img class="h-7" src="img/icon/news_{{ request()->is('news') ? 'blue' : 'black'}}.svg"/>
+            <img class="h-7" src="/img/icon/news_{{ request()->is('news') ? 'blue' : 'black'}}.svg"/>
             <div class="{{ request()->is('news') ? 'text-blue-500' : ''}}">最新消息</div> 
         </a>
 
         <a href="{{ route('product') }}" class="flex items-center text-lg mx-4 my-4">
-            <img class="h-7" src="img/icon/product_{{ request()->is('product') ? 'blue' : 'black'}}.svg"/>
+            <img class="h-7" src="/img/icon/product_{{ request()->is('product') ? 'blue' : 'black'}}.svg"/>
             <div class="{{ request()->is('product') ? 'text-blue-500' : ''}}">產品介紹</div> 
         </a>
 
         <a href="{{ route('about_us') }}" class="flex items-center text-lg mx-4 my-4">
-            <img class="h-7" src="img/icon/about_{{ request()->is('about_us') ? 'blue' : 'black'}}.svg"/>
+            <img class="h-7" src="/img/icon/about_{{ request()->is('about_us') ? 'blue' : 'black'}}.svg"/>
             <div class="{{ request()->is('about_us') ? 'text-blue-500' : ''}}">關於我們</div> 
         </a>
 
@@ -98,11 +98,11 @@
 
             <div class="mt-3 space-y-1 flex">
                 <a href="{{ route('search') }}" class="flex items-center text-lg ">
-                    <img class="h-7" src="img/icon/search_{{ request()->is('search') ? 'blue' : 'black'}}.svg"/>
+                    <img class="h-7" src="/img/icon/search_{{ request()->is('search') ? 'blue' : 'black'}}.svg"/>
                 </a>
                 <div class="mx-3">|</div>
                 <a href="{{ route('customer_service') }}" class="flex items-center text-lg">
-                    <img class="h-7" src="img/icon/customer service_{{ request()->is('customer_service') ? 'blue' : 'black'}}.svg"/>
+                    <img class="h-7" src="/img/icon/customer service_{{ request()->is('customer_service') ? 'blue' : 'black'}}.svg"/>
                 </a>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

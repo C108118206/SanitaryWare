@@ -13,14 +13,14 @@
         </div>
 
         <div class="flex">
-            <img src="img/picture/index/title_img.jpg" class="h-72 w-80" alt="">
+            <img src="/img/picture/index/title_img.jpg" class="h-72 w-80" alt="">
             <div class="flex-col space-y-4 m-8 w-full">
-                <div class=" font-black text-xl text-blue-500">無框淋浴門</div> 
+                <div class=" font-black text-xl text-blue-500">{{ $product->name }}</div> 
                 <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
-                <div class="text-gray-400">content - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti dolore vitae veritatis? Doloremque odio cumque commodi quas modi harum ipsum, dolorem nobis pariatur quos! Optio illo porro quidem dolor soluta! </div>
-                <div class="text-gray-400">型號：AAA</div>
-                <div class="text-gray-400">材質：BBB</div>
-                <div class="text-gray-400">高度：CCC</div>
+                <div class="text-gray-400">{{ $product->content }}</div>
+                <div class="text-gray-400">{{ $product->name }}</div>
+                <div class="text-gray-400">{{ $product->matrial }}</div>
+                <div class="text-gray-400">{{ $product->size }}</div>
             </div>
         </div>
 
@@ -32,7 +32,7 @@
                 <a href="#" class="inline-block py-4 px-4 text-md font-bold text-center text-gray-500 rounded-t-lg hover:text-gray-600 hover:bg-gray-400 dark:text-gray-400  dark:hover:text-gray-300">注意事項</a>
             </li>
         </ul>
-        <img src="img/picture/index/title_img.jpg" class="h-72 w-80 block" alt="">
+        <img src="/img/picture/index/title_img.jpg" class="h-72 w-80 block" alt="">
         <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error non officiis eum praesentium? Nisi similique pariatur dolor cum vitae, fuga quas maxime sequi deleniti harum, excepturi molestiae magni doloremque? Quam!</div>
     </div>
     

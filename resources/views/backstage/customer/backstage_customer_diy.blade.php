@@ -21,8 +21,12 @@
                 <form action="{{ route("backstage-diy-store") }}" method="POST">
                     @csrf
                     <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">主題名稱</label>
-                        <input name="name" type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                        <label for="title" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">主題名稱</label>
+                        <input name="title" type="text" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                    </div>
+                    <div class="">
+                        <label for="content" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">詳細內容</label>
+                        <input name="content" type="text" id="content" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                     </div>
                     <div class="">
                     <label for="launch_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期</label>
@@ -81,7 +85,7 @@
                       </div>
                     </div>
                     <button type="submit" class=" bg-slate-600">
-                        查詢
+                        <img src="/img/icon/search.svg" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-white dark:text-gray-400 dark:group-hover:text-white" alt="">
                     </button>
                     <div class=" flex w-max justify-end">
                         <button class="block text-black bg-yellow-300 hover:bg-blue-800font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button" data-modal-toggle="defaultModal">
@@ -118,8 +122,7 @@
                             @foreach ($diys as $diy)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">編輯</a>
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">刪除</a>
+                                   
                                 </th>
                                 <td class="px-6 py-4">
                                     {{ $diy->id }}
@@ -131,7 +134,7 @@
                                     {{ $diy->launch_date }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">編輯</a>
+                                    
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $diy->created_at }}

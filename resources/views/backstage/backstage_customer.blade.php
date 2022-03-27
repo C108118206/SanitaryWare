@@ -90,7 +90,7 @@
                       </div>
                     </div>
                     <button type="submit" class=" bg-slate-600">
-                        查詢
+                        <img src="/img/icon/search.svg" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-white dark:text-gray-400 dark:group-hover:text-white" alt="">
                     </button>
                     <div class=" flex w-max justify-end">
                         <button class="block text-black bg-yellow-300 hover:bg-blue-800font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="button" data-modal-toggle="defaultModal">
@@ -129,8 +129,7 @@
                         <tbody>
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">編輯</a>
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">刪除</a>
+                                    
                                 </th>
                                 <td class="px-6 py-4">
                                     水龍頭組裝
@@ -142,7 +141,7 @@
                                     2022/3/15
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">編輯</a>
+                                    
                                 </td>
                                 <td class="px-6 py-4">
                                     2022/2/28

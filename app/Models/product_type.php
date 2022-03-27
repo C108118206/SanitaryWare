@@ -9,6 +9,8 @@ class product_type extends Model
 {
     use HasFactory;
 
+    protected $table = 'product_type';
+
     protected $fillable = [
         'name','main_product_type_id'
     ];

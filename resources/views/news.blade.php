@@ -5,7 +5,7 @@
                 最新消息
             </div>
         </div>
-        <img src="/img/picture/index/contact-us-background.jpg" class="opacity-70 object-cover h-full w-full"/>
+        <img src="/img/picture/index/usephone.png" class="opacity-70 object-cover h-full w-full"/>
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-6">
         <div class="">

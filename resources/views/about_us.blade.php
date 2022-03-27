@@ -5,7 +5,7 @@
                 關於我們
             </div>
         </div>
-        <img src="/img/picture/index/contact-us-background.jpg" class="opacity-70 object-cover h-full w-full"/>
+        <img src="/img/picture/index/about_us.png" class="opacity-70 object-cover h-full w-full"/>
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col">
         <div class="">
