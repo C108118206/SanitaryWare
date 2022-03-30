@@ -16,7 +16,7 @@ class customerController extends Controller
      */
     public function index_fix()
     {
-        $fixs = fix::orderBy('created_at','desc')->paginate(10);
+        $fixs = fix::orderBy('created_at','desc')->get();
         return view('backstage.customer.backstage_customer_fix',['fixs' => $fixs]);
     }
 
@@ -27,7 +27,7 @@ class customerController extends Controller
      */
     public function index_diy()
     {
-        $diys = diy::orderBy('created_at','desc')->paginate(10);
+        $diys = diy::orderBy('created_at','desc')->get();
         return view('backstage.customer.backstage_customer_diy',['diys' => $diys]);
     }
 
@@ -160,7 +160,7 @@ class customerController extends Controller
             ['title','like','%'.$request->name.'%'],
             ['launch_date','>=',$request->start],
             ['takedown_date','<=',$request->end],
-        ])->orderBy('created_at','desc')->paginate(10);
+        ])->orderBy('created_at','desc')->get();
 
         return view('backstage.customer.backstage_customer_diy',['diys' => $diys]);
     }
@@ -187,7 +187,7 @@ class customerController extends Controller
             ['title','like','%'.$request->name.'%'],
             ['launch_date','>=',$request->start],
             ['takedown_date','<=',$request->end],
-        ])->orderBy('created_at','desc')->paginate(10);
+        ])->orderBy('created_at','desc')->get();
 
         return view('backstage.customer.backstage_customer_fix',['fixs' => $fixs]);
     }

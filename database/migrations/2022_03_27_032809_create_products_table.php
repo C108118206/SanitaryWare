@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->string("content");
-            $table->string("size");
-            $table->string("material");
+            $table->string("name")->nullable();
+            $table->string("content")->nullable();
+            $table->string("size")->nullable();
+            $table->string("material")->nullable();
+            $table->string("details_introduction")->nullable();
+            $table->string("Precautions")->nullable();
             $table->date("launch_date");
             $table->date("takedown_date");
             $table->integer("product_type_id");

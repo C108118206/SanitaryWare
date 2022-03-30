@@ -37,7 +37,7 @@
         <div class="flex flex-wrap">
             @foreach ($product as $p)
             <div class="flex-col space-y-4 m-8">
-                <img src="/img/picture/index/title_img.jpg" class=" w-60 h-75" alt="">
+                <img src="/img/picture/product/{{$p->image_path}}.jpg" class=" w-60 h-75" alt="">
                 <div class=" font-black text-xl">{{ $p->name }}</div> 
                 <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
                 <div class="text-gray-400">{{ $p->content }}</div>

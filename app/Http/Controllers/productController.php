@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\product;
 use App\Models\product_type;
+use DB;
 class productController extends Controller
 {
     /**
@@ -12,46 +13,25 @@ class productController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($product_type_id)
     {
-        $product = product::where('product_type_id',17)->orderBy('created_at','desc')->paginate(10);
-        return view('backstage.backstage_product',['product' => $product]);
-    }
+        $product_type_table = product_type::find($product_type_id);
+        $product_type = !is_null($product_type_table->main_product_type_id) ? $product_type_table->main_product_type_id : $product_type_id;
+        $product_type_name = product_type::find($product_type); 
+        $product = DB::table('products')
+            ->select('products.id as product_id'
+            ,'products.name as product_name'
+            ,'products.launch_date as product_launch_date'
+            ,'products.takedown_date as product_takedown_date'
+            ,'products.image_path as image_path'
+            ,'products.created_at as product_created_at'
+            ,'product_type.id as product_type_id'
+            ,'product_type.main_product_type_id as main_product_type_id'
+            ,'product_type.name as product_type_name')
+            ->join('product_type','products.product_type_id','=','product_type.id')
+            ->where('product_type_id',$product_type)->orwhere('main_product_type_id',$product_type)->orderBy('products.created_at','desc')->get();
 
-    public function index_glass()
-    {
-        $product = product::where('product_type_id',1)->orderBy('created_at','desc')->paginate(10);
-        return view('backstage.product.backstage_product_glass',['product' => $product]);
-    }
-
-    public function index_shower()
-    {
-        $product = product::where('product_type_id',2)->orderBy('created_at','desc')->paginate(10);
-        return view('backstage.product.backstage_product_shower',['product' => $product]);
-    }
-
-    public function index_toilet()
-    {
-        $product = product::where('product_type_id',3)->orderBy('created_at','desc')->paginate(10);
-        return view('backstage.product.backstage_product_toilet',['product' => $product]);
-    }
-
-    public function index_clothes_hanger()
-    {
-        $product = product::where('product_type_id',4)->orderBy('created_at','desc')->paginate(10);
-        return view('backstage.product.backstage_product_clothes-hanger',['product' => $product]);
-    }
-
-    public function index_floor()
-    {
-        $product = product::where('product_type_id',5)->orderBy('created_at','desc')->paginate(10);
-        return view('backstage.product.backstage_product_floor',['product' => $product]);
-    }
-
-    public function index_VAF()
-    {
-        $product = product::where('product_type_id',6)->orderBy('created_at','desc')->paginate(10);
-        return view('backstage.product.backstage_product_VAF',['product' => $product]);
+        return view('backstage.backstage_product',['product' => $product,'product_type' => $product_type_name]);
     }
 
     public function front_product_index($id = null){
@@ -106,25 +86,35 @@ class productController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function find(Request $request)
+    public function find_product(Request $request)
     {
-        if (!isset($request->name)) {
-            $request->name = "";
+        $Rules = [];
+        $Rules_product_type = [];
+        if(isset($request->product_type_id)){
+            array_push($Rules_product_type,['id',$request->product_type_id]);
+            array_push($Rules_product_type,['main_product_type_id',$request->product_type_id]);
         }
-        if (!isset($request->start)) {
-            $request->start = '1911/1/1';
+        if (isset($request->name)) {
+            array_push($Rules,['products.name','like','%'.$request->name.'%']);
         }
-        if (!isset($request->end)) {
-            $request->end = '9999/12/31';
+        if (isset($request->start)) {
+            array_push($Rules,['products.launch_date','>=',$request->start]);
         }
+        if (isset($request->end)) {
+            array_push($Rules,['products.takedown_date','<=',$request->end]);
+        }
+        $product = product::table('products')
+                ->join('productType','products.product_type_id','=','product_type.id')
+                ->where(function($query) use($Rules,$Rules_product_type){
+                    return $query->where($Rules)->where($Rules_product_type[0]);
+                })
+                ->orWhere(function($query) use($Rules,$Rules_product_type){
+                    return $query->where($Rules)->where($Rules_product_type[1]);
+                });
+        // $product = product::where($Rules)->orderBy('created_at','desc')->get();
 
-        $product = product::where([
-            ['name','like','%'.$request->name.'%'],
-            ['launch_date','>=',$request->start],
-            ['takedown_date','<=',$request->end],
-        ])->orderBy('created_at','desc')->paginate(10);
-
-        return view('backstage.backstage_product',['product' => $product]);
+        
+        return view('backstage.product.backstage_product_'.product_type::find($request->product_type_id)->en_name,['product' => $product]);
     }
 
     /**

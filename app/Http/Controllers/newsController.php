@@ -24,7 +24,7 @@ class newsController extends Controller
      */
     public function create()
     {
-        $news = news::orderBy('created_at','desc')->paginate(10);
+        $news = news::orderBy('created_at','desc')->get();
         return view('backstage.backstage_news',['news' => $news]);
     }
 
@@ -69,7 +69,7 @@ class newsController extends Controller
             ['title','like','%'.$request->name.'%'],
             ['launch_date','>=',$request->start],
             ['takedown_date','<=',$request->end],
-        ])->orderBy('created_at','desc')->paginate(10);
+        ])->orderBy('created_at','desc')->get();
 
         return view('backstage.backstage_news',['news' => $news]);
     }

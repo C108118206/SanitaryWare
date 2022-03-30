@@ -61,30 +61,17 @@ Route::get('/search', function () {
     return view('dashboard');
 })->name('search');
 
-// 產品介紹
-Route::get('/glass', function () {
-    return view('dashboard');
-})->name('glass');
+Route::get('/unstructured',function(){
+    return view('unstructured');
+})->name('unstructured');
 
-Route::get('/shower', function () {
-    return view('dashboard');
-})->name('shower');
+Route::get('/privacy_policy',function(){
+    return view('privacy_policy');
+})->name('privacy_policy');
 
-Route::get('/toilet', function () {
-    return view('dashboard');
-})->name('toilet');
-
-Route::get('/clothes-hanger', function () {
-    return view('dashboard');
-})->name('clothes-hanger');
-
-Route::get('/floor', function () {
-    return view('dashboard');
-})->name('floor');
-
-Route::get('/VAF', function () {
-    return view('dashboard');
-})->name('VAF');
+Route::get('/user_policy',function(){
+    return view('user_policy');
+})->name('user_policy');
 
 /**
  * backstage
@@ -99,23 +86,9 @@ Route::group(['middleware' => 'auth'], function(){
      * backstage 產品介紹
      */
 
-    Route::get('/backstage/product/glass',[App\Http\Controllers\productController::class,'index_glass']
-    )->name('backstage-product-glass');
+    Route::get('/backstage/product/{product_type_id}',[App\Http\Controllers\productController::class,'index']
+    )->name('backstage-product-product_type_id');
 
-    Route::get('/backstage/product/shower',[App\Http\Controllers\productController::class,'index_shower']
-    )->name('backstage-product-shower');
-
-    Route::get('/backstage/product/toilet',[App\Http\Controllers\productController::class,'index_toilet']
-    )->name('backstage-product-toilet');
-
-    Route::get('/backstage/product/clothes-hanger',[App\Http\Controllers\productController::class,'index_clothes_hanger']
-    )->name('backstage-product-clothes-hanger');
-
-    Route::get('/backstage/product/floor',[App\Http\Controllers\productController::class,'index_floor']
-    )->name('backstage-product-floor');
-
-    Route::get('/backstage/product/VAF',[App\Http\Controllers\productController::class,'index_VAF']
-    )->name('backstage-product-VAF');
 
     // backstage 產品介紹 end
 
@@ -165,7 +138,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/backstage/product/drop',[App\Http\Controllers\productController::class,'destroy']
     )->name('backstage-product-drop');
 
-    Route::post('/backstage/product/find',[App\Http\Controllers\productController::class,'find']
+    Route::post('/backstage/product/find',[App\Http\Controllers\productController::class,'find_product']
     )->name('backstage-product-find');
 
     Route::get('/backstage/product/edit/{id}',[App\Http\Controllers\productController::class,'edit']

@@ -23,6 +23,20 @@
      <script src="{{ mix('js/app.js') }}" defer></script>
      <script src="https://unpkg.com/flowbite@1.4.1/dist/datepicker.js"></script>
      <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" />
+
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+      <script>
+         $(document).ready( function () {
+            $('#table').DataTable({
+                  searching: false,
+                  
+                  "dom": '<"toolbar">frtip'
+            }); 
+            $('div.toolbar').html('');
+         } );
+      </script>
 </head>
 <body class="font-sans antialiased bg-gray-100">
     <div class="flex w-screen">
@@ -58,26 +72,26 @@
                      </a>
                      <ul id="dropdown-product" class=" py-2 space-y-2 bg-black {{ strpos(request()->path(),'product') ? '' : 'hidden' }}">
                         <li>
-                           <a href="{{ route('backstage-product-glass') }}" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">玻璃系列</a>
+                           <a href="/backstage/product/1" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">玻璃系列</a>
                            
                         </li>
                         <li>
-                            <a href="{{ route('backstage-product-shower') }}" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">淋浴設備</a>
+                            <a href="/backstage/product/2" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">淋浴設備</a>
                          </li>
                         <li>
-                           <a href="{{ route('backstage-product-toilet') }}" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">衛浴設備</a>
+                           <a href="/backstage/product/3" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">衛浴設備</a>
                         </li>
                         <li>
-                           <a href="{{ route('backstage-product-clothes-hanger') }}" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">曬衣架</a>
+                           <a href="/backstage/product/4" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">曬衣架</a>
                         </li>
                         <li>
-                            <a href="{{ route('backstage-product-floor') }}" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">隔音地板</a>
+                            <a href="/backstage/product/5" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">隔音地板</a>
                          </li>
                         <li>
-                           <a href="{{ route('backstage-product-VAF') }}" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">VAF</a>
+                           <a href="/backstage/product/6" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">VAF</a>
                         </li>
                         <li>
-                           <a href="{{ route('backstage-product') }}" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">Others</a>
+                           <a href="/backstage/product/7" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white ">Others</a>
                         </li>
                   </ul>
                   </li>

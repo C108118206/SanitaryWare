@@ -31,6 +31,7 @@
                 <label for="material" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品材質</label>
                 <input name="material" type="text" id="material" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                 </div>
+                <label for="launch_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期</label>
                 <div class="relative">
                     <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                       <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
@@ -38,20 +39,20 @@
                     <input datepicker datepicker-autohide datepicker-format="yyyy-mm-dd" type="text" id="launch_date" name="launch_date" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                 </div>
                 <label for="takedown_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">下架日期</label>
-
                 <div class="relative">
                     <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                       <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                     </div>
                     <input datepicker datepicker-autohide datepicker-format="yyyy-mm-dd" type="text" id="takedown_date" name="takedown_date" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                 </div>
+
                 <div class="">
                     <label for="image_path" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">照片檔名</label>
                     <input name="image_path" type="text" id="image_path" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                 </div>
                 <div class="hidden">
                 <label for="product_type_id" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">詳細介紹</label>
-                <input name="product_type_id" value="17" type="text" id="product_type_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+                <input name="product_type_id" value="{{ $product_type->id }}" type="text" id="product_type_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
                 </div>
                 <span class="block">新增資訊 : {{ Carbon::now() }}</span>
 
@@ -66,10 +67,18 @@
         </div>
     </div>
 </div> 
-    
+
     <div class="flex-col space-y-8 px-6 py-6 justify-center items-center">
         <div class=" font-bold text-2xl text-side_bg">
-            產品介紹 > Others
+            產品介紹 
+            @if (!is_null($product->first()->main_product_type_id))
+                > {{$product_type->name}} 
+            @endif 
+            @if (!is_null($product->first()->main_product_type_id) != $product_type->id && $product->first()->main_product_type_id == null)
+                > {{ $product->first()->product_type_name }}
+            @else
+
+            @endif
         </div>
 
 
@@ -77,6 +86,8 @@
             <div class=" p-4">
                 <form action="{{ route('backstage-product-find') }}" method="post" class="flex justify-between">
                     @csrf
+                    <input name="product_type_id" hidden value="7" type="text" id="product_type_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+
                     <div class="flex">
                         <label for="name" class="bg-slate-200 border-gray-400 border py-2.5 px-2">名稱</label>
                         <input type="text" class="" name="name" id="name">
@@ -113,7 +124,7 @@
 
                 </form>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class=" text-lg text-gray-700 uppercase bg-backstage_bg dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
@@ -146,29 +157,29 @@
                                     
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $p->id }}
+                                    {{ $p->product_id }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $p->name }}
+                                    {{ $p->product_name }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $p->launch_date }}
+                                    {{ $p->product_launch_date }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $p->takedown_date }}
+                                    {{ $p->product_takedown_date }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    
+                                    {{ $p->image_path }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $p->created_at }}
+                                    {{ $p->product_created_at }}
                                 </td>
                             </tr>
                             @endforeach
                             
                         </tbody>
                     </table>
-                    {{ $product->links() }}
+                    
                 </div>
             </div>
         </div>

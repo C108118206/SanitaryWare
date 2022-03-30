@@ -23,13 +23,13 @@
                 <div class="font-bold">關於我們</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
-                        <a class="mr-2" href="#">公司歷史</a>
+                        <a class="mr-2" href="{{ route('about_us') }}">公司歷史</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="#">品牌優勢</a>
+                        <a class="mr-2" href="{{ route('about_us') }}">品牌優勢</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="#">工程實績</a>
+                        <a class="mr-2" href="{{ route('about_us') }}">工程實績</a>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="lg:mt-12 sm:mt-16 flex-col">
             <div class="flex">
-                <p>堡家麗</p><a href="#"><img src="/img/icon/fb.svg" class=" pl-2 h-6 w-6"></a>
+                <p>堡家麗</p><a href="https://www.facebook.com/%E5%A0%A1%E5%AE%B6%E9%BA%97-101540544811432/"><img src="/img/icon/fb.svg" class=" pl-2 h-6 w-6"></a>
             </div>
             
             <p>服務時間：09:00-18:00</p>
@@ -64,9 +64,9 @@
             Copyright © 堡家麗. All Rights Reserved.
         </div>
         <div>
-            <a href="#">隱私權政策</a>
+            <a href="{{ route('privacy_policy') }}">隱私權政策</a>
             |
-            <a href="#">使用者條款</a>
+            <a href="{{ route('user_policy') }}">使用者條款</a>
         </div>
     </div>
 </div>

@@ -12,7 +12,7 @@ class product_type extends Model
     protected $table = 'product_type';
 
     protected $fillable = [
-        'name','main_product_type_id'
+        'name','en_name','main_product_type_id','id'
     ];
     public function product(){
         return $this->belongToMany('App\Models\product');
