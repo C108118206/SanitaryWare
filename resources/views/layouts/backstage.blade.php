@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name','Laravel')}}</title>
+    <title>{{ config('app.name')}}</title>
 
      <!-- Fonts -->
      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -50,11 +50,11 @@
                         <span class="text-white text-xl font-bold m-auto">{{ Auth::user()->name }}</span>
                     </div>
                   </li>
-                  <li>
+                  {{-- <li>
                      <a href="{{ route('backstage') }}" class="flex items-center p-2 text-base tracking-wider font-bold text-white  dark:text-white hover:bg-gray-100 hover:text-side_bg hover:text-side_bg">
                         <span class="m-auto  text-xl">首頁</span>
                      </a>
-                  </li>
+                  </li> --}}
                   <li>
                      <a href="{{ route('backstage-news') }}" class="flex items-center p-2 w-full text-base font-bold tracking-wider text-white  transition duration-75 group hover:bg-gray-100 hover:text-side_bg dark:text-white " >
                            <img src="/img/icon/news.svg" class="flex-shrink-0 w-8 h-8 text-gray-500 transition duration-75 group-hover:text-white dark:text-gray-400 dark:group-hover:text-white" >

@@ -23,11 +23,9 @@ Route::get('/news', function () {
     return view('news');
 })->name('news');
 
-Route::get('/product', [App\Http\Controllers\productController::class,'front_product_index']
+Route::get('/product/{id?}', [App\Http\Controllers\productController::class,'front_product_index']
 )->name('product');
 
-Route::get('/product/{id?}', [App\Http\Controllers\productController::class,'front_product_index']
-)->name('product-type');
 
 Route::get('/product_details/{id?}', [App\Http\Controllers\productController::class,'front_product_details']
 )->name('product_details');
@@ -41,8 +39,11 @@ Route::get('/fix', function () {
 })->name('fix');
 
 Route::get('/customer_service', function () {
-    return view('customer_service');
+    return view('fix');
 })->name('customer_service');
+
+Route::post('/customer_service',[App\Http\Controllers\customerController::class,'fix_report']
+)->name('fix_report');
 
 Route::get('/customer_service/diy', function () {
     return view('customer_diy');
@@ -56,10 +57,8 @@ Route::post('/logout',[App\Http\Controllers\UserController::class,'logout']
 )->name('logout');
 
 
-
-Route::get('/search', function () {
-    return view('dashboard');
-})->name('search');
+Route::post('/search',[App\Http\Controllers\customerController::class,'search']
+)->name('search');
 
 Route::get('/unstructured',function(){
     return view('unstructured');

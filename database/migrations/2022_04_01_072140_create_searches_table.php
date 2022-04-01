@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fixes', function (Blueprint $table) {
+        Schema::create('searches', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
-            $table->string("content");
-            $table->date("launch_date")->nullable();
-            $table->date("takedown_date")->nullable();
+            $table->string('title');
+            $table->string('content');
+            $table->string('url');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fixes');
+        Schema::dropIfExists('searches');
     }
 };

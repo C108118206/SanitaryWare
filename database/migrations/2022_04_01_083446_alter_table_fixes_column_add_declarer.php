@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fixes', function (Blueprint $table) {
-            $table->id();
-            $table->string("title");
-            $table->string("content");
-            $table->date("launch_date")->nullable();
-            $table->date("takedown_date")->nullable();
-            $table->timestamps();
+        Schema::table('fixes', function (Blueprint $table) {
+            $table->string('declarer');
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fixes');
+        Schema::table('fixes', function (Blueprint $table) {
+            $table->dropColumn(['declarer']);
+        });
     }
 };

@@ -7,19 +7,19 @@
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
                         <a class="mr-2" href="/product/1">玻璃系列</a>
-                        <a class="ml-2" href="/product/2">曬衣架</a>
+                        <a class="ml-2" href="/product/4">曬衣架</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="/product/3">淋浴設備</a>
-                        <a class="ml-2" href="/product/4">隔音地板</a>
+                        <a class="mr-2" href="/product/2">淋浴設備</a>
+                        <a class="ml-2" href="/product/5">隔音地板</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="/product/5">衛浴設備</a>
+                        <a class="mr-2" href="/product/3">衛浴設備</a>
                         <a class="ml-2" href="/product/6">V A F</a>
                     </div>
                 </div>
             </div>
-            <div class="flex-col w-40">
+            <div class="flex-col w-40 ml-12">
                 <div class="font-bold">關於我們</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
@@ -37,7 +37,7 @@
                 <div class="font-bold">客服中心</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
-                        <a class="mr-2" href="{{ route('customer_diy') }}">DIY維護教學</a>
+                        <a class="mr-2" href="{{ route('unstructured') }}">DIY維護教學</a>
                     </div>
                     <div>
                         <a class="mr-2" href="{{ route('customer_service')}}">維修通報</a>

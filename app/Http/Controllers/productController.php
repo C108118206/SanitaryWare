@@ -34,18 +34,33 @@ class productController extends Controller
         return view('backstage.backstage_product',['product' => $product,'product_type' => $product_type_name]);
     }
 
-    public function front_product_index($id = null){
-        $product_types = product_type::all();
-        
-        $product = $id === null ?  product::paginate(8) : product::where('product_type_id',$id)->paginate(8);
+    public function front_product_index($id = 1){
 
-        return view('product',['product_types' => $product_types , 'product_type' => $id, 'product' => $product]);
+        if (product_type::find($id)->main_product_type_id !== null){
+            $product = product::join('product_type','products.product_type_id','=','product_type.id')
+            ->where('product_type.id',$id)->paginate(8);
+        }else{
+            $product = product::join('product_type','products.product_type_id','=','product_type.id')
+            ->where('product_type.id',$id)
+            ->orWhere('product_type.main_product_type_id',$id)
+            ->paginate(8);
+        }
+        
+        $product_type = product_type::all();
+        return view('product',['products' => $product,'product_type' => $product_type,'id' => $id]);
+        // $product_types = product_type::all();
+        
+        // $product = $id === null ?  product::where('product_type_id',1)->paginate(8) : product::where('product_type_id',$id)->paginate(8);
+
+        // $title_type = $id === null ? product_type::find(1)->name : product_type::find($id)->name;
+        // return view('product',['product_types' => $product_types , 'product_type' => $id, 'product' => $product, 'title_type' => $title_type]);
     }
 
     public function front_product_details($id = null){
         $product = product::find($id);
 
-        return view('product_details',['product' => $product]);
+        $product_type = product_type::all();
+        return view('product_details',['product' => $product,'product_type' => $product_type,'id' => $id]);
     }
 
     /**

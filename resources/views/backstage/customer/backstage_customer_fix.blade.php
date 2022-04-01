@@ -128,6 +128,9 @@
                                     上傳檔案
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    申報人
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     建立日期
                                 </th>
                             </tr>
@@ -149,6 +152,9 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $fix->photo_path }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $fix->declarer }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $fix->created_at }}

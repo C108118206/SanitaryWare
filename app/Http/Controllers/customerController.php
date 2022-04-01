@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\fix;
 use App\Models\diy;
+use App\Models\search;
 
 
 class customerController extends Controller
@@ -42,6 +43,29 @@ class customerController extends Controller
     }
 
     /**
+         * Store a newly created resource in storage.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @return \Illuminate\Http\Response
+         */
+    public function search(Request $request)
+    {
+        $content = $request;
+
+        
+        if($content['title'] == ""){
+            $search_result = search::all();
+        }else{
+            $search_result = search::where('title','LIKE',"%".$content['title']."%")
+                            ->orwhere('content','LIKE',"%".$content['title']."%")
+                            ->orwhere('url','LIKE',"%".$content['title']."%")
+                            ->get();
+        }
+
+        return view('search',['search_result' => $search_result]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -60,6 +84,18 @@ class customerController extends Controller
         diy::create($content);
 
         return redirect()->route('backstage-customer-diy');
+    }
+
+    public function fix_report(Request $request){
+        $content = $request->validate([
+            'declarer' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        fix::create($content);
+
+        return redirect()->route('fix')->with('notice','已成功建立維修通報表單');
     }
     /**
      * Store a newly created resource in storage.

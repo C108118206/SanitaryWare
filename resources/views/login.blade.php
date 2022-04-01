@@ -14,14 +14,13 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
     
-                <div>
-                    <x-jet-label for="username" value="{{ __('帳號') }}" />
-                    <x-jet-input id="username" class="block mt-1 w-full" type="username" name="username" :value="old('username')" required autofocus />
+                <div class="mb-6">
+                    <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">帳號</label>
+                    <input type="username" id="username" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name" required>
                 </div>
-    
-                <div class="mt-4">
-                    <x-jet-label for="password" value="{{ __('密碼') }}" />
-                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <div class="mb-6">
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">密碼</label>
+                    <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                 </div>
     
                 <div class="block mt-4">

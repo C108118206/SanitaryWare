@@ -2,14 +2,14 @@
     <div class="h-64 relative">
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
             <div class="text-center py-8 text-3xl  text-white tracking-wider font-black">
-                淋浴設備
+                {{ $product_type->find($id)->main_product_type_id !== null ? $product_type->find($product_type->find($id)->main_product_type_id)->name.' > ' : ''}} {{ $product_type->find($id)->name }}
             </div>
         </div>
         <img src="/img/picture/index/contact-us-background.jpg" class="opacity-70 object-cover h-full w-full"/>
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col justify-center">
         <div class="">
-            <div class="text-md text-gray-400">首頁 > 產品介紹 > 沐浴設備 > 無框型</div>
+            <div class="text-md text-gray-400">首頁 > 產品介紹 > {{ $product_type->find($id)->main_product_type_id !== null ? $product_type->find($product_type->find($id)->main_product_type_id)->name.' > ' : ''}} {{ $product_type->find($id)->name }}</div>
         </div>
 
         <div class="flex">
@@ -24,16 +24,29 @@
             </div>
         </div>
 
-        <ul class="flex flex-wrap border-b border-gray-400">
-            <li class="mr-2">
-                <a href="#" aria-current="page" class="inline-block py-4 px-4 text-md font-bold text-center text-blue-600 border-2 border-b-0 border-gray-300 rounded-t-lg active">詳細介紹</a>
-            </li>
-            <li class="mr-2">
-                <a href="#" class="inline-block py-4 px-4 text-md font-bold text-center text-gray-500 rounded-t-lg hover:text-gray-600 hover:bg-gray-400 dark:text-gray-400  dark:hover:text-gray-300">注意事項</a>
-            </li>
-        </ul>
-        <img src="/img/picture/product/{{$product->image_path}}.jpg" class="h-72 w-80 block" alt="">
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error non officiis eum praesentium? Nisi similique pariatur dolor cum vitae, fuga quas maxime sequi deleniti harum, excepturi molestiae magni doloremque? Quam!</div>
+        <div class="mb-4 border-b border-gray-200">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+                <li class="mr-2" role="presentation">
+                    <button class="inline-block p-4 rounded-t-lg border-b-2" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">詳細介紹</button>
+                </li>
+                <li class="mr-2" role="presentation">
+                    <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">注意事項</button>
+                </li>
+            </ul>
+        </div>
+        <div id="myTabContent">
+            <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                    {{ $product->details_introduction }}
+                </p>
+            </div>
+            <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                    {{ $product->Precautions }}
+                </p>
+            </div>
+        </div>
+
     </div>
     
     

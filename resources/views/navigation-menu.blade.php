@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="/img/picture/index/logo.png" class="block h-16 w-auto" alt="">
                     </a>
                 </div>
 
@@ -33,12 +33,14 @@
 
             <div class="hidden sm:flex sm:items-center sm:ml-6 ">
                 <!-- nav right -->
-                <form action="{{ route('search') }}">
-                    <input type="text" class="bg-gray-300" name="context" placeholder="關鍵字"  id="context">
+                <form action="{{ route('search') }}" method="post" class=" flex">
+                    @csrf
+                    <input type="text" class="bg-gray-300" name="title" placeholder="關鍵字"  id="title">
+                
+                    <button type="submit">
+                        <img class="h-7" src="/img/icon/search_{{ request()->is('search') ? 'blue' : 'black'}}.svg"/>
+                    </button>
                 </form>
-                <a href="{{ route('search') }}" class="flex items-center text-lg ">
-                    <img class="h-7" src="/img/icon/search_{{ request()->is('search') ? 'blue' : 'black'}}.svg"/>
-                </a>
                 <div class="mx-3">|</div>
                 <a href="{{ route('customer_service') }}" class="flex items-center text-lg">
                     <img class="h-7" src="/img/icon/customer service_{{ request()->is('customer_service') ? 'blue' : 'black'}}.svg"/>
