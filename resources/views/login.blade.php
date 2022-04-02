@@ -1,7 +1,8 @@
 <x-app-layout>
     <div class="news-pic relative">
+        
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <div class="text-center py-8 text-3xl  text-white tracking-wider font-black">
+            <div class="text-center py-8 text-4xl  text-white tracking-widest font-black">
                 後台登入
             </div>
             <x-jet-validation-errors class="mb-4" />
@@ -51,6 +52,6 @@
 
             </form>
         </div>
-        <img src="/img/picture/index/bathpic.png" class="opacity-50 object-cover h-96 w-full"/>
+        <img src="/img/picture/index/bathpic.png" class=" h-login-bg object-fit  w-full"/>
     </div>
 </x-app-layout>

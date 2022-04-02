@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-col w-40 ml-12">
+            <div class="flex-col w-40 xl:ml-12">
                 <div class="font-bold">關於我們</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
@@ -58,12 +58,12 @@
         </div>
     </div>
 </div>
-<div class="h-10 bg-sky-900">
+<div class="h-16 xl:h-10 bg-sky-900">
     <div class="max-w-7xl mx-auto py-2 flex justify-between items-center text-white">
-        <div>
+        <div class="">
             Copyright © 堡家麗. All Rights Reserved.
         </div>
-        <div>
+        <div class="">
             <a href="{{ route('privacy_policy') }}">隱私權政策</a>
             |
             <a href="{{ route('user_policy') }}">使用者條款</a>

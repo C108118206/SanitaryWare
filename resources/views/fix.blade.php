@@ -1,11 +1,11 @@
 <x-app-layout>
-    <div class="h-64 relative">
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <div class="text-center py-8 text-3xl  text-white tracking-wider font-black">
+    <div class=" h-96 relative">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-5/12">
+            <div class="text-center py-12 text-4xl   text-white tracking-widest font-black bg-black/50">
                 客服中心
             </div>
         </div>
-        <img src="/img/picture/index/contact-us-background.jpg" class="opacity-70 object-cover h-full w-full"/>
+        <img src="/img/picture/index/contact-us-background.jpg" class=" object-fit h-full w-full"/>
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col">
         <div class="">
