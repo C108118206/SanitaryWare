@@ -53,8 +53,6 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::post('/logout',[App\Http\Controllers\UserController::class,'logout']
-)->name('logout');
 
 
 Route::post('/search',[App\Http\Controllers\customerController::class,'search']
@@ -81,6 +79,8 @@ Route::group(['middleware' => 'auth'], function(){
         return view('backstage.backstage_main');
     })->name('backstage');
     
+    Route::post('/logout',[App\Http\Controllers\UserController::class,'logout']
+    )->name('logout');
     /**
      * backstage 產品介紹
      */

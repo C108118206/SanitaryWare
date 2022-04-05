@@ -857,6 +857,9 @@ input[type=file]::file-selector-button:hover {
 .h-16 {
   height: 4rem;
 }
+.h-20 {
+  height: 5rem;
+}
 .h-login-bg {
   height: 50rem;
 }
@@ -886,9 +889,6 @@ input[type=file]::file-selector-button:hover {
 }
 .h-24 {
   height: 6rem;
-}
-.h-20 {
-  height: 5rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -963,6 +963,29 @@ input[type=file]::file-selector-button:hover {
 }
 .w-48 {
   width: 12rem;
+}
+.w-28 {
+  width: 7rem;
+}
+.w-32 {
+  width: 8rem;
+}
+.w-36 {
+  width: 9rem;
+}
+.w-96 {
+  width: 24rem;
+}
+.w-52 {
+  width: 13rem;
+}
+.w-56 {
+  width: 14rem;
+}
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1244,12 +1267,12 @@ input[type=file]::file-selector-button:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(63 131 248 / var(--tw-bg-opacity));
 }
-.bg-white\/30 {
-  background-color: rgb(255 255 255 / 0.3);
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-white\/30 {
+  background-color: rgb(255 255 255 / 0.3);
 }
 .bg-stone-200 {
   --tw-bg-opacity: 1;
@@ -1449,6 +1472,18 @@ input[type=file]::file-selector-button:hover {
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+}
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 .pt-8 {
   padding-top: 2rem;
@@ -1750,23 +1785,35 @@ input[type=file]::file-selector-button:hover {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-.duration-200 {
-  transition-duration: 200ms;
+.duration-700 {
+  transition-duration: 700ms;
 }
 .duration-75 {
   transition-duration: 75ms;
 }
+.duration-200 {
+  transition-duration: 200ms;
+}
 .duration-300 {
   transition-duration: 300ms;
 }
-.ease-linear {
-  transition-timing-function: linear;
+.duration-100 {
+  transition-duration: 100ms;
+}
+.duration-500 {
+  transition-duration: 500ms;
+}
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.ease-linear {
+  transition-timing-function: linear;
 }
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
@@ -1799,6 +1846,12 @@ input[type=file]::file-selector-button:hover {
 .hover\:bg-red-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(240 82 82 / var(--tw-bg-opacity));
+}
+.hover\:fill-slate-500:hover {
+  fill: #64748b;
+}
+.hover\:fill-side_bg:hover {
+  fill: #1B3D5C;
 }
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;
@@ -2413,6 +2466,24 @@ input[type=file]::file-selector-button:hover {
 
   .\32xl\:h-96 {
     height: 24rem;
+  }
+}
+@media (min-width: 1600px) {
+
+  .\33xl\:h-112 {
+    height: 28rem;
+  }
+}
+@media (min-width: 1800px) {
+
+  .\34xl\:h-128 {
+    height: 32rem;
+  }
+}
+@media (min-width: 2100px) {
+
+  .\35xl\:h-160 {
+    height: 40rem;
   }
 }
 

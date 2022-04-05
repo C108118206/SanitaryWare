@@ -50,7 +50,7 @@
         </div>
         <div class="lg:mt-12 sm:mt-16 flex-col">
             <div class="flex">
-                <p>堡家麗</p><a href="https://www.facebook.com/%E5%A0%A1%E5%AE%B6%E9%BA%97-101540544811432/"><img src="/img/icon/fb.svg" class=" pl-2 h-6 w-6"></a>
+                <p>堡家麗</p><a href="https://www.facebook.com/%E5%A0%A1%E5%AE%B6%E9%BA%97-101540544811432/" target="_blank"><img src="/img/icon/fb.svg" class=" pl-2 h-6 w-6"></a>
             </div>
             
             <p>服務時間：09:00-18:00</p>

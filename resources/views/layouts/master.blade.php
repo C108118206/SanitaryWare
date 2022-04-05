@@ -19,7 +19,7 @@
             }
         </style>
     </head>
-    <body class="font-sans">
+    <body class="font-serif">
 
 
     </body>

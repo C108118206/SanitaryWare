@@ -38,7 +38,7 @@
          } );
       </script>
 </head>
-<body class="font-sans antialiased bg-gray-100">
+<body class="font-serif antialiased bg-gray-100">
     <div class="flex w-screen">
         @section('sidebar')
         <aside class="w-64 " aria-label="Sidebar">

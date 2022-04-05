@@ -11,8 +11,8 @@ class UserController extends Controller
 
     public function logout(Request $request){
     
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        // $request->session()->invalidate();
+        // $request->session()->regenerateToken();
 
         return view('/dashboard');
     }
