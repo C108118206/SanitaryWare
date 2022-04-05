@@ -37,10 +37,10 @@ class productController extends Controller
     public function front_product_index($id = 1){
 
         if (product_type::find($id)->main_product_type_id !== null){
-            $product = product::join('product_type','products.product_type_id','=','product_type.id')
+            $product = product_type::join('products','products.product_type_id','=','product_type.id')
             ->where('product_type.id',$id)->paginate(8);
         }else{
-            $product = product::join('product_type','products.product_type_id','=','product_type.id')
+            $product = product_type::join('products','products.product_type_id','=','product_type.id')
             ->where('product_type.id',$id)
             ->orWhere('product_type.main_product_type_id',$id)
             ->paginate(8);
@@ -60,7 +60,7 @@ class productController extends Controller
         $product = product::find($id);
 
         $product_type = product_type::all();
-        return view('product_details',['product' => $product,'product_type' => $product_type,'id' => $id]);
+        return view('product_details',['product' => $product,'product_type' => $product_type,'id' => $product->product_type_id]);
     }
 
     /**
