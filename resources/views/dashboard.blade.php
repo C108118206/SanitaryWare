@@ -1,62 +1,84 @@
 <x-app-layout>
-    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
-
-
-    
 
     <div class="mx-auto sm:px-6 lg:px-8 bg-white">
         <div class="w-full">
             <div id="animation-carousel" class="relative" data-carousel="static">
                 <!-- Carousel wrapper -->
-                <div class="overflow-hidden relative  rounded-lg h-48 sm:h-64 xl:h-80 2xl:h-96 3xl:h-112 4xl:h-128 5xl:h-160">
-                        <!-- Item 1 -->
-                    <div class="hidden duration-300 ease-in-out" data-carousel-item="active">
-                        <img src="/img/icon/index-banner.svg" class="block relative h-full w-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" alt="...">
+                <div
+                    class="overflow-hidden relative  rounded-lg h-48 sm:h-64 xl:h-80 2xl:h-96 3xl:h-112 4xl:h-128 5xl:h-160">
+                    <!-- Item 1 -->
+                    <div id="carousel-item-1" class="hidden duration-300 ease-in-out" data-carousel-item="active">
+                        <img src="/img/icon/index-banner.svg"
+                            class="block relative h-full w-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                            alt="...">
                     </div>
                     <!-- Item 2 -->
-                    <div class="hidden duration-300 ease-in-out" data-carousel-item>
-                        <img src="/img/icon/index-banner.svg" class="block relative h-full w-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" alt="...">
+                    <div id="carousel-item-2" class="hidden duration-300 ease-in-out" data-carousel-item>
+                        <img src="/img/picture/index/greenbath.png"
+                            class="block relative h-full w-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                            alt="...">
                     </div>
                     <!-- Item 3 -->
-                    <div class="hidden duration-300 ease-in-out" data-carousel-item>
-                        <img src="/img/picture/index/index-banner2.jpg" class="block relative h-full w-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" alt="...">
+                    <div id="carousel-item-3" class="hidden duration-300 ease-in-out" data-carousel-item>
+                        <img src="/img/picture/index/index-banner2.jpg"
+                            class="block relative h-full w-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                            alt="...">
                     </div>
                 </div>
                 <!-- Slider indicators -->
                 <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                    <button id="carousel-indicator-1" type="button" class="w-3 h-3 rounded-full" aria-current="true"
+                        aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                    <button id="carousel-indicator-2" type="button" class="w-3 h-3 rounded-full" aria-current="false"
+                        aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                    <button id="carousel-indicator-3" type="button" class="w-3 h-3 rounded-full" aria-current="false"
+                        aria-label="Slide 3" data-carousel-slide-to="2"></button>
                 </div>
                 <!-- Slider controls -->
-                <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
-                    <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="w-5 h-5 text-black sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <button type="button"
+                    class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+                    data-carousel-prev>
+                    <span
+                        class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-5 h-5 text-black sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
                         <span class="hidden">Previous</span>
                     </span>
                 </button>
-                <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
-                    <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                        <svg class="w-5 h-5 text-black sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <button type="button"
+                    class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+                    data-carousel-next>
+                    <span
+                        class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-5 h-5 text-black sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
                         <span class="hidden">Next</span>
                     </span>
                 </button>
             </div>
         </div>
-        
-        
-        <div class="text-center py-4 text-3xl text-sky-600 font-bold">
-            產品介紹
+
+
+        <div class="text-center mt-12 text-4xl text-dot font-black tracking-widest">
+            產 品 介 紹
         </div>
-        <div class="flex flex-wrap justify-center space-x-8 py-6 ">
-            <div class="p-6 text-lg text-center">
-                <a href="/product/1" class="shrink-0 flex-col items-center text-center" >
+
+        <div class="flex flex-wrap justify-center py-8">
+            <div class="text-2xl tracking-wider text-center font-semibold p-6 hover:fill-side-bg hover:text-side-bg">
+                <a href="/product/1" class="shrink-0 flex-col items-center text-center">
                     <?xml version="1.0" encoding="utf-8"?>
                     <!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class=" h-20 hover:fill-side_bg"
+                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" class=" h-28 hover:fill-side-bg mb-2"
                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                    <g>
-                        <path d="M494,322.7c-2.3,4-5.9,5.3-10.4,5.7c-10.9,0.9-19.9,9.9-21.1,20.7c-0.1,1.2-0.1,2.5-0.4,3.7c-0.9,4.3-4.2,7.1-8.1,6.9
+                        <g>
+                            <path d="M494,322.7c-2.3,4-5.9,5.3-10.4,5.7c-10.9,0.9-19.9,9.9-21.1,20.7c-0.1,1.2-0.1,2.5-0.4,3.7c-0.9,4.3-4.2,7.1-8.1,6.9
                             c-3.9-0.2-7.1-3.1-7.4-7.5c-0.6-7.2-2.9-13.6-8.7-18.3c-2-1.6-4.2-2.8-7.3-4.7c0,3,0,4.8,0,6.6c0,33.1,0,66.2,0,99.3
                             c0,9.4-2.4,11.9-11.8,11.9c-108.4,0-216.9,0-325.3,0c-9.3,0-11.7-2.5-11.7-12c0-72.7,0-145.4,0-218.1c0-1.8,0-3.6,0-6.2
                             c-8.2,3.5-13,8.9-15,16.7c-0.5,2.1-0.7,4.3-1,6.4c-0.6,4.3-3.3,6.8-7.4,7c-4.2,0.2-7-2.2-7.9-6.4c-0.6-2.7-0.7-5.5-1.4-8.2
@@ -84,21 +106,23 @@
                             c2.6-2.5,5-4.8,7.1-6.9C142.1,135.8,139.7,133.5,137.5,131.3z M58.9,195.2c-2.7,2.1-5.5,4.2-7.4,5.6c2.4,2.7,4.7,5.2,6.8,7.6
                             c2.2-2.3,4.6-4.8,6.7-6.9C62.9,199.3,60.4,196.7,58.9,195.2z M454.1,327.1c2.6-2.5,5-4.8,6.9-6.6c-2.2-2.4-4.6-5-6.6-7.1
                             c-2.4,2.1-5,4.5-7.2,6.4C449.7,322.5,452,324.9,454.1,327.1z M368.8,383.1c2.1,2.6,4.2,5.3,5.9,7.4c2.8-2.5,5.3-4.7,7.1-6.3
-                            c-2.4-2.5-4.7-5.1-7-7.5C372.8,378.9,370.5,381.3,368.8,383.1z"/>
-                    </g>
+                            c-2.4-2.5-4.7-5.1-7-7.5C372.8,378.9,370.5,381.3,368.8,383.1z" />
+                        </g>
                     </svg>
 
                     {{ __('玻璃系列') }}
                 </a>
             </div>
-            <div class="p-6 text-lg text-center">
+            <div class="text-2xl tracking-wider text-center font-semibold p-6 hover:fill-side-bg hover:text-side-bg">
                 <a href="/product/2" class="shrink-0 flex-col items-center text-center">
                     <?xml version="1.0" encoding="utf-8"?>
                     <!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class=" h-20 hover:fill-side_bg"
+                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" class=" h-28 hover:fill-side-bg mb-2"
                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                    <g>
-                        <path d="M493.9,311.1c-0.1-10-5.4-17.2-15.1-19.7c-2.6-0.7-3-1.8-3.2-3.9c-0.5-4.8-0.8-9.6-1.9-14.3
+                        <g>
+                            <path
+                                d="M493.9,311.1c-0.1-10-5.4-17.2-15.1-19.7c-2.6-0.7-3-1.8-3.2-3.9c-0.5-4.8-0.8-9.6-1.9-14.3
                             c-10.8-49.9-40.1-83.9-88.1-101.8c-2.8-1.1-3.8-2.3-3.7-5.2c0.2-7.8,0.1-15.6,0.1-23.5c-0.1-5.5-2.3-8.1-7.7-8.3
                             c-2.7-0.1-3.2-1-3.4-3.4c-0.5-5.3-1.2-10.6-2.4-15.8c-13.4-57.8-61.8-96.3-121.6-96.7c-34.7-0.2-69.4,0-104,0
                             c-8.5,0-17,0.7-25.3,2.4C58.3,33.3,18.1,82.6,18.1,143.2c-0.1,113,0,226,0,339c0,7.9,2.4,11.5,7.3,11.3c4.7-0.2,6.7-3.6,6.7-11.3
@@ -120,52 +144,54 @@
                             c1.6-0.4,3.3-0.5,4.9-0.5c16.2,0,32.4,0.4,48.5-0.2c10-0.3,19.1,1.8,27.9,6c41.7,19.7,65.4,52.4,71.1,98.2c0.5,4.1-0.9,4.6-4.4,4.5
                             c-38.3-0.1-76.7-0.1-115-0.1c-38.2,0-76.4-0.1-114.5,0.1C223.3,290.9,222.5,289.8,222.8,285.8z M474.4,334.2
                             c-44.2-0.2-88.3-0.1-132.5-0.1c-44.2,0-88.3-0.1-132.5,0.1c-4.5,0-5.7-1.2-5.4-5.5c0.4-5.5,0-11,0.1-16.5c0.1-5.7,1.7-7.5,7.5-7.5
-                            c22.5,0,45,0,67.5,0c63.7,0,127.3,0,191,0c8.8,0,9.8,1,9.8,9.7c0,4.7-0.3,9.3,0.1,14C480.3,332.8,479.2,334.2,474.4,334.2z"/>
-                        <path class="st1" d="M242.8,368.9c-2.4,0.2-4.7,1.8-5.6,4.7c-1.5,4.7-2.9,9.5-4,14.3c-0.9,4.1,0.8,7.2,5,8.4c4,1.1,7-0.7,8.2-4.4
-                            c1.7-4.8,3-9.8,4.1-14.8C251.5,372.7,247.9,368.8,242.8,368.9z"/>
-                        <path class="st1" d="M230.9,415.3c-3.6,0.3-5.9,2-6.8,5.2c-1.3,4.4-2.6,8.9-3.8,13.4c-1,4,1.1,7.7,4.6,8.8c3.7,1.1,7.4-0.7,8.7-4.6
-                            c1.6-4.7,2.9-9.5,4-14.4C238.6,419.2,235.1,415.2,230.9,415.3z"/>
-                        <path class="st1" d="M472.9,466.8c-1-3.1-3.2-4.9-5.9-5.1c-5.1-0.1-8.7,3.9-7.7,8.2c1.1,5,2.4,9.9,4.2,14.7
-                            c1.3,3.7,4.3,5.5,8.3,4.3c4.2-1.2,5.9-4.3,5-8.4C475.8,476,474.4,471.4,472.9,466.8z"/>
-                        <path class="st1" d="M451,388.2c-1-5-2.4-10-4.1-14.9c-1.3-3.8-4.6-5.4-8.4-4.2c-3.8,1.2-5.7,4.1-4.7,8.2c1.1,4.8,2.5,9.6,4,14.4
-                            c0.9,3.1,3.3,4.4,6.2,4.8C448.3,396.7,451.9,392.8,451,388.2z"/>
-                        <path class="st1" d="M220,462.1c-3.4-1.4-7.5,0.6-8.7,4.5c-1.6,4.8-3,9.8-4.1,14.8c-0.9,4.1,2.6,8,7.3,8.1c2.9-0.3,5.4-2,6.4-5.4
-                            c1.3-4.4,2.6-8.9,3.7-13.3C225.6,466.6,223.9,463.6,220,462.1z"/>
-                        <path class="st1" d="M410.8,471.7c-0.7-5-3.6-7.5-7.9-7.1c-4.2,0.4-6.3,3.4-5.9,9.9c0.4,3.2,0.9,7.6,1.6,12
-                            c0.8,4.2,3.6,6.5,7.8,5.9c4.2-0.6,6.2-3.6,5.8-7.9C411.9,480.2,411.4,475.9,410.8,471.7z"/>
-                        <path class="st1" d="M293.7,369c-4.2-0.7-7.2,1.4-7.9,5.7c-0.8,4.7-1.4,9.5-1.9,14.3c-0.4,4.3,1.7,7,5.9,7.8c4,0.7,7.2-2,7.9-6.5
-                            c0.7-4.4,1.1-8.9,1.7-14.3C299.7,372.8,298,369.7,293.7,369z"/>
-                        <path class="st1" d="M349,375.5c-0.3-4-2.7-6.5-6.7-6.6c-4.1-0.1-6.7,2.3-7.1,6.2c-0.4,5.1-0.4,10.3,0,15.4c0.3,3.9,2.8,6.4,7,6.3
-                            c4.1-0.1,6.4-2.4,6.8-6.4c0.2-2.5,0-5,0-7.5C349,380.5,349.2,378,349,375.5z"/>
-                        <path class="st1" d="M394.4,396.8c4.3-0.9,6-3.8,5.6-9.7c-0.4-3-0.9-7.6-1.7-12.2c-0.7-4.2-3.4-6.5-7.7-6c-4.3,0.5-6.3,3.5-6,7.7
-                            c0.4,4.6,0.9,9.3,1.6,13.9C387.1,395,390.5,397.6,394.4,396.8z"/>
-                        <path class="st1" d="M349,423.7c-0.3-4.1-2.8-6.5-6.8-6.6c-3.8-0.1-6.6,2.1-6.9,5.8c-0.5,5.4-0.5,11,0,16.4c0.3,3.7,3,5.9,6.9,5.8
-                            c3.9-0.1,6.3-2.2,6.7-6c0.3-2.4,0.1-5,0.1-7.5c0,0,0,0,0,0C349,429,349.2,426.3,349,423.7z"/>
-                        <path class="st1" d="M349,471.8c-0.4-4.1-2.8-6.4-6.9-6.4c-4.1,0-6.7,2.4-6.9,6.4c-0.3,5-0.3,10,0,14.9c0.2,4.1,3.5,7.1,7.2,6.8
-                            c3.9-0.4,6.4-2.6,6.7-6.7c0.2-2.5,0-5,0-7.5C349,476.7,349.2,474.2,349,471.8z"/>
-                        <path class="st1" d="M463.9,434.3c-1.1-4.8-2.5-9.6-4-14.4c-1-2.9-3.4-4.4-6.7-4.6c-4,0-7.5,3.8-6.7,7.9c1.1,5,2.5,10,4.1,14.9
-                            c1.3,3.9,5.1,5.8,8.8,4.5C463.1,441.2,464.8,438.2,463.9,434.3z"/>
-                        <path class="st1" d="M400.3,444.6c4-0.6,6.1-3.3,5.9-7.4c-0.3-4.3-0.8-8.6-1.4-12.9c-0.7-5.4-3.6-8.1-7.9-7.6
-                            c-4.3,0.4-6.4,3.5-5.8,10.9c0.4,2.7,0.8,7.1,1.7,11.5C393.5,443.2,396.4,445.2,400.3,444.6z"/>
-                        <path class="st1" d="M281.2,464.6c-4.1-0.4-7,1.9-7.8,6.6c-0.7,4.2-1.1,8.6-1.5,12.1c-0.3,5.7,2.1,9,6.3,9.3c3.8,0.3,6.9-2.4,7.6-7
-                            c0.6-4.3,1.1-8.6,1.5-12.8C287.6,468,285.2,465,281.2,464.6z"/>
-                        <path class="st1" d="M287.4,416.8c-4.3-0.5-7,1.7-7.7,5.9c-0.7,4.4-1.2,8.9-1.7,12.2c-0.3,6.2,1.9,9.3,6.1,9.7
-                            c4.1,0.4,7.1-2.4,7.8-7.3c0.6-4.3,1.2-8.6,1.5-12.9C293.7,420.3,291.8,417.4,287.4,416.8z"/>
-                    </g>
+                            c22.5,0,45,0,67.5,0c63.7,0,127.3,0,191,0c8.8,0,9.8,1,9.8,9.7c0,4.7-0.3,9.3,0.1,14C480.3,332.8,479.2,334.2,474.4,334.2z" />
+                            <path class="st1" d="M242.8,368.9c-2.4,0.2-4.7,1.8-5.6,4.7c-1.5,4.7-2.9,9.5-4,14.3c-0.9,4.1,0.8,7.2,5,8.4c4,1.1,7-0.7,8.2-4.4
+                            c1.7-4.8,3-9.8,4.1-14.8C251.5,372.7,247.9,368.8,242.8,368.9z" />
+                            <path class="st1" d="M230.9,415.3c-3.6,0.3-5.9,2-6.8,5.2c-1.3,4.4-2.6,8.9-3.8,13.4c-1,4,1.1,7.7,4.6,8.8c3.7,1.1,7.4-0.7,8.7-4.6
+                            c1.6-4.7,2.9-9.5,4-14.4C238.6,419.2,235.1,415.2,230.9,415.3z" />
+                            <path class="st1" d="M472.9,466.8c-1-3.1-3.2-4.9-5.9-5.1c-5.1-0.1-8.7,3.9-7.7,8.2c1.1,5,2.4,9.9,4.2,14.7
+                            c1.3,3.7,4.3,5.5,8.3,4.3c4.2-1.2,5.9-4.3,5-8.4C475.8,476,474.4,471.4,472.9,466.8z" />
+                            <path class="st1" d="M451,388.2c-1-5-2.4-10-4.1-14.9c-1.3-3.8-4.6-5.4-8.4-4.2c-3.8,1.2-5.7,4.1-4.7,8.2c1.1,4.8,2.5,9.6,4,14.4
+                            c0.9,3.1,3.3,4.4,6.2,4.8C448.3,396.7,451.9,392.8,451,388.2z" />
+                            <path class="st1" d="M220,462.1c-3.4-1.4-7.5,0.6-8.7,4.5c-1.6,4.8-3,9.8-4.1,14.8c-0.9,4.1,2.6,8,7.3,8.1c2.9-0.3,5.4-2,6.4-5.4
+                            c1.3-4.4,2.6-8.9,3.7-13.3C225.6,466.6,223.9,463.6,220,462.1z" />
+                            <path class="st1" d="M410.8,471.7c-0.7-5-3.6-7.5-7.9-7.1c-4.2,0.4-6.3,3.4-5.9,9.9c0.4,3.2,0.9,7.6,1.6,12
+                            c0.8,4.2,3.6,6.5,7.8,5.9c4.2-0.6,6.2-3.6,5.8-7.9C411.9,480.2,411.4,475.9,410.8,471.7z" />
+                            <path class="st1" d="M293.7,369c-4.2-0.7-7.2,1.4-7.9,5.7c-0.8,4.7-1.4,9.5-1.9,14.3c-0.4,4.3,1.7,7,5.9,7.8c4,0.7,7.2-2,7.9-6.5
+                            c0.7-4.4,1.1-8.9,1.7-14.3C299.7,372.8,298,369.7,293.7,369z" />
+                            <path class="st1" d="M349,375.5c-0.3-4-2.7-6.5-6.7-6.6c-4.1-0.1-6.7,2.3-7.1,6.2c-0.4,5.1-0.4,10.3,0,15.4c0.3,3.9,2.8,6.4,7,6.3
+                            c4.1-0.1,6.4-2.4,6.8-6.4c0.2-2.5,0-5,0-7.5C349,380.5,349.2,378,349,375.5z" />
+                            <path class="st1" d="M394.4,396.8c4.3-0.9,6-3.8,5.6-9.7c-0.4-3-0.9-7.6-1.7-12.2c-0.7-4.2-3.4-6.5-7.7-6c-4.3,0.5-6.3,3.5-6,7.7
+                            c0.4,4.6,0.9,9.3,1.6,13.9C387.1,395,390.5,397.6,394.4,396.8z" />
+                            <path class="st1" d="M349,423.7c-0.3-4.1-2.8-6.5-6.8-6.6c-3.8-0.1-6.6,2.1-6.9,5.8c-0.5,5.4-0.5,11,0,16.4c0.3,3.7,3,5.9,6.9,5.8
+                            c3.9-0.1,6.3-2.2,6.7-6c0.3-2.4,0.1-5,0.1-7.5c0,0,0,0,0,0C349,429,349.2,426.3,349,423.7z" />
+                            <path class="st1" d="M349,471.8c-0.4-4.1-2.8-6.4-6.9-6.4c-4.1,0-6.7,2.4-6.9,6.4c-0.3,5-0.3,10,0,14.9c0.2,4.1,3.5,7.1,7.2,6.8
+                            c3.9-0.4,6.4-2.6,6.7-6.7c0.2-2.5,0-5,0-7.5C349,476.7,349.2,474.2,349,471.8z" />
+                            <path class="st1" d="M463.9,434.3c-1.1-4.8-2.5-9.6-4-14.4c-1-2.9-3.4-4.4-6.7-4.6c-4,0-7.5,3.8-6.7,7.9c1.1,5,2.5,10,4.1,14.9
+                            c1.3,3.9,5.1,5.8,8.8,4.5C463.1,441.2,464.8,438.2,463.9,434.3z" />
+                            <path class="st1"
+                                d="M400.3,444.6c4-0.6,6.1-3.3,5.9-7.4c-0.3-4.3-0.8-8.6-1.4-12.9c-0.7-5.4-3.6-8.1-7.9-7.6
+                            c-4.3,0.4-6.4,3.5-5.8,10.9c0.4,2.7,0.8,7.1,1.7,11.5C393.5,443.2,396.4,445.2,400.3,444.6z" />
+                            <path class="st1" d="M281.2,464.6c-4.1-0.4-7,1.9-7.8,6.6c-0.7,4.2-1.1,8.6-1.5,12.1c-0.3,5.7,2.1,9,6.3,9.3c3.8,0.3,6.9-2.4,7.6-7
+                            c0.6-4.3,1.1-8.6,1.5-12.8C287.6,468,285.2,465,281.2,464.6z" />
+                            <path class="st1" d="M287.4,416.8c-4.3-0.5-7,1.7-7.7,5.9c-0.7,4.4-1.2,8.9-1.7,12.2c-0.3,6.2,1.9,9.3,6.1,9.7
+                            c4.1,0.4,7.1-2.4,7.8-7.3c0.6-4.3,1.2-8.6,1.5-12.9C293.7,420.3,291.8,417.4,287.4,416.8z" />
+                        </g>
                     </svg>
 
 
                     {{ __('淋浴設備') }}
                 </a>
             </div>
-            <div class="p-6 text-lg text-center">
+            <div class="text-2xl tracking-wider text-center font-semibold p-6 hover:fill-side-bg hover:text-side-bg">
                 <a href="/product/3" class="shrink-0 flex-col items-center text-center">
                     <?xml version="1.0" encoding="utf-8"?>
                     <!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  class=" h-20 hover:fill-side_bg"
+                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" class=" h-28 hover:fill-side-bg mb-2"
                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                    <g>
-                        <path d="M308.4,216.6c0-7.4,0-14.2,0-21c0-13.5-0.1-27.1,0-40.6c0.2-16.9,13.9-30.2,30.7-30.1c16.5,0.1,30,13.3,30.4,30
+                        <g>
+                            <path d="M308.4,216.6c0-7.4,0-14.2,0-21c0-13.5-0.1-27.1,0-40.6c0.2-16.9,13.9-30.2,30.7-30.1c16.5,0.1,30,13.3,30.4,30
                             c0.1,5.1,0,10.1,0,15.5c-5.1,0-9.9,0-15.3,0c0-4.8,0.1-9.5,0-14.2c-0.1-9.2-6.7-16.1-15.4-16c-8.5,0.1-15.1,6.8-15.1,15.8
                             c-0.1,20,0,40,0,60.3c5.1,0,9.8,0,15,0c0-4.7,0-9.5,0-14.7c5.3,0,10.2,0,15.4,0c0,4.8,0,9.5,0,14.9c2,0,3.7,0,5.4,0
                             c33.1,0,66.2,0,99.3,0c12,0,17.9,5.8,17.7,17.9c-0.2,12.8,1.2,25.8-2.5,38.4c-6.2,21.1-19.4,36.1-39.5,45c-2.3,1-3.9,1.8-3.9,5
@@ -185,42 +211,41 @@
                             C75.8,287.6,66.4,237.1,57,186.3c-7.9,0-15.4,0-23.3,0C43,237.3,52.4,288,61.7,338.7C69.7,338.7,77.1,338.7,85.3,338.7z
                             M447.7,476.3c-3.9-6.2-7-11.9-10.7-17.2c-2.8-4-7.2-5.6-12.1-5.6c-36.9,0-73.8-0.1-110.7,0.1c-3.3,0-7.6,1.1-9.5,3.3
                             c-5,5.7-8.9,12.3-13.7,19.4C343.9,476.3,395.2,476.3,447.7,476.3z M63.2,369.2c56.2,0,112,0,167.7,0c3.5-10.6-1-15.3-10.4-15.2
-                            c-50.6,0.3-101.1,0.2-151.7,0.2c-1.8,0-3.7,0-5.6,0C63.2,359.5,63.2,364.1,63.2,369.2z"/>
-                        <path d="M384.8,170.8c0-4.8,0-8.9,0-13.1c0-0.6,0.2-1.2,0.3-2.1c30.4,0,60.5,0,91,0c0-40.8,0-81.3,0-122c-71,0-141.9,0-213.2,0
+                            c-50.6,0.3-101.1,0.2-151.7,0.2c-1.8,0-3.7,0-5.6,0C63.2,359.5,63.2,364.1,63.2,369.2z" />
+                            <path
+                                d="M384.8,170.8c0-4.8,0-8.9,0-13.1c0-0.6,0.2-1.2,0.3-2.1c30.4,0,60.5,0,91,0c0-40.8,0-81.3,0-122c-71,0-141.9,0-213.2,0
                             c0,40.4,0,80.8,0,121.8c9.8,0,19.7,0,29.9,0c0,5.2,0,9.9,0,15c-0.9,0.1-2,0.4-3,0.4c-9.1,0-18.1,0.1-27.2,0
                             c-8.7-0.1-15.3-6.5-15.3-15.1c-0.1-40.9-0.1-81.8,0-122.7c0-8.6,6.7-14.8,15.4-14.9c12.4-0.1,24.8,0,37.2,0c57.9,0,115.9,0,173.8,0
-                            c12.1,0,17.9,5.8,17.9,17.8c0,39.1,0,78.3,0,117.4c0,11.7-5.9,17.6-17.7,17.6c-28,0-56,0-84,0C388.5,170.8,387,170.8,384.8,170.8z"
-                            />
-                        <path d="M216.8,232c5.4,0,10.1,0,15,0c0,5.1,0,9.8,0,15c-4.8,0-9.6,0-15,0c0,4.6,0,8.6,0,12.7c0,10.9-4.1,16-15.3,18.3
+                            c12.1,0,17.9,5.8,17.9,17.8c0,39.1,0,78.3,0,117.4c0,11.7-5.9,17.6-17.7,17.6c-28,0-56,0-84,0C388.5,170.8,387,170.8,384.8,170.8z" />
+                            <path d="M216.8,232c5.4,0,10.1,0,15,0c0,5.1,0,9.8,0,15c-4.8,0-9.6,0-15,0c0,4.6,0,8.6,0,12.7c0,10.9-4.1,16-15.3,18.3
                             c0,4.6,0,9.3,0,14c-0.1,9.8-6.4,16.1-16.1,16.2c-9.7,0.1-19.4,0.1-29.1,0c-9.5-0.1-15.7-6.5-15.9-16c-0.1-4.6,0-9.2,0-13.9
                             c-2.6-0.9-5.3-1.5-7.5-2.8c-5-2.9-7.7-7.4-7.8-13.3c0-4.9,0-9.8,0-15c-5.2,0-9.9,0-14.9,0c0-5.2,0-10,0-15.3c4.8,0,9.6,0,14.9,0
                             c0-5.2-0.1-10,0-14.7c0.1-9.5,6.5-15.9,15.9-15.9c20-0.1,40.1-0.1,60.1,0c9.2,0,15.5,6.5,15.6,15.7
                             C216.8,221.8,216.8,226.6,216.8,232z M140.6,262.1c20.5,0,40.6,0,60.5,0c0-15.3,0-30.3,0-45.2c-20.4,0-40.3,0-60.5,0
                             C140.6,232,140.6,246.9,140.6,262.1z M185.9,292.8c0-5.1,0-9.9,0-14.7c-10.2,0-20.1,0-29.9,0c0,5.1,0,10,0,14.7
-                            C166.2,292.8,176,292.8,185.9,292.8z"/>
-                        <path d="M334.7,61c2.9-2.9,6.3-6.2,9.3-9.2c20.1,20.1,40.3,40.3,60.7,60.7c-3.1,2.9-6.5,6.2-9.5,9C375.3,101.5,355.1,81.3,334.7,61
-                            z"/>
-                        <path d="M397.8,51.6c12.5,12.5,24.9,25,37.6,37.7c-3.3,3.1-6.9,6.4-10.1,9.4c-12.2-12.2-24.8-24.8-37.5-37.5
-                            C390.9,58.2,394.3,54.9,397.8,51.6z"/>
-                        <path d="M335.4,104.9c-2.8,2.9-6.2,6.2-9.2,9.3c-7.4-7.4-14.9-14.9-22.5-22.5c3.1-2.9,6.5-6.2,9.4-9
-                            C320.5,89.9,327.9,97.4,335.4,104.9z"/>
-                    </g>
+                            C166.2,292.8,176,292.8,185.9,292.8z" />
+                            <path d="M334.7,61c2.9-2.9,6.3-6.2,9.3-9.2c20.1,20.1,40.3,40.3,60.7,60.7c-3.1,2.9-6.5,6.2-9.5,9C375.3,101.5,355.1,81.3,334.7,61
+                            z" />
+                            <path d="M397.8,51.6c12.5,12.5,24.9,25,37.6,37.7c-3.3,3.1-6.9,6.4-10.1,9.4c-12.2-12.2-24.8-24.8-37.5-37.5
+                            C390.9,58.2,394.3,54.9,397.8,51.6z" />
+                            <path d="M335.4,104.9c-2.8,2.9-6.2,6.2-9.2,9.3c-7.4-7.4-14.9-14.9-22.5-22.5c3.1-2.9,6.5-6.2,9.4-9
+                            C320.5,89.9,327.9,97.4,335.4,104.9z" />
+                        </g>
                     </svg>
 
                     {{ __('衛浴設備') }}
                 </a>
             </div>
-            <div class="p-6 text-lg text-center">
+            <div class="text-2xl tracking-wider text-center font-semibold p-6 hover:fill-side-bg hover:text-side-bg">
                 <a href="/product/4" class="shrink-0 flex-col items-center text-center">
                     <?xml version="1.0" encoding="utf-8"?>
                     <!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class=" h-20 hover:fill-side_bg"
+                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" class=" h-28 hover:fill-side-bg mb-2"
                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                    <style type="text/css">
-                        .st0{fill:#174C74;}
-                    </style>
-                    <g>
-                        <path d="M255.6,442.8c-69.6,0-139.1,0-208.7,0c-18.8,0-28.9-10.1-28.9-28.8c0-11.5,0.2-23-0.1-34.5c-0.3-12,4.8-20.4,15.2-26.4
+                        <g>
+                            <path
+                                d="M255.6,442.8c-69.6,0-139.1,0-208.7,0c-18.8,0-28.9-10.1-28.9-28.8c0-11.5,0.2-23-0.1-34.5c-0.3-12,4.8-20.4,15.2-26.4
                             c64.4-37.3,128.8-74.7,193.1-112.2c1.6-1,3.6-2.5,4-4.2c1-3.3-0.1-5.5-4.1-6.9c-32.7-11.4-54.9-42.5-55.2-76.9
                             c-0.3-40.5,32.2-77.9,72.4-83c41.5-5.4,79.3,17.2,93,55.4c5.2,14.5-0.7,28.6-14.2,33.7c-13.6,5.1-27.8-1.6-33.5-15.9
                             c-10.2-25.4-40.3-32.2-58-12.9c-8.5,9.4-11.4,20.4-6.8,32.4c4.9,12.8,14.5,20.1,28.1,22.1c3,0.4,6,0.3,9,0.7
@@ -231,63 +256,64 @@
                             c-20.1-1.4-38.2-17-43.8-37.1c-5.3-18.8,2.3-40.2,18.6-52.2c27.7-20.4,65.9-9,78.8,23.6c2.6,6.5,6.8,9.1,12.1,7.1
                             c4.9-1.8,6.2-6.2,3.7-12.9c-11.3-30.6-42.5-48.4-75.6-43.2c-42.1,6.7-67.7,52.3-50.9,91c8.5,19.5,23.3,32.1,43.9,37.7
                             c8.6,2.4,10,4.1,10,12.9c0,3.5-0.3,7.1,0.1,10.6c0.7,6.8-2.4,10.6-8.1,13.9c-65.7,38-131.2,76.2-196.9,114.1
-                            c-5.4,3.1-7.9,6.8-7.7,13.1c0.4,11,0.1,21.9,0.1,32.9c0,10.2,2.3,12.6,12.4,12.6C116.8,425.9,186.2,425.9,255.5,425.9z"/>
-                        <path d="M256,409.7c-63.7,0-127.4,0-191.1,0c-10.5,0-12.9-2.3-12.9-12.7c0.1-18-2-15,14.3-24.6c57.5-33.7,114.9-67.6,172.6-100.9
+                            c-5.4,3.1-7.9,6.8-7.7,13.1c0.4,11,0.1,21.9,0.1,32.9c0,10.2,2.3,12.6,12.4,12.6C116.8,425.9,186.2,425.9,255.5,425.9z" />
+                            <path d="M256,409.7c-63.7,0-127.4,0-191.1,0c-10.5,0-12.9-2.3-12.9-12.7c0.1-18-2-15,14.3-24.6c57.5-33.7,114.9-67.6,172.6-100.9
                             c10.7-6.2,23.4-6.2,34-0.1c60.2,34.7,120,70.1,180,105.1c5,2.9,7.6,6.5,7.1,12.4c-0.3,3.9,0,7.8-0.1,11.7c-0.2,5.4-3.2,8.5-8.5,9
                             c-1.8,0.2-3.5,0.1-5.3,0.1C382.7,409.7,319.3,409.7,256,409.7z M442.4,392.5c0.2-0.4,0.5-0.8,0.7-1.3c-1.2-0.9-2.2-1.9-3.5-2.6
                             c-57.8-33.9-115.6-67.9-173.5-101.6c-6.2-3.6-13.8-3.7-19.9-0.2c-58.3,33.8-116.4,67.9-174.5,102c-1.1,0.7-2,1.8-4,3.6
-                            C193.8,392.5,318.1,392.5,442.4,392.5z"/>
-                    </g>
+                            C193.8,392.5,318.1,392.5,442.4,392.5z" />
+                        </g>
                     </svg>
 
                     {{ __('曬衣架') }}
                 </a>
             </div>
-            <div class="p-6 text-lg text-center">
+            <div class="text-2xl tracking-wider text-center font-semibold p-6 hover:fill-side-bg hover:text-side-bg">
                 <a href="/product/5" class="shrink-0 flex-col items-center text-center">
                     <?xml version="1.0" encoding="utf-8"?>
                     <!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class=" h-20 hover:fill-side_bg"
+                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" class=" h-28 hover:fill-side-bg mb-2"
                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                    <style type="text/css">
-                        .st0{fill:#174C74;}
-                    </style>
-                    <g>
-                        <path d="M43.5,468.5c0-141.5,0-283.2,0-425c141.6,0,283.2,0,425,0c0,141.6,0,283.2,0,425C326.9,468.5,185.2,468.5,43.5,468.5z
+                        <g>
+                            <path d="M43.5,468.5c0-141.5,0-283.2,0-425c141.6,0,283.2,0,425,0c0,141.6,0,283.2,0,425C326.9,468.5,185.2,468.5,43.5,468.5z
                             M196.3,179.3c85.5,0,170.5,0,255.4,0c0-39.9,0-79.5,0-119.1c-130.6,0-260.9,0-391.3,0c0,85.2,0,170.3,0,255.3
                             c39.9,0,79.5,0,119.3,0c0-1.8,0-3.3,0-4.8c0-60.2,0-120.4,0-180.6c0-1.5-0.1-3.1,0.1-4.6c0.5-4.2,4.1-7.3,8.2-7.3
                             c4.1,0,7.7,3.1,8.2,7.3c0.2,1.4,0.1,2.8,0.1,4.1C196.3,146.1,196.3,162.6,196.3,179.3z M332.7,196.4c0,85.3,0,170.4,0,255.3
                             c39.9,0,79.5,0,119.1,0c0-85.3,0-170.2,0-255.3C412.1,196.4,372.6,196.4,332.7,196.4z M60.3,451.8c85.3,0,170.3,0,255.2,0
                             c0-39.9,0-79.5,0-119.1c-85.2,0-170.1,0-255.2,0C60.3,372.4,60.3,411.9,60.3,451.8z M196.5,315.6c39.9,0,79.5,0,119.1,0
-                            c0-39.9,0-79.5,0-119.1c-39.8,0-79.4,0-119.1,0C196.5,236.2,196.5,275.7,196.5,315.6z"/>
-                        <path d="M187.9,97.4c-4.6-0.1-8.3-4-8.2-8.6c0.2-4.4,3.9-8,8.4-8c4.6,0.1,8.4,4,8.2,8.6C196.1,93.8,192.3,97.4,187.9,97.4z"/>
-                    </g>
+                            c0-39.9,0-79.5,0-119.1c-39.8,0-79.4,0-119.1,0C196.5,236.2,196.5,275.7,196.5,315.6z" />
+                            <path
+                                d="M187.9,97.4c-4.6-0.1-8.3-4-8.2-8.6c0.2-4.4,3.9-8,8.4-8c4.6,0.1,8.4,4,8.2,8.6C196.1,93.8,192.3,97.4,187.9,97.4z" />
+                        </g>
                     </svg>
 
                     {{ __('隔音地板') }}
                 </a>
             </div>
-            <div class="p-6 text-lg text-center">
+            <div class="text-2xl tracking-wider text-center font-semibold p-6 hover:fill-side-bg hover:text-side-bg">
                 <a href="/product/6" class="shrink-0 flex-col items-center text-center">
-                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  class=" h-20 hover:fill-side_bg"
-                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                    <g>
-                        <path d="M463.6,203.4c-1.9,6.6-3,13.5-5.8,19.6c-12.6,26.9-34.3,40.5-63.7,40.6c-111.5,0.2-223.1,0.1-334.6,0.1
+                    <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" class=" h-28 hover:fill-side-bg mb-2"
+                        viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                        <g>
+                            <path
+                                d="M463.6,203.4c-1.9,6.6-3,13.5-5.8,19.6c-12.6,26.9-34.3,40.5-63.7,40.6c-111.5,0.2-223.1,0.1-334.6,0.1
                             c-1.5,0-3-0.1-4.4-0.3c-3.8-0.7-6.6-4.2-6.7-8.1c0-3.7,2.6-7.3,6.2-8c2.2-0.5,4.6-0.6,6.8-0.6c109.9,0,219.8,0,329.7,0
                             c11.1,0,21.7-1.7,31.4-7.6c19.6-12,28.6-36.1,21.7-58.2c-7.1-22.4-28.3-36.7-52.4-35.1c-22,1.5-41.2,18.9-45.1,41.1
                             c-0.6,3.2-0.6,6.5-1.1,9.6c-0.9,5.4-4.2,8.1-9.1,7.8c-4.7-0.4-7.8-3.8-7.6-9.2c0.9-26.8,13.1-47,36.9-59
-                            c41.8-21.2,89.9,4.3,97.2,50.8c0.1,0.6,0.5,1.2,0.7,1.8C463.6,193.7,463.6,198.5,463.6,203.4z"/>
-                        <path d="M195,307.8c42.8,0,85.7,0,128.5,0c26.8,0,47.5,11.3,61.1,34.4c23.8,40.5-2.9,93.9-49.6,99.7c-40.3,5.1-76.2-25.4-76.6-65.1
+                            c41.8-21.2,89.9,4.3,97.2,50.8c0.1,0.6,0.5,1.2,0.7,1.8C463.6,193.7,463.6,198.5,463.6,203.4z" />
+                            <path d="M195,307.8c42.8,0,85.7,0,128.5,0c26.8,0,47.5,11.3,61.1,34.4c23.8,40.5-2.9,93.9-49.6,99.7c-40.3,5.1-76.2-25.4-76.6-65.1
                             c-0.1-7.3,5.2-11.8,11.3-9.6c4.5,1.6,5.5,5.4,5.8,9.7c0.8,16.2,7.8,29.3,20.9,38.9c17.1,12.6,40.7,12.8,58.1,0.7
                             c18-12.6,25.9-34.8,19.8-55.8c-5.9-20.2-24.5-34.9-45.7-35.9c-2.4-0.1-4.9-0.2-7.3-0.2c-86.6,0-173.3,0-259.9,0
                             c-2.1,0-4.3-0.1-6.4-0.5c-3.9-0.8-6.6-4.3-6.5-8.2c0.1-4,3.1-7.5,7.1-8.1c1.9-0.3,3.8-0.3,5.7-0.3
-                            C105.8,307.8,150.4,307.8,195,307.8z"/>
-                        <path d="M141.8,187.7c24.9,0,49.7,0,74.6,0c13.3,0,25.7-2.7,36.4-11.2c17.6-14,23.9-38.6,14.9-59.3c-8.8-20.3-30.6-33.1-51.6-30.3
+                            C105.8,307.8,150.4,307.8,195,307.8z" />
+                            <path d="M141.8,187.7c24.9,0,49.7,0,74.6,0c13.3,0,25.7-2.7,36.4-11.2c17.6-14,23.9-38.6,14.9-59.3c-8.8-20.3-30.6-33.1-51.6-30.3
                             c-23.9,3.2-41.7,20.5-44.7,43.5c-0.3,2.1-0.4,4.3-0.6,6.5c-0.5,5.3-4.1,8.9-8.8,8.6c-4.7-0.2-8.2-4-8.1-9.4c0.2-9.3,2-18.2,6-26.7
                             c12.4-26.6,39.7-42.6,67.5-39.6c30,3.2,53.1,23.6,59.9,52.9c8.5,36.5-17.2,75-54.2,80.7c-5.7,0.9-11.5,1.3-17.3,1.4
                             c-51.6,0.1-103.2,0.1-154.9,0c-2,0-4.1-0.1-6-0.5c-3.9-0.8-6.6-4.3-6.5-8.2c0.1-4,3.1-7.5,7.1-8.1c1.7-0.3,3.5-0.3,5.3-0.3
-                            C87.8,187.7,114.8,187.7,141.8,187.7z"/>
-                    </g>
+                            C87.8,187.7,114.8,187.7,141.8,187.7z" />
+                        </g>
                     </svg>
                     {{ __('V A F') }}
                 </a>
@@ -295,14 +321,14 @@
         </div>
     </div>
 
-    <div class="mx-auto sm:px-6 lg:px-8 bg-stone-200">
-        <div class="text-center pt-8 py-4 text-3xl text-sky-600 font-bold">
-            最新消息
+    <div class="mx-auto sm:px-6 lg:px-8">
+        <div class="text-center mt-12 text-4xl text-dot font-black tracking-widest">
+            最 新 消 息
         </div>
-        <div class="flex flex-wrap justify-center  py-6 ">
+        <div class="flex flex-wrap justify-center py-6 tracking-wider">
             <div class="py-4 px-4 flex-col w-80">
-                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max" >
-                <div class="font-bold py-2">
+                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max">
+                <div class="text-2xl font-semibold py-2 mt-2">
                     標題文字
                 </div>
                 <div class="py-2">
@@ -313,8 +339,8 @@
                 </div>
             </div>
             <div class="py-4 px-4 flex-col w-80">
-                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max" >
-                <div class="font-bold py-2">
+                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max">
+                <div class="text-2xl font-semibold py-2 mt-2">
                     標題文字
                 </div>
                 <div class="py-2">
@@ -325,8 +351,8 @@
                 </div>
             </div>
             <div class="py-4 px-4 flex-col w-80">
-                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max" >
-                <div class="font-bold py-2">
+                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max">
+                <div class="text-2xl font-semibold py-2 mt-2">
                     標題文字
                 </div>
                 <div class="py-2">
@@ -337,23 +363,63 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 
-    <div class="h-contact-us-height relative">
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-            <div class="">
-                <div class="text-center py-8 text-2xl  font-bold">
-                    DIY小學堂
-                </div>
-                <div class="py-8 px-4 w-64 text-center">
-                    <a href="{{ route('unstructured') }}" class="rounded bg-sky-800 text-white text-xl px-16 py-2">
-                        點我進入
-                    </a>
-                </div>
-            </div>
+    <div class="bg-contact-us-banner bg-no-repeat bg-left-top h-96 text-center">
+        <div class="text-5xl pt-24 font-bold tracking-widest">
+            D I Y小學堂
         </div>
-        <img src="/img/picture/index/contact-us-background.jpg" class="opacity-70 object-cover h-full w-full"/>
+
+    <div class="justify-items-center grid"><div class="p-3 rounded-md bg-dot text-white text-3xl mt-10 w-56">
+            <a href="{{ route('unstructured') }}">
+                點我進入
+            </a></div></div>
+        
+
+
     </div>
-    
+
 </x-app-layout>
+
+<script>
+    /* Carousel */
+    const carouselItems = [{
+            position: 0,
+            el: document.getElementById('carousel-item-1')
+        },
+        {
+            position: 1,
+            el: document.getElementById('carousel-item-2')
+        },
+        {
+            position: 2,
+            el: document.getElementById('carousel-item-3')
+        },
+    ];
+
+    const carouselOptions = {
+        activeItemPosition: 1,
+        interval: 5000,
+
+        indicators: {
+            activeClasses: 'bg-white dark:bg-gray-800',
+            inactiveClasses: 'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
+            items: [{
+                    position: 0,
+                    el: document.getElementById('carousel-indicator-1')
+                },
+                {
+                    position: 1,
+                    el: document.getElementById('carousel-indicator-2')
+                },
+                {
+                    position: 2,
+                    el: document.getElementById('carousel-indicator-3')
+                },
+            ]
+        },
+    };
+    const carousel = new Carousel(carouselItems, carouselOptions);
+    carousel.cycle();
+</script>

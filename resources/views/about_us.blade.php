@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class=" h-96 relative">
+    <div class="h-72 relative">
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-5/12">
-            <div class="text-center py-12 text-4xl   text-white tracking-widest font-black bg-black/50">
+            <div class="text-center py-12 text-5xl  text-white tracking-widest font-black bg-black/50">
                 關於我們
             </div>
         </div>
@@ -25,7 +25,7 @@
         
         <div class="flex-col space-y-12 w-full">
             {{-- 第1間企業 --}}
-            <div class="flex w-full space-x-12 justify-between">
+            <div class="lg:flex w-full space-x-12 justify-between">
                 <div class="w-full">
                     <div class="flex text-center py-2 my-4 text-2xl w-1/2  text-white tracking-widest font-bold bg-dot">
                         <div class="flex mx-4 justify-center items-center text-center w-full bg-dot">
@@ -66,7 +66,7 @@
             </div>
             {{-- 第2間企業 --}}
 
-            <div class="flex w-full space-x-12 justify-between">
+            <div class="lg:flex w-full space-x-12 justify-between">
                 <div class="w-full">
                     <div class="flex text-center py-2 my-4 text-2xl w-1/2  text-white tracking-widest font-bold bg-dot">
                         <div class="flex mx-4 justify-center items-center text-center w-full bg-dot">
@@ -103,7 +103,7 @@
             </div>
 
             {{-- 第3間企業 --}}
-            <div class="flex w-full space-x-12 justify-between">
+            <div class="lg:flex w-full space-x-12 justify-between">
                 <div class="w-full">
                     <div class="flex text-center py-2 my-4 text-2xl w-1/2  text-white tracking-widest font-bold bg-dot">
                         <div class="flex mx-4 justify-center items-center text-center w-full bg-dot">

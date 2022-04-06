@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class=" h-96 relative">
+    <div class="h-72 relative">
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-5/12">
-            <div class="text-center py-12 text-4xl   text-white tracking-widest font-black bg-black/50">
+            <div class="text-center py-12 text-5xl   text-white tracking-widest font-black bg-black/50">
                 {{ $product_type->find($id)->main_product_type_id !== null ? $product_type->find($product_type->find($id)->main_product_type_id)->name.' > ' : ''}} {{ $product_type->find($id)->name }}
             </div>
         </div>
@@ -71,8 +71,8 @@
         <div class="flex flex-wrap">
             @foreach ($products as $p)
             <div class="flex-col space-y-4 m-8">
-                <img src="/img/picture/product/{{$p->image_path}}.jpg" class=" w-60 h-75" alt="">
-                <div class=" font-black text-xl">{{ $p->name }}</div> 
+                <a href="{{ route("product_details",$p->id)}}"><img src="/img/picture/product/{{$p->image_path}}.jpg" class=" w-60 h-75" alt="">
+                <div class=" font-black text-xl mt-3">{{ $p->name }}</div></a> 
                 <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
                 <div class="text-gray-400">{{ $p->content }}</div>
                 <div class="text-gray-400">{{ $p->material }}</div>

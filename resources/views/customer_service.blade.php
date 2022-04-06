@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class=" h-96 relative">
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-5/12">
-            <div class="text-center py-12 text-4xl   text-white tracking-widest font-black bg-black/50">
+            <div class="text-center py-12 text-5xl   text-white tracking-widest font-black bg-black/50">
                 客服中心
             </div>
         </div>
@@ -9,14 +9,14 @@
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col">
         <div class="">
-            <div class="text-md text-gray-400">首頁 > 客服中心 > 維修通報</div>
+            <div class="text-md text-gray-500">首頁 > 客服中心 > 維修通報</div>
         </div>
         @if (session()->has('notice'))
             <div class="bg-red-500 text-center">
                 <p class="text-gray-200">{{ session()->get('notice') }}</p>
             </div>
         @endif
-        <p class="text-blue-500 font-bold text-2xl tracking-wider text-center">維修通報</p>
+        <p class="text-dot font-bold text-3xl tracking-wider text-center">維修通報</p>
         <form class="max-w-xl mx-auto" method="POST" action="{{ route('fix_report') }}">
             @csrf
             <div class="mb-6">

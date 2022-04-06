@@ -32,7 +32,7 @@ html {
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-family: Noto Sans TC, sans-serif; /* 4 */
 }
 
 /*
@@ -717,9 +717,17 @@ input[type=file]::file-selector-button:hover {
   margin-left: 1rem;
   margin-right: 1rem;
 }
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
+}
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .my-10 {
   margin-top: 2.5rem;
@@ -731,11 +739,14 @@ input[type=file]::file-selector-button:hover {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
-.mb-3 {
-  margin-bottom: 0.75rem;
+.mt-12 {
+  margin-top: 3rem;
 }
-.mb-4 {
-  margin-bottom: 1rem;
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
 }
 .mt-4 {
   margin-top: 1rem;
@@ -746,8 +757,17 @@ input[type=file]::file-selector-button:hover {
 .ml-4 {
   margin-left: 1rem;
 }
+.mr-1 {
+  margin-right: 0.25rem;
+}
+.mr-2 {
+  margin-right: 0.5rem;
+}
 .-mr-2 {
   margin-right: -0.5rem;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
 }
 .mt-6 {
   margin-top: 1.5rem;
@@ -755,14 +775,11 @@ input[type=file]::file-selector-button:hover {
 .ml-1 {
   margin-left: 0.25rem;
 }
+.mb-4 {
+  margin-bottom: 1rem;
+}
 .-mb-px {
   margin-bottom: -1px;
-}
-.mr-2 {
-  margin-right: 0.5rem;
-}
-.mt-2 {
-  margin-top: 0.5rem;
 }
 .mt-8 {
   margin-top: 2rem;
@@ -779,9 +796,6 @@ input[type=file]::file-selector-button:hover {
 .mr-3 {
   margin-right: 0.75rem;
 }
-.mt-10 {
-  margin-top: 2.5rem;
-}
 .ml-6 {
   margin-left: 1.5rem;
 }
@@ -796,6 +810,9 @@ input[type=file]::file-selector-button:hover {
 }
 .mr-6 {
   margin-right: 1.5rem;
+}
+.mt-56 {
+  margin-top: 14rem;
 }
 .mt-5 {
   margin-top: 1.25rem;
@@ -854,23 +871,26 @@ input[type=file]::file-selector-button:hover {
 .h-5 {
   height: 1.25rem;
 }
-.h-16 {
-  height: 4rem;
-}
-.h-20 {
-  height: 5rem;
+.h-28 {
+  height: 7rem;
 }
 .h-login-bg {
   height: 50rem;
 }
-.h-7 {
-  height: 1.75rem;
+.h-20 {
+  height: 5rem;
+}
+.h-16 {
+  height: 4rem;
 }
 .h-12 {
   height: 3rem;
 }
 .h-6 {
   height: 1.5rem;
+}
+.h-9 {
+  height: 2.25rem;
 }
 .h-0\.5 {
   height: 0.125rem;
@@ -889,6 +909,21 @@ input[type=file]::file-selector-button:hover {
 }
 .h-24 {
   height: 6rem;
+}
+.h-64 {
+  height: 16rem;
+}
+.h-32 {
+  height: 8rem;
+}
+.h-1\/6 {
+  height: 16.666667%;
+}
+.h-2\/6 {
+  height: 33.333333%;
+}
+.h-80 {
+  height: 20rem;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -919,6 +954,11 @@ input[type=file]::file-selector-button:hover {
 .w-16 {
   width: 4rem;
 }
+.w-fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
 .w-3 {
   width: 0.75rem;
 }
@@ -927,6 +967,9 @@ input[type=file]::file-selector-button:hover {
 }
 .w-5 {
   width: 1.25rem;
+}
+.w-56 {
+  width: 14rem;
 }
 .w-6 {
   width: 1.5rem;
@@ -963,29 +1006,6 @@ input[type=file]::file-selector-button:hover {
 }
 .w-48 {
   width: 12rem;
-}
-.w-28 {
-  width: 7rem;
-}
-.w-32 {
-  width: 8rem;
-}
-.w-36 {
-  width: 9rem;
-}
-.w-96 {
-  width: 24rem;
-}
-.w-52 {
-  width: 13rem;
-}
-.w-56 {
-  width: 14rem;
-}
-.w-fit {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1097,6 +1117,9 @@ input[type=file]::file-selector-button:hover {
 .justify-between {
   justify-content: space-between;
 }
+.justify-items-center {
+  justify-items: center;
+}
 .gap-4 {
   gap: 1rem;
 }
@@ -1120,11 +1143,6 @@ input[type=file]::file-selector-button:hover {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.75rem * var(--tw-space-x-reverse));
   margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.space-x-8 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(2rem * var(--tw-space-x-reverse));
-  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1195,6 +1213,9 @@ input[type=file]::file-selector-button:hover {
 .rounded {
   border-radius: 0.25rem;
 }
+.rounded-xl {
+  border-radius: 0.75rem;
+}
 .rounded-t-lg {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
@@ -1240,13 +1261,13 @@ input[type=file]::file-selector-button:hover {
 .border-transparent {
   border-color: transparent;
 }
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
-}
 .border-indigo-400 {
   --tw-border-opacity: 1;
   border-color: rgb(141 162 251 / var(--tw-border-opacity));
+}
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 .bg-black\/50 {
   background-color: rgb(0 0 0 / 0.5);
@@ -1274,17 +1295,8 @@ input[type=file]::file-selector-button:hover {
 .bg-white\/30 {
   background-color: rgb(255 255 255 / 0.3);
 }
-.bg-stone-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(231 229 228 / var(--tw-bg-opacity));
-}
-.bg-sky-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(7 89 133 / var(--tw-bg-opacity));
-}
-.bg-gray-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+.bg-white\/50 {
+  background-color: rgb(255 255 255 / 0.5);
 }
 .bg-gray-100 {
   --tw-bg-opacity: 1;
@@ -1313,17 +1325,21 @@ input[type=file]::file-selector-button:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(250 202 21 / var(--tw-bg-opacity));
 }
-.bg-backstage_bg {
-  --tw-bg-opacity: 1;
-  background-color: rgb(236 241 255 / var(--tw-bg-opacity));
-}
-.bg-side_bg {
+.bg-side-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(27 61 92 / var(--tw-bg-opacity));
 }
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.bg-backstage-bg {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 241 255 / var(--tw-bg-opacity));
+}
+.bg-sky-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(7 89 133 / var(--tw-bg-opacity));
 }
 .bg-sky-900 {
   --tw-bg-opacity: 1;
@@ -1364,8 +1380,14 @@ input[type=file]::file-selector-button:hover {
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
+.bg-contact-us-banner {
+  background-image: url('/img/picture/index/contact-us-background.jpg');
+}
 .bg-cover {
   background-size: cover;
+}
+.bg-left-top {
+  background-position: left top;
 }
 .bg-center {
   background-position: center;
@@ -1392,6 +1414,9 @@ input[type=file]::file-selector-button:hover {
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-3 {
+  padding: 0.75rem;
 }
 .p-4 {
   padding: 1rem;
@@ -1429,9 +1454,9 @@ input[type=file]::file-selector-button:hover {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 .py-1 {
   padding-top: 0.25rem;
@@ -1457,9 +1482,9 @@ input[type=file]::file-selector-button:hover {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 }
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .py-5 {
   padding-top: 1.25rem;
@@ -1473,9 +1498,9 @@ input[type=file]::file-selector-button:hover {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
-.px-16 {
-  padding-left: 4rem;
-  padding-right: 4rem;
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 .px-20 {
   padding-left: 5rem;
@@ -1485,14 +1510,19 @@ input[type=file]::file-selector-button:hover {
   padding-left: 6rem;
   padding-right: 6rem;
 }
-.pt-8 {
-  padding-top: 2rem;
+.px-36 {
+  padding-left: 9rem;
+  padding-right: 9rem;
+}
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.pt-24 {
+  padding-top: 6rem;
 }
 .pt-4 {
   padding-top: 1rem;
-}
-.pb-1 {
-  padding-bottom: 0.25rem;
 }
 .pt-6 {
   padding-top: 1.5rem;
@@ -1502,6 +1532,9 @@ input[type=file]::file-selector-button:hover {
 }
 .pl-3 {
   padding-left: 0.75rem;
+}
+.pt-8 {
+  padding-top: 2rem;
 }
 .pl-10 {
   padding-left: 2.5rem;
@@ -1530,14 +1563,8 @@ input[type=file]::file-selector-button:hover {
 .text-right {
   text-align: right;
 }
-.font-mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-.font-serif {
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-}
 .font-sans {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Noto Sans TC, sans-serif;
 }
 .text-4xl {
   font-size: 2.25rem;
@@ -1559,6 +1586,10 @@ input[type=file]::file-selector-button:hover {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1570,6 +1601,10 @@ input[type=file]::file-selector-button:hover {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 .font-black {
   font-weight: 900;
@@ -1585,6 +1620,9 @@ input[type=file]::file-selector-button:hover {
 }
 .font-semibold {
   font-weight: 600;
+}
+.font-light {
+  font-weight: 300;
 }
 .font-normal {
   font-weight: 400;
@@ -1602,10 +1640,10 @@ input[type=file]::file-selector-button:hover {
   line-height: 1.25rem;
 }
 .tracking-widest {
-  letter-spacing: 0.1em;
+  letter-spacing: .3em;
 }
 .tracking-wider {
-  letter-spacing: 0.05em;
+  letter-spacing: .25em;
 }
 .text-white {
   --tw-text-opacity: 1;
@@ -1615,17 +1653,21 @@ input[type=file]::file-selector-button:hover {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
-.text-side_bg {
-  --tw-text-opacity: 1;
-  color: rgb(27 61 92 / var(--tw-text-opacity));
-}
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(63 131 248 / var(--tw-text-opacity));
 }
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+.text-dot {
+  --tw-text-opacity: 1;
+  color: rgb(51 116 174 / var(--tw-text-opacity));
 }
 .text-gray-900 {
   --tw-text-opacity: 1;
@@ -1634,10 +1676,6 @@ input[type=file]::file-selector-button:hover {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-.text-sky-600 {
-  --tw-text-opacity: 1;
-  color: rgb(2 132 199 / var(--tw-text-opacity));
 }
 .text-green-600 {
   --tw-text-opacity: 1;
@@ -1651,9 +1689,9 @@ input[type=file]::file-selector-button:hover {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
-.text-gray-500 {
+.text-sky-600 {
   --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
+  color: rgb(2 132 199 / var(--tw-text-opacity));
 }
 .text-gray-300 {
   --tw-text-opacity: 1;
@@ -1666,6 +1704,10 @@ input[type=file]::file-selector-button:hover {
 .text-gray-800 {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+.text-side-bg {
+  --tw-text-opacity: 1;
+  color: rgb(27 61 92 / var(--tw-text-opacity));
 }
 .text-green-500 {
   --tw-text-opacity: 1;
@@ -1785,23 +1827,14 @@ input[type=file]::file-selector-button:hover {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-.duration-700 {
-  transition-duration: 700ms;
+.duration-300 {
+  transition-duration: 300ms;
 }
 .duration-75 {
   transition-duration: 75ms;
 }
 .duration-200 {
   transition-duration: 200ms;
-}
-.duration-300 {
-  transition-duration: 300ms;
-}
-.duration-100 {
-  transition-duration: 100ms;
-}
-.duration-500 {
-  transition-duration: 500ms;
 }
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1812,12 +1845,13 @@ input[type=file]::file-selector-button:hover {
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
-.ease-linear {
-  transition-timing-function: linear;
-}
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
@@ -1830,6 +1864,10 @@ input[type=file]::file-selector-button:hover {
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+.hover\:bg-dot:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 116 174 / var(--tw-bg-opacity));
 }
 .hover\:bg-indigo-600:hover {
   --tw-bg-opacity: 1;
@@ -1847,11 +1885,12 @@ input[type=file]::file-selector-button:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(240 82 82 / var(--tw-bg-opacity));
 }
-.hover\:fill-slate-500:hover {
-  fill: #64748b;
-}
-.hover\:fill-side_bg:hover {
+.hover\:fill-side-bg:hover {
   fill: #1B3D5C;
+}
+.hover\:text-side-bg:hover {
+  --tw-text-opacity: 1;
+  color: rgb(27 61 92 / var(--tw-text-opacity));
 }
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;
@@ -1864,10 +1903,6 @@ input[type=file]::file-selector-button:hover {
 .hover\:text-gray-600:hover {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-.hover\:text-side_bg:hover {
-  --tw-text-opacity: 1;
-  color: rgb(27 61 92 / var(--tw-text-opacity));
 }
 .hover\:text-gray-700:hover {
   --tw-text-opacity: 1;
@@ -2038,13 +2073,16 @@ input[type=file]::file-selector-button:hover {
 .dark .dark\:bg-gray-800\/30 {
   background-color: rgb(31 41 55 / 0.3);
 }
-.dark .dark\:bg-gray-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
-}
 .dark .dark\:bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+.dark .dark\:bg-gray-800\/50 {
+  background-color: rgb(31 41 55 / 0.5);
+}
+.dark .dark\:bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 .dark .dark\:bg-gray-900 {
   --tw-bg-opacity: 1;
@@ -2090,6 +2128,10 @@ input[type=file]::file-selector-button:hover {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(17 24 39 / var(--tw-ring-opacity));
 }
+.dark .dark\:hover\:bg-gray-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
 .dark .dark\:hover\:bg-gray-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
@@ -2097,10 +2139,6 @@ input[type=file]::file-selector-button:hover {
 .dark .dark\:hover\:bg-gray-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
-}
-.dark .dark\:hover\:bg-gray-800:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 .dark .dark\:hover\:text-white:hover {
   --tw-text-opacity: 1;
@@ -2169,10 +2207,6 @@ input[type=file]::file-selector-button:hover {
     margin-top: 0px;
   }
 
-  .sm\:mt-16 {
-    margin-top: 4rem;
-  }
-
   .sm\:ml-3 {
     margin-left: 0.75rem;
   }
@@ -2195,6 +2229,10 @@ input[type=file]::file-selector-button:hover {
 
   .sm\:hidden {
     display: none;
+  }
+
+  .sm\:h-32 {
+    height: 8rem;
   }
 
   .sm\:h-64 {
@@ -2345,9 +2383,19 @@ input[type=file]::file-selector-button:hover {
     text-align: right;
   }
 
+  .sm\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
   .sm\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 @media (min-width: 768px) {
@@ -2381,6 +2429,10 @@ input[type=file]::file-selector-button:hover {
 
   .md\:h-auto {
     height: auto;
+  }
+
+  .md\:h-32 {
+    height: 8rem;
   }
 
   .md\:w-auto {
@@ -2430,12 +2482,20 @@ input[type=file]::file-selector-button:hover {
 }
 @media (min-width: 1024px) {
 
-  .lg\:mt-12 {
-    margin-top: 3rem;
+  .lg\:mt-24 {
+    margin-top: 6rem;
   }
 
-  .lg\:h-40 {
-    height: 10rem;
+  .lg\:flex {
+    display: flex;
+  }
+
+  .lg\:h-52 {
+    height: 13rem;
+  }
+
+  .lg\:h-32 {
+    height: 8rem;
   }
 
   .lg\:px-8 {
@@ -2446,6 +2506,11 @@ input[type=file]::file-selector-button:hover {
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 @media (min-width: 1280px) {

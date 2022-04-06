@@ -1,9 +1,9 @@
-<div class="mx-auto lg:h-40 sm:h-80 w-auto bg-sky-800 text-white">
+<div class="mx-auto lg:h-52 sm:h-80 w-auto bg-sky-800 text-white px-8">
     <div class="max-w-7xl mx-auto py-4 flex justify-between ">
         
         <div class="flex  flex-wrap">
-            <div class="flex-col w-40">
-                <div class="font-bold">產品介紹</div>
+            <div class="flex-col w-56">
+                <div class="font-bold text-xl pt-4">產品介紹</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
                         <a class="mr-2" href="/product/1">玻璃系列</a>
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="flex-col w-40 xl:ml-12">
-                <div class="font-bold">關於我們</div>
+                <div class="font-bold text-xl pt-4">關於我們</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
                         <a class="mr-2" href="{{ route('about_us') }}">公司歷史</a>
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="flex-col w-40">
-                <div class="font-bold">客服中心</div>
+                <div class="font-bold text-xl pt-4">客服中心</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
                         <a class="mr-2" href="{{ route('unstructured') }}">DIY維護教學</a>
@@ -44,29 +44,30 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-col w-40">
-                <div class="font-bold">後台登入</div>
+            <div class="flex-col w-40 pt-4">
+                <div class="font-bold text-xl">後台登入</div>
             </div>
         </div>
-        <div class="lg:mt-12 sm:mt-16 flex-col">
+        <div class="mt-56 lg:mt-24 flex-col">
             <div class="flex">
                 <p>堡家麗</p><a href="https://www.facebook.com/%E5%A0%A1%E5%AE%B6%E9%BA%97-101540544811432/" target="_blank"><img src="/img/icon/fb.svg" class=" pl-2 h-6 w-6"></a>
             </div>
             
-            <p>服務時間：09:00-18:00</p>
-            <p>連絡電話：07-123-4567</p>
+            <p>服務時間： 09:00-18:00</p>
+            <p>連絡電話： 07-123-4567</p>
         </div>
     </div>
 </div>
-<div class="h-16 xl:h-10 bg-sky-900">
-    <div class="max-w-7xl mx-auto py-2 flex justify-between items-center text-white">
+
+<div class="h-16 xl:h-10 bg-sky-900 px-8">
+    <div class="max-w-7xl mx-auto py-2 justify-between items-center text-white lg:flex">
         <div class="">
-            Copyright © 堡家麗. All Rights Reserved.
+            Copyright © 堡家麗.&nbsp;&nbsp;All Rights Reserved.
         </div>
         <div class="">
-            <a href="{{ route('privacy_policy') }}">隱私權政策</a>
+            <a href="{{ route('privacy_policy') }}" target="_blank">隱私權政策</a>
             |
-            <a href="{{ route('user_policy') }}">使用者條款</a>
+            <a href="{{ route('user_policy') }}" target="_blank">使用者條款</a>
         </div>
     </div>
 </div>
