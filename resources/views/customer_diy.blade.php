@@ -9,7 +9,7 @@
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col">
         <div class="">
-            <div class="text-md text-gray-400">首頁 > 客服中心 > DIY維護教學</div>
+            <div class="text-md text-gray-500 pl-4">首頁 > 客服中心 > DIY維護教學</div>
         </div>
         <p class="text-blue-500 font-bold text-2xl tracking-wider text-center">DIY維護教學</p>
         <div class="flex flex-wrap justify-center  py-6 ">

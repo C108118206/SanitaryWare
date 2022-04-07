@@ -9,7 +9,7 @@
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col">
         <div class="">
-            <div class="text-md text-gray-500">首頁 > 客服中心 > 維修通報</div>
+            <div class="text-md text-gray-500 pl-4">首頁 > 客服中心 > 維修通報</div>
         </div>
         @if (session()->has('notice'))
             <div class="bg-red-500 text-center h-14  flex justify-evenly items-center">
@@ -18,7 +18,7 @@
         @endif
         <p class="text-side-bg font-bold text-4xl tracking-wider text-center">維修通報</p>
 
-        <form class="w-full max-w-xl mx-auto" method="POST" action="{{ route('fix_report') }}">
+        <form class="w-full max-w-xl mx-auto px-8" method="POST" action="{{ route('fix_report') }}">
             @csrf
             <div class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3">

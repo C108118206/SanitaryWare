@@ -9,7 +9,7 @@
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col">
         <div class="">
-            <div class="text-md text-gray-400">首頁 > 關於我們</div>
+            <div class="text-md text-gray-500 pl-4">首頁 > 關於我們</div>
         </div>
        
         <div class="text-center text-side_bg font-extrabold text-3xl py-6 tracking-widest">品牌故事</div>
