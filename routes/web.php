@@ -34,12 +34,8 @@ Route::get('/about_us', function () {
     return view('about_us');
 })->name('about_us');
 
-Route::get('/fix', function () {
-    return view('fix');
-})->name('fix');
-
 Route::get('/customer_service', function () {
-    return view('fix');
+    return view('customer_service');
 })->name('customer_service');
 
 Route::post('/customer_service',[App\Http\Controllers\customerController::class,'fix_report']

@@ -95,7 +95,7 @@ class customerController extends Controller
 
         fix::create($content);
 
-        return redirect()->route('fix')->with('notice','已成功建立維修通報表單');
+        return redirect()->route('customer_service')->with('notice','已成功建立維修通報表單');
     }
     /**
      * Store a newly created resource in storage.
