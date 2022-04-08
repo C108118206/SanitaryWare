@@ -14,8 +14,8 @@
 
         <div class="pt-4 px-8 tracking-wide">
         @foreach ($news as $new)
-            <div class="text-side-bg font-bold text-2xl mt-4">{{ $new->title }}</div>
-            <div class="font-medium text-lg py-2">{{ $new->description }}
+            <div class="text-side-bg font-bold text-4xl my-4">{{ $new->title }}</div>
+            <div class="font-medium text-xl py-2">{{ $new->description }}
             </div>
         <div class="flex justify-center my-8">
             <img class="w-max block" src="{{$new->photo_path ? "/storage/" . str_replace('public/', '', $new->photo_path): "" }}"></div>
