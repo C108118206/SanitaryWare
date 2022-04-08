@@ -356,7 +356,7 @@
 
         <div class="justify-items-center grid">
             <div class="p-3 rounded-md bg-dot text-white text-3xl mt-10 w-56">
-                <a href="{{ route('unstructured') }}">
+                <a href="{{ route('customer_diy') }}">
                     點 我 進 入
                 </a>
             </div>

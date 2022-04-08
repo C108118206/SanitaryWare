@@ -13,7 +13,7 @@
         </div>
 
         <div class="lg:flex">
-            <img src="/img/picture/product/{{$product->image_path}}.jpg" class="h-72" alt="">
+            <img src="{{ mb_strlen($product->image_path)!=8 ? '/storage/' . str_replace('public/', '', $product->image_path) : '/img/picture/product/' . $product->image_path . '.jpg' }}" class="h-72" alt="">
             <div class="flex-col space-y-4 m-8 w-full">
                 <div class=" font-black text-2xl text-side-bg">{{ $product->name }}</div> 
                 <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
@@ -37,7 +37,7 @@
         <div id="myTabContent">
             <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <p class="text-gray-500 dark:text-gray-400">
-                    {{ $product->details_introduction }}
+                    {!! $product->details_introduction !!}
                 </p>
             </div>
             <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">

@@ -9,7 +9,7 @@ class fix extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['declarer','title','content','launch_date','takedown_date','phone','status'];
+    protected $fillable = ['declarer','title','content','phone','status'];
 
     
 }

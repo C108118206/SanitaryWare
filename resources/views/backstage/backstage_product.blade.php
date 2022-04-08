@@ -2,10 +2,45 @@
 @extends('layouts.backstage')
 
 @section('content')
+
+    <script>
+        function product_clear() {
+            $('#id').val('0');
+            $('#name').val('');
+            $('#content').val('');
+            $('#size').val('');
+            $('#material').val('');
+            $('#details_introduction').val('');
+            $('#Precautions').val('');
+        }
+
+        function get_product_value(id, url) {
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#id').val(id);
+                    $('#name').val(data.name);
+                    $('#content').val(data.content);
+                    $('#size').val(data.size);
+                    $('#material').val(data.material);
+                    $('#Precautions').val(data.Precautions);
+                    YourEditor.setData(data.details_introduction)
+                },
+
+                error: function() {
+                    alert("資料更新失敗");
+                }
+            });
+        }
+    </script>
+
+
     <!-- Main modal -->
     <div id="authentication-modal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+        <div class="relative p-4 w-full max-w-3xl h-full md:h-auto">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 px-8">
                 <div class="flex justify-end p-2">
@@ -21,20 +56,26 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form action="{{ route('backstage-product-store') }}" method="POST">
+                <form action="{{ route('backstage-product-store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
+                    <input type="hidden" id="id" name="id" value="">
+                    <input name="product_type_id" hidden value="{{ $product[0]->product_type_id }}" type="text"
+                        id="product_type_id" required />
+
                     <div class="">
                         <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品名稱</label>
                         <input name="name" type="text" id="name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
                     </div>
+
                     <div class="">
-                        <label for="content" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">內容介紹</label>
-                        <textarea name="content" type="text" id="content"
+                        <label for="content" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品說明</label>
+                        <input name="content" type="text" id="content"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required></textarea>
+                            required>
                     </div>
+
                     <div class="">
                         <label for="size" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品大小</label>
                         <input name="size" type="text" id="size"
@@ -47,52 +88,30 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
                     </div>
-                    <label for="launch_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期</label>
-                    <div class="relative">
-                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <input datepicker datepicker-autohide datepicker-format="yyyy-mm-dd" type="text" id="launch_date"
-                            name="launch_date"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Select date">
-                    </div>
-                    <label for="takedown_date"
-                        class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">下架日期</label>
-                    <div class="relative">
-                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                        <input datepicker datepicker-autohide datepicker-format="yyyy-mm-dd" type="text" id="takedown_date"
-                            name="takedown_date"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Select date">
+
+
+                    <div class="form-group">
+                        <label for="image" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品圖片</label>
+                        <input name="image" type="file" id="image"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
 
                     <div class="">
-                        <label for="image_path"
-                            class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">照片檔名</label>
-                        <input name="image_path" type="text" id="image_path"
+                        <label for="Precautions"
+                            class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">注意事項</label>
+                        <input name="Precautions" type="text" id="Precautions"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
                     </div>
-                    <div class="hidden">
-                        <label for="product_type_id"
-                            class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">詳細介紹</label>
-                        <input name="product_type_id" value="{{ $product_type->id }}" type="text" id="product_type_id"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required></textarea>
+
+
+                    <div class="">
+                        <label for="details_introduction"
+                            class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">內容介紹</label>
+                        <textarea name="details_introduction" type="text" id="details_introduction"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
                     </div>
+
                     <span class="block my-5">目前時間 : {{ Carbon::now('Asia/Taipei') }}</span>
 
 
@@ -126,7 +145,8 @@
             <div class=" p-4">
                 <form action="{{ route('backstage-product-find') }}" method="post" class="flex justify-between my-4">
                     @csrf
-                    <input name="product_type_id" hidden value="7" type="text" id="product_type_id"
+                    <input name="product_type_id" hidden value="{{ $product[0]->product_type_id }}" type="text"
+                        id="product_type_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required />
 
@@ -176,7 +196,7 @@
                     <div class=" flex w-max justify-end">
                         <button
                             class="block text-black bg-yellow-300 hover:bg-dot font-medium rounded-lg text-xl px-5 py-2.5 text-center"
-                            type="button" data-modal-toggle="authentication-modal">
+                            type="button" data-modal-toggle="authentication-modal" onclick="product_clear()">
                             + 新增
                         </button>
                     </div>
@@ -196,10 +216,13 @@
                                     產品名稱
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    上架日期
+                                    說明
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    下架日期
+                                    大小
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    材質
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     上傳圖片
@@ -215,7 +238,9 @@
                                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <th scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-
+                                        <a data-modal-toggle="authentication-modal"
+                                            onclick="get_product_value({{ $p->product_id }},'{{ route('get-product-json', ['id' => $p->product_id]) }}')">編輯</a>
+                                        ｜ <a href="{{ route('backstage-product-drop', ['id' => $p->product_id]) }}">刪除</a>
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ $p->product_id }}
@@ -224,13 +249,18 @@
                                         {{ $p->product_name }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $p->product_launch_date }}
+                                        {{ $p->product_content }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $p->product_takedown_date }}
+                                        {{ $p->product_size }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $p->image_path }}
+                                        {{ $p->product_material }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <img class="w-32"
+                                            src="{{ mb_strlen($p->image_path) != 8? '/storage/' . str_replace('public/', '', $p->image_path): '/img/picture/product/' . $p->image_path . '.jpg' }}"
+                                            alt="">
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $p->product_created_at }}
@@ -245,4 +275,17 @@
             </div>
         </div>
     </div>
+
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+    <script>
+        let YourEditor;
+        ClassicEditor
+            .create(document.querySelector('#details_introduction'))
+            .then(editor => {
+                window.editor = editor;
+                YourEditor = editor;
+            })
+    </script>
+
 @stop

@@ -59,8 +59,8 @@
             <div class="flex flex-wrap justify-center mt-8">
                 @foreach ($products as $p)
                     <div class="flex-col space-y-4 m-8 lg:w-1/6">
-                        <a href="{{ route('product_details', $p->id) }}"><img
-                                src="/img/picture/product/{{ $p->image_path }}.jpg" alt="">
+                        <a href="{{ route('product_details', $p->id) }}"><img 
+                            src="{{ mb_strlen($p->image_path)!=8 ? '/storage/' . str_replace('public/', '', $p->image_path) : '/img/picture/product/' . $p->image_path . '.jpg' }}" alt="">
                             <div class=" font-black text-xl mt-3 tracking-wider">{{ $p->name }}</div>
                         </a>
                         <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>

@@ -79,7 +79,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/backstage/product/store',[App\Http\Controllers\productController::class,'store']
     )->name('backstage-product-store');
 
-    Route::post('/backstage/product/drop',[App\Http\Controllers\productController::class,'destroy']
+    Route::get('/backstage/product/drop/{id}',[App\Http\Controllers\productController::class,'destroy']
     )->name('backstage-product-drop');
 
     Route::post('/backstage/product/find',[App\Http\Controllers\productController::class,'find_product']
@@ -147,6 +147,10 @@ Route::group(['middleware' => 'auth'], function(){
     //AJAX維修通報(編輯抓值)
     Route::get('/backstage/fix/get/{id}',[App\Http\Controllers\customerController::class,'get_fix_value']
     )->name('get-fix-json');
+
+    //AJAX產品(編輯抓值)
+    Route::get('/backstage/product/get/{id}',[App\Http\Controllers\productController::class,'get_product_value']
+    )->name('get-product-json');
 
     //AJAX讀取數量
     Route::get('/backstage/get',[App\Http\Controllers\customerController::class,'get_nav_value']

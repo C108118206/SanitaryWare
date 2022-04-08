@@ -115,6 +115,8 @@
             <div class=" p-4">
                 <form action="{{ route('backstage-fix-find') }}" method="post" class="flex justify-between my-4">
                     @csrf
+                    <input type="hidden" id="id" name="id" value="">
+
                     <div class="flex">
                         <label for="name" class="bg-slate-200 text-xl py-2.5 px-2">名稱</label>
                         <input type="text" class="" name="name" id="name">
@@ -162,7 +164,7 @@
                     <div class=" flex w-max justify-end">
                         <button
                             class="block text-black bg-yellow-300 hover:bg-dot font-medium rounded-lg text-xl px-5 py-2.5 text-center"
-                            type="button" data-modal-toggle="authentication-modal" onclick="news_clear()">
+                            type="button" data-modal-toggle="authentication-modal" onclick="fix_clear()">
                             + 新增
                         </button>
                     </div>
