@@ -13,15 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/', [App\Http\Controllers\newsController::class,'index'])->name('dashboard');
 
-// dashboard 上方nav
-
-Route::get('/news', function () {
-    return view('news');
-})->name('news');
+Route::get('/news/{id?}', [App\Http\Controllers\newsController::class,'show'])->name('news');
 
 Route::get('/product/{id?}', [App\Http\Controllers\productController::class,'front_product_index']
 )->name('product');
@@ -123,6 +117,13 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::post('/backstage/news/find',[App\Http\Controllers\newsController::class,'find']
     )->name('backstage-news-find');
+
+    Route::get('/backstage/news/drop/{id}',[App\Http\Controllers\newsController::class,'destroy']
+    )->name('backstage-news-drop');
+
+    //AJAX編輯最新消息
+    Route::get('/backstage/news/get/{id}',[App\Http\Controllers\newsController::class,'getValue']
+    )->name('get-news-json');
 
     Route::get('/backstage/product',[App\Http\Controllers\productController::class,'index']
     )->name('backstage-product');

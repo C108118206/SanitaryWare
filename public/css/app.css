@@ -732,6 +732,10 @@ input[type=file]::file-selector-button:hover {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -771,6 +775,9 @@ input[type=file]::file-selector-button:hover {
 }
 .mb-3 {
   margin-bottom: 0.75rem;
+}
+.mb-8 {
+  margin-bottom: 2rem;
 }
 .mt-6 {
   margin-top: 1.5rem;
@@ -974,6 +981,9 @@ input[type=file]::file-selector-button:hover {
 .w-3\/4 {
   width: 75%;
 }
+.w-32 {
+  width: 8rem;
+}
 .w-screen {
   width: 100vw;
 }
@@ -1092,6 +1102,9 @@ input[type=file]::file-selector-button:hover {
 }
 .flex-wrap {
   flex-wrap: wrap;
+}
+.content-center {
+  align-content: center;
 }
 .items-start {
   align-items: flex-start;
@@ -1284,10 +1297,6 @@ input[type=file]::file-selector-button:hover {
 .bg-white\/50 {
   background-color: rgb(255 255 255 / 0.5);
 }
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(63 131 248 / var(--tw-bg-opacity));
-}
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -1452,6 +1461,10 @@ input[type=file]::file-selector-button:hover {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1459,10 +1472,6 @@ input[type=file]::file-selector-button:hover {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-}
-.py-7 {
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
 }
 .px-6 {
   padding-left: 1.5rem;
@@ -1618,6 +1627,9 @@ input[type=file]::file-selector-button:hover {
 .tracking-wider {
   letter-spacing: .25em;
 }
+.tracking-wide {
+  letter-spacing: .18em;
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1657,6 +1669,10 @@ input[type=file]::file-selector-button:hover {
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+.text-active-blue {
+  --tw-text-opacity: 1;
+  color: rgb(23 76 116 / var(--tw-text-opacity));
 }
 .text-gray-400 {
   --tw-text-opacity: 1;
@@ -1705,10 +1721,6 @@ input[type=file]::file-selector-button:hover {
 .text-indigo-500 {
   --tw-text-opacity: 1;
   color: rgb(104 117 245 / var(--tw-text-opacity));
-}
-.text-active-blue {
-  --tw-text-opacity: 1;
-  color: rgb(23 76 116 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;

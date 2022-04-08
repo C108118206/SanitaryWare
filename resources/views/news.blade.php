@@ -5,18 +5,28 @@
                 最新消息
             </div>
         </div>
-        <img src="/img/picture/index/usephone.png" class=" object-fit h-full w-full"/>
+        <img src="/img/picture/index/usephone.png" class=" object-fit h-full w-full" />
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-6">
         <div class="">
-            <div class="text-md text-gray-500 pl-4">首頁 > 最新消息 > 全新商品熱銷中</div>
+            <div class="text-md text-gray-500 pl-4">首頁 > 最新消息</div>
         </div>
-        <div class="text-blue-500 font-bold text-2xl">新品即將上市 預購熱銷中</div>
-        <div class="font-medium text-lg">content - Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab excepturi molestiae magnam! Odio fugit dolorem quam possimus adipisci et eos itaque obcaecati eveniet. Labore odit consequatur corporis exercitationem animi nemo.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt soluta placeat consequatur qui, consectetur maxime similique. Tenetur voluptates consectetur, quae dolore perspiciatis minima eum harum deleniti! Aliquid nulla exercitationem quidem.
+
+        <div class="pt-4 px-8 tracking-wide">
+        @foreach ($news as $new)
+            <div class="text-side-bg font-bold text-2xl mt-4">{{ $new->title }}</div>
+            <div class="font-medium text-lg py-2">{{ $new->description }}
+            </div>
+        <div class="flex justify-center my-8">
+            <img class="w-max block" src="{{$new->photo_path ? "/storage/" . str_replace('public/', '', $new->photo_path): "" }}"></div>
+        <hr>
+        @endforeach
+
+
+        <div class="flex text-center justify-center py-7">{{ count($news) == 1 ? "": "" }}</div>
         </div>
-        <img class="h-60 w-max block items-center" src="/img/picture/index/title_img.jpg">
+
     </div>
-    
-    
+
+
 </x-app-layout>
