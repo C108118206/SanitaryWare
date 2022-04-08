@@ -26,10 +26,35 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://unpkg.com/flowbite@1.4.1/dist/datepicker.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $.ajax({
+            url: "{{ route('get-num-json') }}",
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+                $('#productsNum').append(data.productsNum);
+                $('#fixesNum').append(data.fixesNum);
+            },
+
+            error: function() {
+                alert("資料更新失敗");
+            }
+        });
+
+        $(document).ready(function() {
+            $('#table').DataTable({
+                searching: false,
+                "dom": '<"toolbar">frtip'
+            });
+            $('div.toolbar').html('');
+        });
+    </script>
 
 </head>
 
@@ -70,8 +95,8 @@
                                     class="flex-shrink-0 w-8 h-8 text-gray-500 transition duration-75 group-hover:text-white dark:text-gray-400 dark:group-hover:text-white"
                                     alt="">
                                 <span class="flex-1 ml-3 whitespace-nowrap text-xl">產品介紹</span>
-                                <span
-                                    class="inline-flex justify-center items-center px-2 ml-3 text-sm font-semibold text-black bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">7</span>
+                                <span id="productsNum"
+                                    class="inline-flex tracking-tight justify-center items-center px-2  text-sm font-semibold text-black bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300"></span>
                                 <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -120,8 +145,8 @@
                                     class="flex-shrink-0 w-8 h-8 text-gray-500 transition duration-75 group-hover:text-white dark:text-gray-400 dark:group-hover:text-white"
                                     alt="">
                                 <span class="flex-1 ml-3 whitespace-nowrap text-xl">客服管理</span>
-                                <span
-                                    class="inline-flex justify-center items-center px-2 ml-3 text-sm font-semibold text-black bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">2</span>
+                                <span id="fixesNum"
+                                    class="inline-flex justify-center items-center px-2 ml-3 text-sm font-semibold text-black bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300"></span>
                                 <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -132,8 +157,8 @@
                             <ul id="dropdown-customer"
                                 class=" py-2 space-y-2 bg-black {{ strpos(request()->path(), 'customer') ? '' : 'hidden' }}">
                                 <li>
-                                    <a href="{{ route('backstage-customer-diy') }}"
-                                        class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side-bg dark:text-white ">DIY教學維護</a>
+                                    <a href="{{ route('backstage-customer-performance') }}"
+                                        class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side-bg dark:text-white ">工程實績管理</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('backstage-customer-fix') }}"
@@ -167,18 +192,6 @@
         </div>
 
     </div>
-
-    <script>
-        $(document).ready(function() {
-            $('#table').DataTable({
-                searching: false,
-
-                "dom": '<"toolbar">frtip'
-            });
-            $('div.toolbar').html('');
-        });
-    </script>
-
 </body>
 
 </html>

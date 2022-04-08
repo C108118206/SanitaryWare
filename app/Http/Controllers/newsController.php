@@ -148,7 +148,7 @@ class newsController extends Controller
     }
 
     //AJAX 讀取編輯資料
-    public function getValue($id)
+    public function get_value($id)
     {
         //
         $news = news::find($id);

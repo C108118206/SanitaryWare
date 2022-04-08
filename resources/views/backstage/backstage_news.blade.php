@@ -12,7 +12,7 @@
             $('#takedown_date').val('');
         }
 
-        function get_news_value(id,url) {
+        function get_news_value(id, url) {
             $.ajax({
                 url: url,
                 type: "GET",
@@ -30,7 +30,6 @@
                 }
             });
         }
-
     </script>
 
     <!-- Main modal -->
@@ -62,13 +61,14 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
 
-                            <label for="description" class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">描述文字</label>
-                            <textarea rows="4" name="description"  id="description"
-                    class="block p-2.5 w-full text-xl text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="(選填)"></textarea>
+                        <label for="description"
+                            class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">描述文字</label>
+                        <textarea rows="4" name="description" id="description"
+                            class="block p-2.5 w-full text-xl text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="(選填)"></textarea>
 
                     </div>
-                    <label for="launch_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">下架日期</label>
+                    <label for="launch_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期</label>
 
                     <div class="relative">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -242,7 +242,7 @@
                                         {{ $new->takedown_date }}
                                     </td>
                                     <td class="px-6 py-4">
-                                            <img class="w-32"
+                                        <img class="w-32"
                                             src="/storage/{{ str_replace('public/', '', $new->photo_path) }}" alt="">
                                     </td>
                                     <td class="px-6 py-4">
@@ -257,6 +257,4 @@
             </div>
         </div>
     </div>
-
-
 @stop

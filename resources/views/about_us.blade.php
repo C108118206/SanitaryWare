@@ -157,38 +157,14 @@
 
         <div class="text-center text-side_bg font-extrabold text-3xl py-6 tracking-widest">工程實績</div>
         <div class="flex flex-row flex-wrap w-full  items-center justify-center">
-            <div class="basis-1/4 p-8 text-center">
-                <img src="/img/picture/index/title_img.jpg" class=" object-fill" alt="">
-                XX建設
+
+            @foreach ($performs as $perform)
+            <div class="basis-1/4 p-8 text-center text-lg">
+                <img src="/storage/{{ str_replace('public/', '', $perform->photo_path) }}" class=" object-fill mb-2 h-48" alt="">
+                {{ $perform->title }}
             </div>
-            <div class="basis-1/4 p-8 text-center">
-                <img src="/img/picture/index/title_img.jpg" class=" object-fill" alt="">
-                XX建設
-            </div>
-            <div class="basis-1/4 p-8 text-center">
-                <img src="/img/picture/index/title_img.jpg" class=" object-fill" alt="">
-                XX建設
-            </div>
-            <div class="basis-1/4 p-8 text-center">
-                <img src="/img/picture/index/title_img.jpg" class=" object-fill" alt="">
-                XX建設
-            </div>
-            <div class="basis-1/4 p-8 text-center">
-                <img src="/img/picture/index/title_img.jpg" class=" object-fill" alt="">
-                XX建設
-            </div>
-            <div class="basis-1/4 p-8 text-center">
-                <img src="/img/picture/index/title_img.jpg" class=" object-fill" alt="">
-                XX建設
-            </div>
-            <div class="basis-1/4 p-8 text-center">
-                <img src="/img/picture/index/title_img.jpg" class=" object-fill" alt="">
-                XX建設
-            </div>
-            <div class="basis-1/4 p-8 text-center">
-                <img src="/img/picture/index/title_img.jpg" class=" object-fill" alt="">
-                XX建設
-            </div>
+            @endforeach
+
         </div>
     </div>
     

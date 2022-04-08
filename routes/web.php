@@ -24,9 +24,8 @@ Route::get('/product/{id?}', [App\Http\Controllers\productController::class,'fro
 Route::get('/product_details/{id?}', [App\Http\Controllers\productController::class,'front_product_details']
 )->name('product_details');
 
-Route::get('/about_us', function () {
-    return view('about_us');
-})->name('about_us');
+Route::get('/about_us',[App\Http\Controllers\customerController::class,'about_us']
+)->name('about_us');
 
 Route::get('/customer_service', function () {
     return view('customer_service');
@@ -65,9 +64,8 @@ Route::get('/user_policy',function(){
  */
 
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/backstage', function() {
-        return view('backstage.backstage_main');
-    })->name('backstage');
+    Route::get('/backstage',[App\Http\Controllers\newsController::class,'create']
+    )->name('backstage');
     
     Route::post('/logout',[App\Http\Controllers\UserController::class,'logout']
     )->name('logout');
@@ -77,56 +75,6 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/backstage/product/{product_type_id}',[App\Http\Controllers\productController::class,'index']
     )->name('backstage-product-product_type_id');
-
-
-    // backstage 產品介紹 end
-
-    /**
-     * backstage customer
-     */
-    Route::get('/backstage/customer/diy',[App\Http\Controllers\customerController::class,'index_diy']
-    )->name('backstage-customer-diy');
-
-    Route::get('/backstage/customer/fix',[App\Http\Controllers\customerController::class,'index_fix']
-    )->name('backstage-customer-fix');
-
-    Route::post('/backstage/customer/diy',[App\Http\Controllers\customerController::class,'diy_store']
-    )->name('backstage-diy-store');
-
-    Route::post('/backstage/customer/fix',[App\Http\Controllers\customerController::class,'fix_store']
-    )->name('backstage-fix-store');
-    
-    Route::post('/backstage/diy/find',[App\Http\Controllers\customerController::class,'find_diy']
-    )->name('backstage-diy-find');
-
-    Route::post('/backstage/diy/drop',[App\Http\Controllers\customerController::class,'diy_destroy']
-    )->name('backstage-diy-drop');
-    
-    Route::post('/backstage/fix/find',[App\Http\Controllers\customerController::class,'find_fix']
-    )->name('backstage-fix-find');
-
-    Route::post('/backstage/fix/drop',[App\Http\Controllers\customerController::class,'fix_destroy']
-    )->name('backstage-fix-drop');
-
-    // backstage customer end
-    Route::get('/backstage/news',[App\Http\Controllers\newsController::class,'create']
-    )->name('backstage-news');
-
-    Route::post('/backstage/news/store',[App\Http\Controllers\newsController::class,'store']
-    )->name('backstage-news-store');
-
-    Route::post('/backstage/news/find',[App\Http\Controllers\newsController::class,'find']
-    )->name('backstage-news-find');
-
-    Route::get('/backstage/news/drop/{id}',[App\Http\Controllers\newsController::class,'destroy']
-    )->name('backstage-news-drop');
-
-    //AJAX編輯最新消息
-    Route::get('/backstage/news/get/{id}',[App\Http\Controllers\newsController::class,'getValue']
-    )->name('get-news-json');
-
-    Route::get('/backstage/product',[App\Http\Controllers\productController::class,'index']
-    )->name('backstage-product');
 
     Route::post('/backstage/product/store',[App\Http\Controllers\productController::class,'store']
     )->name('backstage-product-store');
@@ -140,6 +88,71 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/backstage/product/edit/{id}',[App\Http\Controllers\productController::class,'edit']
     )->name('backstage-product-edit');
 
+
+
+    // backstage 產品介紹 end
+
+    /**
+     * backstage customer
+     */
+
+    // backstage News
+    Route::get('/backstage/customer/fix',[App\Http\Controllers\customerController::class,'index_fix']
+    )->name('backstage-customer-fix');
+
+    Route::post('/backstage/customer/fix',[App\Http\Controllers\customerController::class,'fix_store']
+    )->name('backstage-fix-store');
+    
+    Route::post('/backstage/fix/find',[App\Http\Controllers\customerController::class,'find_fix']
+    )->name('backstage-fix-find');
+
+    Route::get('/backstage/fix/drop/{id}',[App\Http\Controllers\customerController::class,'fix_destroy']
+    )->name('backstage-fix-drop');
+
+    Route::get('/backstage/fix/finish/{id}',[App\Http\Controllers\customerController::class,'fix_finish']
+    )->name('backstage-fix-finish');
+
+
+    // backstage News
+    Route::get('/backstage/customer/performance',[App\Http\Controllers\customerController::class,'index_performance']
+    )->name('backstage-customer-performance');
+    
+    Route::post('/backstage/customer/performance',[App\Http\Controllers\customerController::class,'performance_store']
+    )->name('backstage-performance-store');
+    
+    Route::get('/backstage/performance/drop/{id}',[App\Http\Controllers\customerController::class,'performance_destroy']
+    )->name('backstage-performance-drop');
+
+    // backstage News
+    Route::get('/backstage/news',[App\Http\Controllers\newsController::class,'create']
+    )->name('backstage-news');
+
+    Route::post('/backstage/news/store',[App\Http\Controllers\newsController::class,'store']
+    )->name('backstage-news-store');
+
+    Route::post('/backstage/news/find',[App\Http\Controllers\newsController::class,'find']
+    )->name('backstage-news-find');
+
+    Route::get('/backstage/news/drop/{id}',[App\Http\Controllers\newsController::class,'destroy']
+    )->name('backstage-news-drop');
+
+    //AJAX最新消息(編輯抓值)
+    Route::get('/backstage/news/get/{id}',[App\Http\Controllers\newsController::class,'get_value']
+    )->name('get-news-json');
+
+    //AJAX工程實績(編輯抓值)
+    Route::get('/backstage/performance/get/{id}',[App\Http\Controllers\customerController::class,'get_per_value']
+    )->name('get-performance-json');
+
+    //AJAX維修通報(編輯抓值)
+    Route::get('/backstage/fix/get/{id}',[App\Http\Controllers\customerController::class,'get_fix_value']
+    )->name('get-fix-json');
+
+    //AJAX讀取數量
+    Route::get('/backstage/get',[App\Http\Controllers\customerController::class,'get_nav_value']
+    )->name('get-num-json');
+
+   
     Route::get('/backstage/customer', function() {
         return view('backstage.backstage_main');
     })->name('backstage-customer');
