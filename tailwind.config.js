@@ -9,6 +9,7 @@ module.exports = {
       sans: ['Noto Sans TC', 'sans-serif']
     },
     letterSpacing: {
+      wide: '.18em',
       wider: '.25em',
       widest: '.3em',
     },

@@ -11,9 +11,10 @@
             $('div.toolbar').html('');
          } );
       </script>
+
     <div class="mx-auto sm:px-6 lg:px-8 bg-white">
-        <div class="text-center py-4 text-3xl text-sky-600 font-bold">
-            搜尋結果 共搜尋到 {{ $search_result->count() }} 個結果
+        <div class="text-center py-6 text-3xl text-dot font-bold">
+            搜尋結果 共搜尋到 {{isset($product_result) ? $search_result->count()+ $product_result->count() : $search_result->count() }} 個結果
         </div>
 
         <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -49,9 +50,39 @@
                     </tr>
                     
                     @endforeach
+
+                    @isset($product_result)
+                    @foreach ($product_result as $item)
+                    
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            <a href="{{route('product_details', $item->id)}}">點我前往</a>
+                        </th>
+                        <td class="px-6 py-4">
+                            {{$item->name}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{$item->content}}
+                        </td>
+                    
+                    </tr>
+                    
+                    @endforeach
+                    @endisset
+                    
                 </tbody>
             </table>
         </div>
 
+        @isset($product_result)
+        @for ($i = 0; $i < 15-$product_result->count(); $i++)
+            {!! "</br>" !!}
+        @endfor
+        @endisset
+
+
     </div>
+
+
 </x-app-layout>

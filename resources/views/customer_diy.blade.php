@@ -5,49 +5,18 @@
                 客服中心
             </div>
         </div>
-        <img src="/img/picture/index/contact-us-background.jpg" class=" object-fit h-full w-full"/>
+        <img src="/img/picture/index/contact-us-background.jpg" class=" object-fit h-full w-full" />
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col">
         <div class="">
-            <div class="text-md text-gray-400">首頁 > 客服中心 > DIY維護教學</div>
+            <div class="text-md text-gray-500 pl-4">首頁 > 客服中心 > DIY維護教學</div>
         </div>
-        <p class="text-blue-500 font-bold text-2xl tracking-wider text-center">DIY維護教學</p>
-        <div class="flex flex-wrap justify-center  py-6 ">
-            <div class="py-4 px-4 flex-col w-80">
-                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max" >
-                <div class="font-bold py-2">
-                    標題文字
-                </div>
-                <div class="py-2">
-                    內容文字內容文字內容文字內容文字內容文字內容文字內容文字
-                </div>
-                <div class="py-2 block w-auto text-right">
-                    <a class=" underline-offset-4 underline" href="#">Read more</a>
-                </div>
-            </div>
-            <div class="py-4 px-4 flex-col w-80">
-                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max" >
-                <div class="font-bold py-2">
-                    標題文字
-                </div>
-                <div class="py-2">
-                    內容文字內容文字內容文字內容文字內容文字內容文字內容文字
-                </div>
-                <div class="py-2 block w-auto text-right">
-                    <a class=" underline-offset-4 underline" href="#">Read more</a>
-                </div>
-            </div>
-            <div class="py-4 px-4 flex-col w-80">
-                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max" >
-                <div class="font-bold py-2">
-                    標題文字
-                </div>
-                <div class="py-2">
-                    內容文字內容文字內容文字內容文字內容文字內容文字內容文字
-                </div>
-                <div class="py-2 block w-auto text-right">
-                    <a class=" underline-offset-4 underline" href="#">Read more</a>
-                </div>
+        <p class="text-side-bg font-bold text-4xl tracking-wider text-center">DIY維護教學</p>
+        <div class="flex flex-wrap justify-left  py-6 ml-6">
+
+            <div class="flex text-lg text-gray-700 font-bold tracking-widest underline">
+                <div class="px-5"><a href="https://drive.google.com/drive/folders/14xFBN2xMpX0YI43TATPBHsVDu6JhWHfN?usp=sharing" target="_blank">文件下載</a></div>
+                <div class="px-5"><a href="https://drive.google.com/drive/folders/14xFBN2xMpX0YI43TATPBHsVDu6JhWHfN?usp=sharing" target="_blank">影音下載</a></div>
             </div>
         </div>
     </div>

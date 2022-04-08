@@ -2,3 +2,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* Replace flowbite style on button */
+@layer base { 
+    .btn-bk{ 
+        background-color: theme('colors.dot') !important;
+      }
+}

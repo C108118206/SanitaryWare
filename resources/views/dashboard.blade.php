@@ -326,42 +326,25 @@
             最 新 消 息
         </div>
         <div class="flex flex-wrap justify-center py-6 tracking-wider">
-            <div class="py-4 px-4 flex-col w-80">
-                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max">
-                <div class="text-2xl font-semibold py-2 mt-2">
-                    標題文字
+
+            @foreach ($news as $new)
+                <div class="py-4 px-4 flex-col w-80">
+                    <a class=" underline-offset-4 underline" href="{{ route('news', $new->id) }}"><img
+                            src="{{ $new->photo_path ? '/storage/' . str_replace('public/', '', $new->photo_path) : '' }}"
+                            class="block h-60 w-max">
+                    </a>
+                    <div class="text-2xl font-semibold py-2 mt-2">
+                        {{ $new->title }}
+                    </div>
+                    <div class="py-2 h-24">
+                        {{ Str::limit($new->description, $limit = 82, $end = '...') }}
+                    </div>
+                    <div class="py-2 block w-auto text-right">
+                        <a class=" underline-offset-4 underline" href="{{ route('news', $new->id) }}">Read more</a>
+                    </div>
                 </div>
-                <div class="py-2">
-                    內容文字內容文字內容文字內容文字內容文字內容文字內容文字
-                </div>
-                <div class="py-2 block w-auto text-right">
-                    <a class=" underline-offset-4 underline" href="{{ route('unstructured') }}">Read more</a>
-                </div>
-            </div>
-            <div class="py-4 px-4 flex-col w-80">
-                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max">
-                <div class="text-2xl font-semibold py-2 mt-2">
-                    標題文字
-                </div>
-                <div class="py-2">
-                    內容文字內容文字內容文字內容文字內容文字內容文字內容文字
-                </div>
-                <div class="py-2 block w-auto text-right">
-                    <a class=" underline-offset-4 underline" href="{{ route('unstructured') }}">Read more</a>
-                </div>
-            </div>
-            <div class="py-4 px-4 flex-col w-80">
-                <img src="/img/picture/index/title_img.jpg" class="block h-60 w-max">
-                <div class="text-2xl font-semibold py-2 mt-2">
-                    標題文字
-                </div>
-                <div class="py-2">
-                    內容文字內容文字內容文字內容文字內容文字內容文字內容文字
-                </div>
-                <div class="py-2 block w-auto text-right">
-                    <a class=" underline-offset-4 underline" href="{{ route('unstructured') }}">Read more</a>
-                </div>
-            </div>
+            @endforeach
+
         </div>
 
     </div>
@@ -371,11 +354,14 @@
             D I Y小學堂
         </div>
 
-    <div class="justify-items-center grid"><div class="p-3 rounded-md bg-dot text-white text-3xl mt-10 w-56">
-            <a href="{{ route('unstructured') }}">
-                點我進入
-            </a></div></div>
-        
+        <div class="justify-items-center grid">
+            <div class="p-3 rounded-md bg-dot text-white text-3xl mt-10 w-56">
+                <a href="{{ route('customer_diy') }}">
+                    點 我 進 入
+                </a>
+            </div>
+        </div>
+
 
 
     </div>

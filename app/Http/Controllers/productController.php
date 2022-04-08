@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\product;
 use App\Models\product_type;
 use DB;
+use Illuminate\Support\Facades\Log;
+
+
 class productController extends Controller
 {
     /**
@@ -21,15 +24,16 @@ class productController extends Controller
         $product = DB::table('products')
             ->select('products.id as product_id'
             ,'products.name as product_name'
-            ,'products.launch_date as product_launch_date'
-            ,'products.takedown_date as product_takedown_date'
+            ,'products.content as product_content'
+            ,'products.size as product_size'
+            ,'products.material as product_material'
             ,'products.image_path as image_path'
             ,'products.created_at as product_created_at'
             ,'product_type.id as product_type_id'
             ,'product_type.main_product_type_id as main_product_type_id'
             ,'product_type.name as product_type_name')
             ->join('product_type','products.product_type_id','=','product_type.id')
-            ->where('product_type_id',$product_type)->orwhere('main_product_type_id',$product_type)->orderBy('products.created_at','desc')->get();
+            ->where('product_type_id',$product_type)->orwhere('main_product_type_id',$product_type)->orderBy('products.id','desc')->get();
 
         return view('backstage.backstage_product',['product' => $product,'product_type' => $product_type_name]);
     }
@@ -38,12 +42,12 @@ class productController extends Controller
 
         if (product_type::find($id)->main_product_type_id !== null){
             $product = product_type::join('products','products.product_type_id','=','product_type.id')
-            ->where('product_type.id',$id)->paginate(8);
+            ->where('product_type.id',$id)->orderBy('products.id','desc')->paginate(8);
         }else{
             $product = product_type::join('products','products.product_type_id','=','product_type.id')
             ->where('product_type.id',$id)
             ->orWhere('product_type.main_product_type_id',$id)
-            ->paginate(8);
+            ->orderBy('products.id','desc')->paginate(8);
         }
         
         $product_type = product_type::all();
@@ -81,18 +85,31 @@ class productController extends Controller
     public function store(Request $request)
     {
         $content = $request->validate([
+            'id' => 'required',
             'name' => 'required',
-            'content' => 'required',
-            'size' => 'required',
-            'material' => 'required',
-            'launch_date' => 'required',
-            'takedown_date' => 'required',
+            'content' => 'nullable',
+            'size' => 'nullable',
+            'material' => 'nullable',
+            'details_introduction' => 'nullable',
+            'Precautions' => 'nullable',
             'product_type_id' => 'required',
-            'image_path' => 'required',
+            'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
-        product::create($content);
 
-        return redirect()->route('backstage-product');
+        if (isset($content['image'])) {
+            $path = $request->file('image')->store('public/uploads/products'); //上傳圖片
+            $content['image_path'] = $path;
+        }
+
+        if ($content['id'] == "0") {
+            //空id 進行新增
+            $product = product::create($content);
+        } else {
+            //否則進行更新
+            $product = product::find($content['id'])->update($content);
+        }
+
+        return redirect()->route('backstage-product-product_type_id',$content['product_type_id']);
     }
 
     /**
@@ -164,5 +181,19 @@ class productController extends Controller
     public function destroy($id)
     {
         //
+        $product = product::find($id);
+        $product_type_id = $product->product_type_id;
+        $product->delete();
+
+        return redirect()->route('backstage-product-product_type_id',$product_type_id);
     }
+
+        //AJAX 讀取編輯資料
+        public function get_product_value($id)
+        {
+            //
+            $product = product::find($id);
+            return $product->toJson();
+        }
+
 }
