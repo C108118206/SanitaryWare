@@ -9,7 +9,7 @@
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col">
         <div class="">
-            <div class="text-md text-gray-400">首頁 > 客服中心 > 維修通報</div>
+            <div class="text-md text-gray-500 pl-4">首頁 > 客服中心 > 維修通報</div>
         </div>
         @if (session()->has('notice'))
             <div class="bg-red-500 text-center">

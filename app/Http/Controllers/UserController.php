@@ -14,7 +14,7 @@ class UserController extends Controller
         // $request->session()->invalidate();
         // $request->session()->regenerateToken();
 
-        return view('/dashboard');
+        return redirect()->route('dashboard');
     }
 
     

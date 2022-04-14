@@ -23,13 +23,13 @@
                 <div class="font-bold text-xl pt-4">關於我們</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
-                        <a class="mr-2" href="{{ route('about_us') }}">公司歷史</a>
+                        <a class="mr-2" href="{{ route('about_us_story') }}">公司歷史</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="{{ route('about_us') }}">品牌優勢</a>
+                        <a class="mr-2" href="{{ route('about_us_business_item') }}">品牌優勢</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="{{ route('about_us') }}">工程實績</a>
+                        <a class="mr-2" href="{{ route('about_us_performance') }}">工程實績</a>
                     </div>
                 </div>
             </div>
@@ -37,15 +37,20 @@
                 <div class="font-bold text-xl pt-4">客服中心</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
-                        <a class="mr-2" href="{{ route('unstructured') }}">DIY維護教學</a>
+                        <a class="mr-2" href="{{ route('customer_diy') }}">DIY維護教學</a>
                     </div>
                     <div>
                         <a class="mr-2" href="{{ route('customer_service')}}">維修通報</a>
                     </div>
                 </div>
             </div>
-            <div class="flex-col w-40 pt-4">
-                <div class="font-bold text-xl">後台登入</div>
+            <div class="flex-col w-40">
+                <div class="font-bold text-xl pt-4">後台登入</div>
+                <div class="flex-wrap mt-2 space-y-2">
+                    <div>
+                        <a class="mr-2" href="{{ route('login') }}">登入頁面</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="mt-56 lg:mt-24 flex-col">

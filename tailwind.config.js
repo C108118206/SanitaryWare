@@ -9,6 +9,7 @@ module.exports = {
       sans: ['Noto Sans TC', 'sans-serif']
     },
     letterSpacing: {
+      wide: '.18em',
       wider: '.25em',
       widest: '.3em',
     },
@@ -46,6 +47,7 @@ module.exports = {
         '160': '40rem',
       },
       backgroundImage: {
+        'DIY-banner': "url('/img/picture/index/DIY小學堂banner.jpg')",
         'contact-us-banner': "url('/img/picture/index/contact-us-background.jpg')",
       }
     },

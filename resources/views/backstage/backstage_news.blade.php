@@ -2,6 +2,36 @@
 @extends('layouts.backstage')
 
 @section('content')
+
+    <script>
+        function news_clear() {
+            $('#id').val('0');
+            $('#title').val('');
+            $('#description').val('');
+            $('#launch_date').val('');
+            $('#takedown_date').val('');
+        }
+
+        function get_news_value(id, url) {
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('#id').val(id);
+                    $('#title').val(data.title);
+                    $('#description').val(data.description);
+                    $('#launch_date').val(data.launch_date.replace(" 00:00:00", ""));
+                    $('#takedown_date').val(data.takedown_date.replace(" 00:00:00", ""));
+                },
+
+                error: function() {
+                    alert("資料更新失敗");
+                }
+            });
+        }
+    </script>
+
     <!-- Main modal -->
     <div id="authentication-modal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
@@ -21,15 +51,24 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form action="{{ route('backstage-news-store') }}" method="POST">
+                <form action="{{ route('backstage-news-store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
+                    <input type="hidden" id="id" name="id" value="">
+
                     <div class="">
                         <label for="title" class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">消息名稱</label>
                         <input name="title" type="text" id="title"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
+
+                        <label for="description"
+                            class=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">描述文字</label>
+                        <textarea rows="4" name="description" id="description"
+                            class="block p-2.5 w-full text-xl text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="(選填)"></textarea>
+
                     </div>
-                    <label for="launch_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">下架日期</label>
+                    <label for="launch_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期</label>
 
                     <div class="relative">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -64,19 +103,19 @@
                     </div>
 
 
-                    <div class="">
-                        <label for="photo" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上傳圖片</label>
-                        <input name="photo" type="file" id="photo"
+                    <div class="form-group">
+                        <label for="image" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上傳圖片</label>
+                        <input name="image" type="file" id="image"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
-                    <span class="block">新增資訊 : {{ Carbon::now() }}</span>
+                    <span class="block my-5">目前時間 : {{ Carbon::now('Asia/Taipei') }}</span>
 
 
                     <!-- Modal footer -->
                     <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                        <button type="submit"
+                        <button
                             class="text-white bg-blue-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">送出</button>
-                        <button type="reset"
+                        <button
                             class="text-white bg-blue-400  rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5  focus:z-10 ">清除</button>
                     </div>
                 </form>
@@ -142,7 +181,7 @@
                     <div class=" flex w-max justify-end">
                         <button
                             class="block text-black bg-yellow-300 hover:bg-dot font-medium rounded-lg text-xl px-5 py-2.5 text-center"
-                            type="button" data-modal-toggle="authentication-modal">
+                            type="button" data-modal-toggle="authentication-modal" onclick="news_clear()">
                             + 新增
                         </button>
                     </div>
@@ -157,6 +196,9 @@
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     消息名稱
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    描述文字
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     上架日期
@@ -181,10 +223,17 @@
                                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <th scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-
+                                        <a data-modal-toggle="authentication-modal"
+                                            onclick="get_news_value({{ $new->id }},'{{ route('get-news-json', ['id' => $new->id]) }}')">
+                                            編輯
+                                        </a>
+                                        ｜ <a href="{{ route('backstage-news-drop', ['id' => $new->id]) }}">刪除</a>
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ $new->title }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $new->description }}
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $new->launch_date }}
@@ -193,7 +242,8 @@
                                         {{ $new->takedown_date }}
                                     </td>
                                     <td class="px-6 py-4">
-
+                                        <img class="w-32"
+                                            src="/storage/{{ str_replace('public/', '', $new->photo_path) }}" alt="">
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $new->created_at }}

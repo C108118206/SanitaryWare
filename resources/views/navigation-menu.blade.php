@@ -16,19 +16,19 @@
                     <a href="{{ route('news') }}" class="flex items-center text-lg mx-4">
                         <img class="h-12 mr-1"
                             src="/img/icon/news_{{ request()->is('news') ? 'blue' : 'black' }}.svg" />
-                        <div class="{{ request()->is('news') ? 'text-blue-500' : '' }} font-semibold">最新消息</div>
+                        <div class="{{ request()->is('news') ? 'text-active-blue' : '' }} font-semibold">最新消息</div>
                     </a>
 
                     <a href="{{ route('product') }}" class="flex items-center text-lg mx-4">
                         <img class="h-12 mr-1"
                             src="/img/icon/product_{{ request()->is('product') ? 'blue' : 'black' }}.svg" />
-                        <div class="{{ request()->is('product') ? 'text-blue-500' : '' }} font-semibold">產品介紹</div>
+                        <div class="{{ request()->is('product') ? 'text-active-blue' : '' }} font-semibold">產品介紹</div>
                     </a>
 
                     <a href="{{ route('about_us') }}" class="flex items-center text-lg mx-4">
                         <img class="h-12 mr-1"
                             src="/img/icon/about_{{ request()->is('about_us') ? 'blue' : 'black' }}.svg" />
-                        <div class="{{ request()->is('about_us') ? 'text-blue-500' : '' }} font-semibold">關於我們</div>
+                        <div class="{{ request()->is('about_us') ? 'text-active-blue' : '' }} font-semibold">關於我們</div>
                     </a>
 
                 </div>
@@ -75,19 +75,19 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <a href="{{ route('news') }}" class="flex justify-center text-lg my-4">
             <img class="h-8 mr-1" src="/img/icon/news_{{ request()->is('news') ? 'blue' : 'black' }}.svg" />
-            <div class="{{ request()->is('news') ? 'text-blue-500' : '' }} font-semibold">最新消息</div>
+            <div class="{{ request()->is('news') ? 'text-active-blue' : '' }} font-semibold">最新消息</div>
         </a>
 
         <a href="{{ route('product') }}" class="flex justify-center text-lg my-4">
             <img class="h-8 mr-1"
                 src="/img/icon/product_{{ request()->is('product') ? 'blue' : 'black' }}.svg" />
-            <div class="{{ request()->is('product') ? 'text-blue-500' : '' }} font-semibold">產品介紹</div>
+            <div class="{{ request()->is('product') ? 'text-active-blue' : '' }} font-semibold">產品介紹</div>
         </a>
 
         <a href="{{ route('about_us') }}" class="flex justify-center text-lg my-4">
             <img class="h-8 mr-1"
                 src="/img/icon/about_{{ request()->is('about_us') ? 'blue' : 'black' }}.svg" />
-            <div class="{{ request()->is('about_us') ? 'text-blue-500' : '' }} font-semibold">關於我們</div>
+            <div class="{{ request()->is('about_us') ? 'text-active-blue' : '' }} font-semibold">關於我們</div>
         </a>
 
         <!-- Responsive Settings Options -->
