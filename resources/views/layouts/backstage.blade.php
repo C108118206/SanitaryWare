@@ -49,7 +49,7 @@
 
         $(document).ready(function() {
             $('#table').DataTable({
-                searching: false,
+
                 "dom": '<"toolbar">frtip',
                 language: {
                     "lengthMenu": "顯示 _MENU_ 筆資料",
@@ -182,13 +182,13 @@
                             <ul id="dropdown-customer"
                                 class=" py-2 space-y-2 bg-black {{ strpos(request()->path(), 'customer') ? '' : 'hidden' }}">
                                 <li>
-                                    <a href="{{ route('backstage-customer-performance') }}"
+                                    <a href="{{ route('backstage-customer-story') }}"
                                         class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side-bg dark:text-white ">品牌故事管理</a>
                                 </li>
-                                <li>
-                                    <a href="{{ route('backstage-customer-performance') }}"
+                                {{-- <li>
+                                    <a href="{{ route('backstage-customer-business') }}"
                                         class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side-bg dark:text-white ">營業項目管理</a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href="{{ route('backstage-customer-performance') }}"
                                         class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side-bg dark:text-white ">工程實績管理</a>
@@ -196,6 +196,10 @@
                                 <li>
                                     <a href="{{ route('backstage-customer-fix') }}"
                                         class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side-bg dark:text-white ">維修通報查詢</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('backstage-customer-diy') }}"
+                                        class="flex items-center p-2 pl-11 w-full text-base font-normal text-white  transition duration-75 group hover:bg-gray-100 hover:text-side-bg dark:text-white ">D I Y維護教學</a>
                                 </li>
                             </ul>
                         </li>

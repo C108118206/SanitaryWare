@@ -35,7 +35,8 @@ class productController extends Controller
             ->join('product_type','products.product_type_id','=','product_type.id')
             ->where('product_type_id',$product_type)->orwhere('main_product_type_id',$product_type)->orderBy('products.id','desc')->get();
 
-        return view('backstage.backstage_product',['product' => $product,'product_type' => $product_type_name]);
+
+        return view('backstage.backstage_product',['product' => $product,'product_type' => $product_type_name, 'product_type_id' => $product_type_id]);
     }
 
     public function front_product_index($id = 1){
@@ -136,18 +137,18 @@ class productController extends Controller
         if (isset($request->end)) {
             array_push($Rules,['products.takedown_date','<=',$request->end]);
         }
-        $product = product::table('products')
-                ->join('productType','products.product_type_id','=','product_type.id')
+        $product = DB::table('products')
+                ->join('product_type','products.product_type_id','=','product_type.id')
                 ->where(function($query) use($Rules,$Rules_product_type){
                     return $query->where($Rules)->where($Rules_product_type[0]);
                 })
                 ->orWhere(function($query) use($Rules,$Rules_product_type){
                     return $query->where($Rules)->where($Rules_product_type[1]);
-                });
+                })->get();
         // $product = product::where($Rules)->orderBy('created_at','desc')->get();
 
         
-        return view('backstage.product.backstage_product_'.product_type::find($request->product_type_id)->en_name,['product' => $product]);
+        return view('backstage.backstage_product',['product' => $product]);
     }
 
     /**

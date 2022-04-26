@@ -59,7 +59,7 @@
                 <form action="{{ route('backstage-product-store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
                     <input type="hidden" id="id" name="id" value="">
-                    <input name="product_type_id" hidden value="{{ $product[0]->product_type_id }}" type="text"
+                    <input name="product_type_id" hidden value="{{ $product_type_id }}" type="text"
                         id="product_type_id" required />
 
                     <div class="">
@@ -131,10 +131,12 @@
     <div class="flex-col space-y-8 px-6 py-6 justify-center items-center">
         <div class=" font-bold text-2xl text-side-bg">
             產品介紹
-            @if (!is_null($product->first()->main_product_type_id))
+            @if(sizeof($product) == 0)
+                > {{ $product_type->name }}
+            @elseif (!is_null($product->first()->main_product_type_id))
                 > {{ $product_type->name }}
             @endif
-            @if (!is_null($product->first()->main_product_type_id) != $product_type->id && $product->first()->main_product_type_id == null)
+            @if (sizeof($product) != 0 && $product->first()->main_product_type_id == null && !is_null($product->first()->main_product_type_id) != $product_type->id)
                 > {{ $product->first()->product_type_name }}
             @else
             @endif
@@ -143,7 +145,7 @@
 
         <div class="bg-white w-3/4 m-auto  rounded-xl">
             <div class=" p-4">
-                <form action="{{ route('backstage-product-find') }}" method="post" class="flex justify-between my-4">
+                {{-- <form action="{{ route('backstage-product-find') }}" method="post" class="flex justify-between my-4">
                     @csrf
                     <input name="product_type_id" hidden value="{{ $product[0]->product_type_id }}" type="text"
                         id="product_type_id"
@@ -190,7 +192,7 @@
                                 class="flex-shrink-0 h-6 text-gray-500 transition duration-75 group-hover:text-white dark:text-gray-400 dark:group-hover:text-white"
                                 alt="">
                         </button>
-                    </div>
+                    </div> --}}
 
 
                     <div class=" flex w-max justify-end">
@@ -201,7 +203,7 @@
                         </button>
                     </div>
 
-                </form>
+                {{-- </form> --}}
                 <div class="relative overflow-x-auto shadow-md my-8">
                     <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class=" text-lg text-gray-700 uppercase bg-backstage_bg dark:bg-gray-700 dark:text-gray-400">
@@ -267,6 +269,7 @@
                                     </td>
                                 </tr>
                             @endforeach
+                            
 
                         </tbody>
                     </table>

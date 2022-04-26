@@ -13,11 +13,26 @@
         </div>
         <p class="text-side-bg font-bold text-4xl tracking-wider text-center">DIY維護教學</p>
         <div class="flex flex-wrap justify-left  py-6 ml-6">
-
-            <div class="flex text-lg text-gray-700 font-bold tracking-widest underline">
-                <div class="px-5"><a href="https://drive.google.com/drive/folders/14xFBN2xMpX0YI43TATPBHsVDu6JhWHfN?usp=sharing" target="_blank">文件下載</a></div>
-                <div class="px-5"><a href="https://drive.google.com/drive/folders/14xFBN2xMpX0YI43TATPBHsVDu6JhWHfN?usp=sharing" target="_blank">影音下載</a></div>
+            @foreach($diys as $diy)
+            <div class="py-4 px-4 flex-col w-80">
+                <a class=" underline-offset-4 underline">
+                    <img
+                        src="{{ '/storage/' . str_replace('public/', '', $diy->image_path) }}"
+                        class="block h-60 w-max">
+                </a>
+                <div class="text-2xl font-semibold py-2 mt-2">
+                    {{ $diy->title }}
+                </div>
+                <div class="py-2 h-24">
+                    {{ Str::limit($diy->title, $limit = 82, $end = '...') }}
+                </div>
+                <div class="py-2 h-24 text-lg text-gray-700 font-bold tracking-widest underline text-center">
+                    <div class=""><a href="{{ '/storage/' . str_replace('public/', '', $diy->file_path) }}" target="_blank">文件下載</a></div>
+                    <div class=""><a href="{{ '/storage/' . str_replace('public/', '', $diy->video_path) }}" target="_blank">影音下載</a></div>
+                </div>
             </div>
+            @endforeach
+            
         </div>
     </div>
 </x-app-layout>

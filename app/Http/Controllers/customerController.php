@@ -7,6 +7,11 @@ use App\Models\fix;
 use App\Models\perform;
 use App\Models\product;
 use App\Models\search;
+use App\Models\story;
+use App\Models\business_items;
+use App\Models\business_type;
+use App\Models\business;
+use App\Models\diy;
 
 
 class customerController extends Controller
@@ -20,7 +25,19 @@ class customerController extends Controller
     public function about_us()
     {
         $performs =perform::orderBy('created_at', 'desc')->take(8)->get();
-        return view('about_us', ['performs' => $performs]);
+        $story = story::orderBy('created_at','desc')->first();
+        return view('about_us', ['performs' => $performs,'story' => $story]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function front_diy()
+    {
+        $diys = diy::orderBy('created_at', 'desc')->get();
+        return view('customer_diy', ['diys' => $diys]);
     }
 
     /**
@@ -43,6 +60,28 @@ class customerController extends Controller
     {
         $performances = perform::orderBy('created_at', 'desc')->get();
         return view('backstage.customer.backstage_customer_performance', ['performances' => $performances]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_diy()
+    {
+        $diys = diy::orderBy('created_at', 'desc')->get();
+        return view('backstage.customer.backstage_customer_diy', ['diys' => $diys]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_story()
+    {
+        $stories = story::orderBy('created_at', 'desc')->get();
+        return view('backstage.customer.backstage_customer_story', ['stories' => $stories]);
     }
 
 
@@ -109,6 +148,33 @@ class customerController extends Controller
         return redirect()->route('backstage-customer-performance');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function story_store(Request $request)
+    {
+        //
+        $content = $request->validate([
+            'id' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        if ($content['id'] == "0") {
+            //空id 進行新增
+            $stories = story::create($content);
+        } else {
+            //否則進行更新
+            $stories = story::find($content['id'])->update($content);
+        }
+
+
+        return redirect()->route('backstage-customer-story');
+    }
+
     public function fix_report(Request $request)
     {
         $content = $request->validate([
@@ -141,6 +207,7 @@ class customerController extends Controller
             'status' => 'nullable',
         ]);
 
+
         if ($content['id'] == "0") {
             //空id 進行新增
             $fix = fix::create($content);
@@ -151,6 +218,53 @@ class customerController extends Controller
 
 
         return redirect()->route('backstage-customer-fix');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function diy_store(Request $request)
+    {
+        //
+        $content = $request->validate([
+            'id' => 'required',
+            'launch_date' => 'required',
+            'takedown_date' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+            'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'file' => 'mimes:doc,pdf|max:2048',
+            'video' => 'mimes:avi,flv,wmv,mov,mp4,mpg|max:50000',
+        ]);
+
+        if (isset($content['image'])) {
+            $path = $request->file('image')->store('public/uploads/diy'); //上傳圖片
+            $content['image_path'] = $path;
+        }
+
+        if (isset($content['file'])) {
+            $path = $request->file('file')->store('public/uploads/diy'); //上傳圖片
+            $content['file_path'] = $path;
+        }
+
+        if (isset($content['video'])) {
+            $path = $request->file('video')->store('public/uploads/diy'); //上傳圖片
+            $content['video_path'] = $path;
+        }
+
+        if ($content['id'] == "0") {
+            //空id 進行新增
+            $diy = diy::create($content);
+        } else {
+            //否則進行更新
+            $diy = diy::find($content['id'])->update($content);
+        }
+
+
+        return redirect()->route('backstage-customer-diy');
     }
 
 
@@ -198,6 +312,19 @@ class customerController extends Controller
         return redirect()->route('backstage-customer-performance');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function diy_destroy($id)
+    {
+        //
+        $diy = diy::find($id)->delete();
+        return redirect()->route('backstage-customer-diy');
+    }
+
 
     /**
      * Display the specified resource.
@@ -235,11 +362,27 @@ class customerController extends Controller
     }
 
     //AJAX 讀取perform編輯資料
+    public function get_story_value($id)
+    {
+        //
+        $story = story::find($id);
+        return $story->toJson();
+    }
+
+    //AJAX 讀取perform編輯資料
     public function get_fix_value($id)
     {
         //
         $fix = fix::find($id);
         return $fix->toJson();
+    }
+
+    //AJAX 讀取DIY編輯資料
+    public function get_diy_value($id)
+    {
+        //
+        $diy = diy::find($id);
+        return $diy->toJson();
     }
 
     //AJAX 讀取導覽列數量
