@@ -96,6 +96,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/backstage/product/edit/{id}',[App\Http\Controllers\productController::class,'edit']
     )->name('backstage-product-edit');
 
+    Route::get('/backstage/product/image/edit/{id}',[App\Http\Controllers\productController::class,'edit_image'])
+    ->name('backstage-product-image');
+
+    Route::post('/backstage/product/image/store/{id}',[App\Http\Controllers\productController::class,'POST_edit_image'])
+    ->name('backstage-product-image-store');
+
 
 
     // backstage 產品介紹 end

@@ -17,4 +17,8 @@ class product extends Model
         return $this->hasOne('App\Models\product_type');
     }
 
+    public function product_image(){
+        return $this->hasMany('App\Models\product_image');
+    }
+
 }

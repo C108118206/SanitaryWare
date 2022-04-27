@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\product;
 use App\Models\product_type;
+use App\Models\product_image;
 use DB;
 use Illuminate\Support\Facades\Log;
 
@@ -27,13 +28,16 @@ class productController extends Controller
             ,'products.content as product_content'
             ,'products.size as product_size'
             ,'products.material as product_material'
-            ,'products.image_path as image_path'
             ,'products.created_at as product_created_at'
             ,'product_type.id as product_type_id'
             ,'product_type.main_product_type_id as main_product_type_id'
             ,'product_type.name as product_type_name')
             ->join('product_type','products.product_type_id','=','product_type.id')
             ->where('product_type_id',$product_type)->orwhere('main_product_type_id',$product_type)->orderBy('products.id','desc')->get();
+        foreach ($product as $v) {
+            $v->image_path = product_image::where('product_id',$v->product_id)->count() >= 1 ? product_image::where('product_id',$v->product_id)->first()->image_path : '';
+        }
+        
 
 
         return view('backstage.backstage_product',['product' => $product,'product_type' => $product_type_name, 'product_type_id' => $product_type_id]);
@@ -69,6 +73,15 @@ class productController extends Controller
         return view('product_details',['product' => $product,'product_type' => $product_type,'id' => $product->product_type_id]);
     }
 
+    public function edit_image($id){
+        $product = product::find($id);
+        $product_image = product_image::where('product_id',$id)->get();
+
+        return view('backstage.backstage_product_image',['product_image' => $product_image,'product' => $product]);
+    }
+
+    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -95,8 +108,9 @@ class productController extends Controller
             'details_introduction' => 'nullable',
             'Precautions' => 'nullable',
             'product_type_id' => 'required',
-            'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
+
+        $content['details_introduction'] = !isset($content['details_introduction']) ? "" : $content['details_introduction']; 
 
         if (isset($content['image'])) {
             $path = $request->file('image')->store('public/uploads/products'); //上傳圖片
@@ -113,6 +127,15 @@ class productController extends Controller
 
         return redirect()->route('backstage-product-product_type_id',$content['product_type_id']);
     }
+
+    public function POST_edit_image(Request $request){
+        $content = $request;
+
+        if (isset($content['image'])){
+            $path = $reuqest;
+        }
+    }
+    
 
     /**
      * Display the specified resource.

@@ -3,6 +3,7 @@
 
 @section('content')
 
+    
     <script>
         function product_clear() {
             $('#id').val('0');
@@ -89,12 +90,6 @@
                             required>
                     </div>
 
-
-                    <div class="form-group">
-                        <label for="image" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品圖片</label>
-                        <input name="image" type="file" id="image"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    </div>
 
                     <div class="">
                         <label for="Precautions"
@@ -227,7 +222,7 @@
                                     材質
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    上傳圖片
+                                    上傳圖片(預覽第一張圖)
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     建立日期
@@ -243,6 +238,7 @@
                                         <a data-modal-toggle="authentication-modal"
                                             onclick="get_product_value({{ $p->product_id }},'{{ route('get-product-json', ['id' => $p->product_id]) }}')">編輯</a>
                                         ｜ <a href="{{ route('backstage-product-drop', ['id' => $p->product_id]) }}">刪除</a>
+                                        ｜ <a href="{{ route('backstage-product-image', ['id' => $p->product_id]) }}">修改圖片</a>
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ $p->product_id }}
@@ -260,7 +256,7 @@
                                         {{ $p->product_material }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        <img class="w-32"
+                                        <img class="w-32 mx-auto"
                                             src="{{ mb_strlen($p->image_path) != 8? '/storage/' . str_replace('public/', '', $p->image_path): '/img/picture/product/' . $p->image_path . '.jpg' }}"
                                             alt="">
                                     </td>
