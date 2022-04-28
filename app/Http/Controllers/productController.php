@@ -55,6 +55,9 @@ class productController extends Controller
             ->where('product_type.enabled',1)
             ->orderBy('products.id','desc')->paginate(8);
         }
+        foreach ($product as $v) {
+            $v->image_path = product_image::where('product_id',$v->id)->count() >= 1 ? product_image::where('product_id',$v->id)->first()->image_path : '';
+        }
         
         $product_type = product_type::where('enabled',1)->get();
         return view('product',['products' => $product,'product_type' => $product_type,'id' => $id]);
@@ -68,16 +71,17 @@ class productController extends Controller
 
     public function front_product_details($id = null){
         $product = product::find($id);
-
+        $product->image_path = product_image::where('product_id',$id)->count() >= 1 ? product_image::where('product_id',$id)->get() : '';
         $product_type = product_type::all();
         return view('product_details',['product' => $product,'product_type' => $product_type,'id' => $product->product_type_id]);
     }
 
     public function edit_image($id){
         $product = product::find($id);
+        $product->image_path = product_image::where('product_id',$product->product_id)->count() >= 1 ? product_image::where('product_id',$product->product_id)->first()->image_path : '';
         $product_image = product_image::where('product_id',$id)->get();
 
-        return view('backstage.backstage_product_image',['product_image' => $product_image,'product' => $product]);
+        return view('backstage.backstage_product_image',['product_image' => $product_image,'product' => $product,'id' => $id]);
     }
 
     
@@ -128,12 +132,42 @@ class productController extends Controller
         return redirect()->route('backstage-product-product_type_id',$content['product_type_id']);
     }
 
-    public function POST_edit_image(Request $request){
-        $content = $request;
+    public function store_image(Request $request){
 
-        if (isset($content['image'])){
-            $path = $reuqest;
+        $content = $request->validate([
+            'id' => 'required',
+            'image-01' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image-02' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image-03' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image-04' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image-05' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image-06' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image-07' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'image-08' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ]);
+
+        for($i = 1 ; $i <= 8 ; $i++){
+            if(isset($content["image-0$i"])){
+                $path = $request->file("image-0$i")->store('public/uploads/products');
+
+                if(product_image::where([
+                    ["product_id",$content['id']],
+                    ["serial_num",$i]
+                    ])->count() == 1){
+                    $product = product_image::where([
+                        ["product_id",$content['id']],
+                        ["serial_num",$i]
+                        ])->update(['image_path' => $path]);
+                }else{ 
+                    $product = product_image::create([
+                        "product_id" => $content['id'],
+                        "image_path" => $path,
+                        "serial_num" => $i,
+                    ]);
+                }
+            }
         }
+        return redirect()->route("backstage-product-image",$content['id']);
     }
     
 

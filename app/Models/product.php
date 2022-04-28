@@ -14,7 +14,7 @@ class product extends Model
     ];
 
     public function product_type(){
-        return $this->hasOne('App\Models\product_type');
+        return $this->belongsTo('App\Models\product_type');
     }
 
     public function product_image(){

@@ -11,7 +11,7 @@ class product_image extends Model
 
     protected $table = "product_image";
     protected $fillable = [
-        'image_path','product_id'
+        'image_path','product_id','serial_num'
     ];
 
     public function product(){

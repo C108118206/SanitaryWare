@@ -24,133 +24,64 @@
         
         <div class="flex-col space-y-12 w-full">
             {{-- 第1間企業 --}}
-            <div class="lg:flex w-full space-x-12 justify-between">
-                <div class="w-full">
-                    <div class="flex text-center py-2 my-4 text-2xl w-1/2  text-white tracking-widest font-bold bg-dot">
-                        <div class="flex mx-4 justify-center items-center text-center w-full bg-dot">
-                            玻璃工程
+            @foreach ($business_types as $type)
+                <div class="lg:flex w-full space-x-12 justify-between">
+                    <div class="w-full">
+                        <div class="flex text-center py-2 my-4 text-2xl w-1/2  text-white tracking-widest font-bold bg-dot">
+                            <div class="flex mx-4 justify-center items-center text-center w-full bg-dot">
+                                {{$type->name}}
+                            </div>
+                        </div>
+                        
+                        @foreach($business->where('business_type_id',$type->id) as $company)
+                            <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold">
+                                {{ $company->name}}
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="w-full">
+                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                            @if(isset($business_items->where("business_type_id",$type->id)->take(1)->first()->name))
+                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                {{$business_items->where("business_type_id",$type->id)->take(1)->first()->name}}
+                            @endif
+                        </div>
+                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                            @if(isset($business_items->where("business_type_id",$type->id)->skip(1)->take(1)->first()->name))
+                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                {{$business_items->where("business_type_id",$type->id)->skip(1)->take(1)->first()->name}}
+                            @endif
+                        </div>
+                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                            @if(isset($business_items->where("business_type_id",$type->id)->skip(2)->take(1)->first()->name))
+                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                {{$business_items->where("business_type_id",$type->id)->skip(2)->take(1)->first()->name}}
+                            @endif
                         </div>
                     </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold">
-                        燈燦工程有限公司
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold">
-                        燈燦企業有限公司
-                    </div>
-                </div>
-                <div class="w-full">
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        各項建築玻璃工程
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        裝潢玻璃工程
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        百貨玻璃工程
-                    </div>
-                </div>
-                <div class="w-full">
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        帷幕牆玻璃工程
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        採光罩、鐵件玻璃工程
-                    </div>
-                </div>
-            </div>
-            {{-- 第2間企業 --}}
-
-            <div class="lg:flex w-full space-x-12 justify-between">
-                <div class="w-full">
-                    <div class="flex text-center py-2 my-4 text-2xl w-1/2  text-white tracking-widest font-bold bg-dot">
-                        <div class="flex mx-4 justify-center items-center text-center w-full bg-dot">
-                            淋浴工程
+                    <div class="w-full">
+                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                            @if(isset($business_items->where("business_type_id",$type->id)->skip(3)->take(1)->first()->name))
+                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                {{$business_items->where("business_type_id",$type->id)->skip(3)->take(1)->first()->name}}
+                            @endif
+                        </div>
+                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                            @if(isset($business_items->where("business_type_id",$type->id)->skip(4)->take(1)->first()->name))
+                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                {{$business_items->where("business_type_id",$type->id)->skip(4)->take(1)->first()->name}}
+                            @endif
+                        </div>
+                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                            @if(isset($business_items->where("business_type_id",$type->id)->skip(5)->take(1)->first()->name))
+                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                {{$business_items->where("business_type_id",$type->id)->skip(5)->take(1)->first()->name}}
+                            @endif
                         </div>
                     </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold">
-                        鋐坤企業行
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold">
-                        鋐坤企業有限公司
-                    </div>
                 </div>
-                <div class="w-full">
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        淋浴拉門工程：一字/五角/L型(無框/簡框)
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        鋁框明鏡、木框明鏡
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        玻璃五金買賣
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        人造石門檻工程
-                    </div>
-                </div>
-                <div class="w-full">
-                </div>
-            </div>
-
-            {{-- 第3間企業 --}}
-            <div class="lg:flex w-full space-x-12 justify-between">
-                <div class="w-full">
-                    <div class="flex text-center py-2 my-4 text-2xl w-1/2  text-white tracking-widest font-bold bg-dot">
-                        <div class="flex mx-4 justify-center items-center text-center w-full bg-dot">
-                            衛浴五金
-                        </div>
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold">
-                        允舜企業行
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold">
-                        允舜實業有限公司
-                    </div>
-                </div>
-                <div class="w-full">
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        304不銹鋼龍頭
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        304不鏽鋼衛浴配件
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        高度陶瓷馬桶/面盆
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        鏡櫃、浴櫃工程
-                    </div>
-                </div>
-                <div class="w-full">
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        曬衣架工程
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        耐衝擊隔音地板工程
-                    </div>
-                    <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                        <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                        耐衝擊隔音地板工程
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+            @endforeach
+            {{--  --}}
 
 
         <a href="" name="performance"></a>

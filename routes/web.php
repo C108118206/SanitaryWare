@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', [App\Http\Controllers\newsController::class,'index'])->name('dashboard');
 
 Route::get('/news/{id?}', [App\Http\Controllers\newsController::class,'show'])->name('news');
@@ -99,7 +101,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/backstage/product/image/edit/{id}',[App\Http\Controllers\productController::class,'edit_image'])
     ->name('backstage-product-image');
 
-    Route::post('/backstage/product/image/store/{id}',[App\Http\Controllers\productController::class,'POST_edit_image'])
+    Route::post('/backstage/product/image/store',[App\Http\Controllers\productController::class,'store_image'])
     ->name('backstage-product-image-store');
 
 
@@ -144,6 +146,35 @@ Route::group(['middleware' => 'auth'], function(){
     
     Route::get('/backstage/performance/drop/{id}',[App\Http\Controllers\customerController::class,'performance_destroy']
     )->name('backstage-performance-drop');
+
+    //backstage me
+    Route::get('/backstage/customer/me',[App\Http\Controllers\customerController::class,'index_me']
+    )->name('backstage-customer-me');
+
+    Route::post('/backstage/customer/store/me',[App\Http\Controllers\customerController::class,'store_me']
+    )->name('backstage-customer-me-store');
+
+    //backstage business
+    Route::get('/backstage/customer/business',[App\Http\Controllers\customerController::class,'index_business']
+    )->name('backstage-customer-business');
+
+    Route::post('/backstage/customer/store/business',[App\Http\Controllers\customerController::class,'store_business']
+    )->name('backstage-customer-business-store');
+
+    Route::post('/backstage/customer/store/business_item',[App\Http\Controllers\customerController::class,'store_business_item']
+    )->name('backstage-customer-business_item-store');
+
+    Route::post('/backstage/customer/store/business_type',[App\Http\Controllers\customerController::class,'store_business_type']
+    )->name('backstage-customer-business_type-store');
+
+    Route::get('/backstage/customer/destroy/business/{id}',[App\Http\Controllers\customerController::class,'business_destroy']
+    )->name('backstage-customer-business-destroy');
+
+    Route::get('/backstage/customer/destroy/business_item/{id}',[App\Http\Controllers\customerController::class,'business_item_destroy']
+    )->name('backstage-customer-business_item-destroy');
+
+    Route::get('/backstage/customer/destroy/business_type/{id}',[App\Http\Controllers\customerController::class,'business_type_destroy']
+    )->name('backstage-customer-business_type-destroy');
 
     //backstage diy
     Route::get('/backstage/customer/diy',[App\Http\Controllers\customerController::class,'index_diy']
@@ -190,6 +221,18 @@ Route::group(['middleware' => 'auth'], function(){
     //AJAX產品(編輯抓值)
     Route::get('/backstage/product/get/{id}',[App\Http\Controllers\productController::class,'get_product_value']
     )->name('get-product-json');
+
+    //AJAX營業公司(編輯抓值)
+    Route::get('/backstage/customer/business/get/{id}',[App\Http\Controllers\customerController::class,'get_business_value']
+    )->name('get-business-json');
+
+    //AJAX營業項目類別(編輯抓值)
+    Route::get('/backstage/customer/business_type/get/{id}',[App\Http\Controllers\customerController::class,'get_business_type_value']
+    )->name('get-business_type-json');
+
+    //AJAX營業項目(編輯抓值)
+    Route::get('/backstage/customer/business_item/get/{id}',[App\Http\Controllers\customerController::class,'get_business_item_value']
+    )->name('get-business_item-json');
 
     //AJAX讀取數量
     Route::get('/backstage/get',[App\Http\Controllers\customerController::class,'get_nav_value']

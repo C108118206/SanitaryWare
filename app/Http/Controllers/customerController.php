@@ -10,8 +10,10 @@ use App\Models\search;
 use App\Models\story;
 use App\Models\business_items;
 use App\Models\business_type;
+use App\Models\self_info;
 use App\Models\business;
 use App\Models\diy;
+use DB;
 
 
 class customerController extends Controller
@@ -26,8 +28,43 @@ class customerController extends Controller
     {
         $performs =perform::orderBy('created_at', 'desc')->take(8)->get();
         $story = story::orderBy('created_at','desc')->first();
-        return view('about_us', ['performs' => $performs,'story' => $story]);
+        $business = business::all();
+        $business_items = business_items::all();
+        $business_type = business_type::all();
+        return view('about_us', ['performs' => $performs,'story' => $story ,'business' => $business , 'business_items' => $business_items , 'business_types' => $business_type]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index_me()
+    {
+        $self = self_info::find(1);
+        return view('backstage.customer.backstage_customer_me',["self" => $self]);
+    }
+
+    public function index_business()
+    {
+        $business_type = business_type::all();
+
+        $business = DB::table("business")
+            ->select("business_type.name as business_type_name"
+                ,"business.name as business_name"
+                ,"business.id as id")
+            ->join("business_type","business.business_type_id",'=','business_type.id')->get();
+
+        $business_item = DB::table("business_items")
+            ->select("business_items.name as items_name"
+                ,"business_items.id as id"
+                ,"business_type.name as business_type_name")
+            ->join("business_type","business_type.id",'=','business_items.business_type_id')->get();
+
+        return view('backstage.customer.backstage_customer_business',["business" => $business, "business_type" => $business_type , "business_item" => $business_item ]);
+    }
+
+    
 
     /**
      * Display a listing of the resource.
@@ -173,6 +210,69 @@ class customerController extends Controller
 
 
         return redirect()->route('backstage-customer-story');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store_me(Request $request)
+    {
+        $content = $request->validate([
+            "phone_number" => 'required',
+        ]);
+        if (isset($content['phone_number'])){
+            self_info::find(1)->update($content);
+        }
+        return redirect()->route('backstage-customer-me');
+    }
+
+    public function store_business(Request $request)
+    {
+        $content = $request->validate([
+            "id" => 'nullable',
+            "name" => 'required',
+            "business_type_id" => 'required',
+        ]);
+
+        if(isset($content['id']) && $content['id'] != 0){
+            business::find($content['id'])->update($content);
+        }else{
+            business::create($content);
+        }
+        return redirect()->route('backstage-customer-business');
+    }
+
+    public function store_business_item(Request $request)
+    {
+        $content = $request->validate([
+            "id" => 'nullable',
+            "name" => 'required',
+            "business_type_id" => 'required',
+        ]);
+
+        if(isset($content['id']) && $content['id'] != 0){
+            business_items::find($content['id'])->update($content);
+        }else{
+            business_items::create($content);
+        }
+        return redirect()->route('backstage-customer-business');
+    }
+
+    public function store_business_type(Request $request)
+    {
+        $content = $request->validate([
+            "id" => 'nullable',
+            "name" => 'required',
+        ]);
+
+        if(isset($content['id']) && $content['id'] != 0){
+            business_type::find($content['id'])->update($content);
+        }else{
+            business_type::create($content);
+        }
+        return redirect()->route('backstage-customer-business');
     }
 
     public function fix_report(Request $request)
@@ -325,6 +425,29 @@ class customerController extends Controller
         return redirect()->route('backstage-customer-diy');
     }
 
+    public function business_destroy($id)
+    {
+        //
+        $business = business::find($id)->delete();
+        return redirect()->route('backstage-customer-business');
+    }
+
+    public function business_type_destroy($id)
+    {
+        //
+        $business = business::where("business_type_id",$id)->delete();
+        $items = business_items::where("business_type_id",$id)->delete();
+        $type = business_type::find($id)->delete();
+        return redirect()->route('backstage-customer-business');
+    }
+
+    public function business_item_destroy($id)
+    {
+        //
+        $items = business_items::find($id)->delete();
+        return redirect()->route('backstage-customer-business');
+    }
+
 
     /**
      * Display the specified resource.
@@ -393,5 +516,29 @@ class customerController extends Controller
         $myarray['productsNum'] = product::all()->count();
 
         return json_encode($myarray);
+    }
+
+    //AJAX 讀取編輯資料
+    public function get_business_item_value($id)
+    {
+        //
+        $items = business_items::find($id);
+        return $items->toJson();
+    }
+
+    //AJAX 讀取編輯資料
+    public function get_business_type_value($id)
+    {
+        //
+        $types = business_type::find($id);
+        return $types->toJson();
+    }
+
+    //AJAX 讀取編輯資料
+    public function get_business_value($id)
+    {
+        //
+        $business = business::find($id);
+        return $business->toJson();
     }
 }

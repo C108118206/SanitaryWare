@@ -5,7 +5,8 @@
                 {{ $product_type->find($id)->main_product_type_id !== null ? $product_type->find($product_type->find($id)->main_product_type_id)->name.' > ' : ''}} {{ $product_type->find($id)->name }}
             </div>
         </div>
-        <img src="/img/picture/index/contact-us-background.jpg" class=" object-fit h-full w-full"/>
+        <img src="/img/picture/index/產品介紹-{{ $product_type->find($id)->main_product_type_id !== null ? $product_type->find($product_type->find($id)->main_product_type_id)->name : $product_type->find($id)->name}}banner.jpg" class=" object-fit h-full w-full" />
+
     </div>
     <div class="max-w-7xl mx-auto py-6 space-y-12 flex-col justify-center">
         <div class="">
@@ -13,7 +14,22 @@
         </div>
 
         <div class="lg:flex">
-            <img src="{{ mb_strlen($product->image_path)!=8 ? '/storage/' . str_replace('public/', '', $product->image_path) : '/img/picture/product/' . $product->image_path . '.jpg' }}" class="h-72" alt="">
+            <div class="flex-col w-2/3 mx-auto">
+                @if($product->image_path === '')
+
+                @else
+                    <img src="{{ '/storage/'. str_replace('public/', '', $product->image_path[0]->image_path)}}" name="title_image" id="title_image" 
+                    class="h-72 w-full rounded mx-auto" alt="">
+                    <div class="flex pt-4 overflow-auto space-x-2">
+                        @foreach ($product->image_path as $image)
+                            <img src="{{'/storage/' . str_replace('public/', '', $image->image_path) }}" onclick="title_read(this);" class=" hover:cursor-pointer block border-2 border-dashed border-blue-500 h-20 w-32 px-4 rounded-lg" alt="">
+                            
+                        @endforeach
+                        
+                    </div>
+                @endif
+                
+            </div>
             <div class="flex-col space-y-4 m-8 w-full">
                 <div class=" font-black text-2xl text-side-bg">{{ $product->name }}</div> 
                 <div class="sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-400"></div>
@@ -48,6 +64,10 @@
         </div>
 
     </div>
-    
+    <script>
+        function title_read(object){
+            $("#title_image").attr('src',object.src);
+        }
+    </script>
     
 </x-app-layout>

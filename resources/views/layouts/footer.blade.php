@@ -1,3 +1,7 @@
+<?php 
+    use App\Models\self_info;
+    $self_info = self_info::find(1);
+?>
 <div class="mx-auto lg:h-52 sm:h-80 w-auto bg-sky-800 text-white px-8">
     <div class="max-w-7xl mx-auto py-4 flex justify-between ">
         
@@ -59,7 +63,7 @@
             </div>
             
             <p>服務時間： 09:00-18:00</p>
-            <p>連絡電話： 07-123-4567</p>
+            <p>連絡電話： {{ $self_info->phone_number }}</p>
         </div>
     </div>
 </div>
