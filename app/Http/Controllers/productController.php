@@ -25,9 +25,6 @@ class productController extends Controller
         $product = DB::table('products')
             ->select('products.id as product_id'
             ,'products.name as product_name'
-            ,'products.content as product_content'
-            ,'products.size as product_size'
-            ,'products.material as product_material'
             ,'products.created_at as product_created_at'
             ,'product_type.id as product_type_id'
             ,'product_type.main_product_type_id as main_product_type_id'
@@ -106,9 +103,6 @@ class productController extends Controller
         $content = $request->validate([
             'id' => 'required',
             'name' => 'required',
-            'content' => 'nullable',
-            'size' => 'nullable',
-            'material' => 'nullable',
             'details_introduction' => 'nullable',
             'Precautions' => 'nullable',
             'product_type_id' => 'required',

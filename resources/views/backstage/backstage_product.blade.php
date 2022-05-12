@@ -8,9 +8,6 @@
         function product_clear() {
             $('#id').val('0');
             $('#name').val('');
-            $('#content').val('');
-            $('#size').val('');
-            $('#material').val('');
             $('#details_introduction').val('');
             $('#Precautions').val('');
         }
@@ -23,9 +20,6 @@
                 success: function(data) {
                     $('#id').val(id);
                     $('#name').val(data.name);
-                    $('#content').val(data.content);
-                    $('#size').val(data.size);
-                    $('#material').val(data.material);
                     $('#Precautions').val(data.Precautions);
                     YourEditor.setData(data.details_introduction)
                 },
@@ -66,26 +60,6 @@
                     <div class="">
                         <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品名稱</label>
                         <input name="name" type="text" id="name"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required>
-                    </div>
-
-                    <div class="">
-                        <label for="content" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品說明</label>
-                        <input name="content" type="text" id="content"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required>
-                    </div>
-
-                    <div class="">
-                        <label for="size" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品大小</label>
-                        <input name="size" type="text" id="size"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required>
-                    </div>
-                    <div class="">
-                        <label for="material" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品材質</label>
-                        <input name="material" type="text" id="material"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
                     </div>
@@ -213,15 +187,6 @@
                                     產品名稱
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    說明
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    大小
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    材質
-                                </th>
-                                <th scope="col" class="px-6 py-3">
                                     上傳圖片(預覽第一張圖)
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -245,15 +210,6 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $p->product_name }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $p->product_content }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $p->product_size }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ $p->product_material }}
                                     </td>
                                     <td class="px-6 py-4">
                                         <img class="w-32 mx-auto"
