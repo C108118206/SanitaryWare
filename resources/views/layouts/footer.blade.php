@@ -27,10 +27,10 @@
                 <div class="font-bold text-xl pt-4">關於我們</div>
                 <div class="flex-wrap mt-2 space-y-2">
                     <div>
-                        <a class="mr-2" href="{{ route('about_us_story') }}">公司歷史</a>
+                        <a class="mr-2" href="{{ route('about_us_story') }}">品牌故事</a>
                     </div>
                     <div>
-                        <a class="mr-2" href="{{ route('about_us_business_item') }}">品牌優勢</a>
+                        <a class="mr-2" href="{{ route('about_us_business_item') }}">營業項目</a>
                     </div>
                     <div>
                         <a class="mr-2" href="{{ route('about_us_performance') }}">工程實績</a>

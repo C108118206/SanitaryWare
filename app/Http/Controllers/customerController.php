@@ -143,9 +143,6 @@ class customerController extends Controller
                 ->get();
 
             $product_result = product::where('name', 'LIKE', "%" . $content['title'] . "%")
-                ->orwhere('content', 'LIKE', "%" . $content['title'] . "%")
-                ->orwhere('size', 'LIKE', "%" . $content['title'] . "%")
-                ->orwhere('material', 'LIKE', "%" . $content['title'] . "%")
                 ->orwhere('details_introduction', 'LIKE', "%" . $content['title'] . "%")
                 ->get();
 

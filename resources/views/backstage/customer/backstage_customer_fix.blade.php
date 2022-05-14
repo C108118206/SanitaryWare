@@ -113,54 +113,6 @@
 
         <div class="bg-white w-3/4 m-auto rounded-xl">
             <div class=" p-4">
-                <form action="{{ route('backstage-fix-find') }}" method="post" class="flex justify-between my-4">
-                    @csrf
-                    <input type="hidden" id="id" name="id" value="">
-
-                    <div class="flex">
-                        <label for="name" class="bg-slate-200 text-xl py-2.5 px-2">名稱</label>
-                        <input type="text" class="" name="name" id="name">
-                    </div>
-                    <div class="flex mr-64">
-                        <label for="between" class="bg-slate-200 text-xl py-2.5 px-2">期間</label>
-                        <div date-rangepicker datepicker-format="yyyy-mm-dd" date class="flex items-center px-2">
-                            <div class="relative">
-                                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </div>
-                                <input name="start" type="text"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Select date start">
-                            </div>
-                            <span class="mx-4 text-gray-500">~</span>
-                            <div class="relative">
-                                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </div>
-                                <input name="end" type="text"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Select date end">
-                            </div>
-                        </div>
-                        <button type="submit" class=" bg-slate-600">
-                            <img src="/img/icon/search.svg"
-                                class="flex-shrink-0 h-6 text-gray-500 transition duration-75 group-hover:text-white dark:text-gray-400 dark:group-hover:text-white"
-                                alt="">
-                        </button>
-                    </div>
-
-
-
                     <div class=" flex w-max justify-end">
                         <button
                             class="block text-black bg-yellow-300 hover:bg-dot font-medium rounded-lg text-xl px-5 py-2.5 text-center"
@@ -168,8 +120,6 @@
                             + 新增
                         </button>
                     </div>
-
-                </form>
                 <div class="relative overflow-x-auto shadow-md my-8">
                     <table id="table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class=" text-lg text-gray-700 uppercase bg-backstage_bg dark:bg-gray-700 dark:text-gray-400">
