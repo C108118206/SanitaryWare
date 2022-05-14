@@ -221,10 +221,10 @@ class customerController extends Controller
     {
         $content = $request->validate([
             "phone_number" => 'required',
+            "fax" => 'required',
+            "mail" => 'required',
         ]);
-        if (isset($content['phone_number'])){
-            self_info::find(1)->update($content);
-        }
+        self_info::find(1)->update($content);
         return redirect()->route('backstage-customer-me');
     }
 

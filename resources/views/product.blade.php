@@ -16,7 +16,7 @@
                 {{ $product_type->find($id)->name }}</div>
         </div>
 
-        <div class="flex flex-wrap justify-left ml-5">
+        <div class="flex-col justify-left ml-5">
 
             <div class="flex text-2xl flex-wrap">
                 @foreach ($product_type as $item)

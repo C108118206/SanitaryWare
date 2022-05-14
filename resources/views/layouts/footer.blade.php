@@ -57,13 +57,14 @@
                 </div>
             </div>
         </div>
-        <div class="mt-56 lg:mt-24 flex-col">
+        <div class="mt-80 lg:mt-16 flex-col">
             <div class="flex">
                 <p>堡家麗</p><a href="https://www.facebook.com/%E5%A0%A1%E5%AE%B6%E9%BA%97-101540544811432/" target="_blank"><img src="/img/icon/fb.svg" class=" pl-2 h-6 w-6"></a>
             </div>
-            
             <p>服務時間： 09:00-18:00</p>
             <p>連絡電話： {{ $self_info->phone_number }}</p>
+            <p>傳真： {{ $self_info->fax }}</p>
+            <p>電子信箱： {{ $self_info->mail }}</p>
         </div>
     </div>
 </div>

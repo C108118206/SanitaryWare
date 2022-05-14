@@ -9,7 +9,7 @@ class self_info extends Model
 {
     use HasFactory;
 
-    protected $fillable = [ "phone_number"];
+    protected $fillable = [ 'phone_number','fax','mail'];
 
     
 }

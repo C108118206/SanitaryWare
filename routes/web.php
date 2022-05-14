@@ -89,11 +89,15 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/backstage/product/store',[App\Http\Controllers\productController::class,'store']
     )->name('backstage-product-store');
 
+    Route::post('/backstage/product_type/store',[App\Http\Controllers\productController::class,'store_type']
+    )->name('backstage-product-type-store');
+
     Route::get('/backstage/product/drop/{id}',[App\Http\Controllers\productController::class,'destroy']
     )->name('backstage-product-drop');
 
-    Route::post('/backstage/product/find',[App\Http\Controllers\productController::class,'find_product']
-    )->name('backstage-product-find');
+    Route::get('/backstage/product_type/drop/{id}',[App\Http\Controllers\productController::class,'destroy_type']
+    )->name('backstage-product-type-drop');
+    
 
     Route::get('/backstage/product/edit/{id}',[App\Http\Controllers\productController::class,'edit']
     )->name('backstage-product-edit');
@@ -221,6 +225,10 @@ Route::group(['middleware' => 'auth'], function(){
     //AJAX產品(編輯抓值)
     Route::get('/backstage/product/get/{id}',[App\Http\Controllers\productController::class,'get_product_value']
     )->name('get-product-json');
+
+    //AJAX產品類別(編輯抓值)
+    Route::get('/backstage/product_type/get/{id}',[App\Http\Controllers\productController::class,'get_product_type_value']
+    )->name('get-product-type-json');
 
     //AJAX營業公司(編輯抓值)
     Route::get('/backstage/customer/business/get/{id}',[App\Http\Controllers\customerController::class,'get_business_value']

@@ -19,6 +19,7 @@ class productController extends Controller
      */
     public function index($product_type_id)
     {
+        $product_type_sub_table = product_type::where('main_product_type_id',$product_type_id)->get();
         $product_type_table = product_type::find($product_type_id);
         $product_type = !is_null($product_type_table->main_product_type_id) ? $product_type_table->main_product_type_id : $product_type_id;
         $product_type_name = product_type::find($product_type); 
@@ -37,7 +38,12 @@ class productController extends Controller
         
 
 
-        return view('backstage.backstage_product',['product' => $product,'product_type' => $product_type_name, 'product_type_id' => $product_type_id]);
+        return view('backstage.backstage_product',
+        [   'product' => $product,
+            'product_type' => $product_type_name, 
+            'product_type_id' => $product_type_id,
+            'product_type_sub' => $product_type_sub_table,
+        ]);
     }
 
     public function front_product_index($id = 1){
@@ -123,7 +129,35 @@ class productController extends Controller
             $product = product::find($content['id'])->update($content);
         }
 
-        return redirect()->route('backstage-product-product_type_id',$content['product_type_id']);
+        $product_type_id = !is_null(product_type::find($content['product_type_id'])->main_product_type_id)
+                ? product_type::find($content['product_type_id'])->main_product_type_id
+                : $content['product_type_id'];
+
+        return redirect()->route('backstage-product-product_type_id',$product_type_id);
+    }
+
+    public function store_type(Request $request)
+    {
+        $content = $request->validate([
+            'type_id' => 'required',
+            'type_name' => 'required',
+            'main_type_id' => 'required',
+        ]);
+
+        $table = array(
+            'id' => $content['type_id'],
+            'name' => $content['type_name'],
+            'main_product_type_id' => $content['main_type_id'],
+        );
+
+        if ($content['type_id'] == "0") {
+            //空id 進行新增
+            $product = product_type::create($table);
+        } else {
+            //否則進行更新
+            $product = product_type::find($content['type_id'])->update($table);
+        }
+        return redirect()->route('backstage-product-product_type_id',$table['main_product_type_id']);
     }
 
     public function store_image(Request $request){
@@ -241,12 +275,28 @@ class productController extends Controller
         return redirect()->route('backstage-product-product_type_id',$product_type_id);
     }
 
-        //AJAX 讀取編輯資料
-        public function get_product_value($id)
-        {
-            //
-            $product = product::find($id);
-            return $product->toJson();
-        }
+    public function destroy_type($id)
+    {
+        //
+        $product = product_type::find($id);
+        $product_type_id = $product->main_product_type_id;
+        $product->delete();
+
+        return redirect()->route('backstage-product-product_type_id',$product_type_id);
+    }
+
+    //AJAX 讀取編輯資料
+    public function get_product_value($id)
+    {
+        $product = product::find($id);
+        return $product->toJson();
+    }
+
+    //AJAX 讀取編輯資料
+    public function get_product_type_value($id)
+    {
+        $product = product_type::find($id);
+        return $product->toJson();
+    }
 
 }
