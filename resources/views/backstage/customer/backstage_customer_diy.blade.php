@@ -105,7 +105,7 @@
                             placeholder="Select date" required>
                     </div>
                     <div class="form-group">
-                        <label for="image" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">D I Y 圖片</label>
+                        <label for="image" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">D I Y 圖片 <br><span class="text-red-500">副檔名(jpg ,png ,jpeg ,gif ,svg)  限制大小為2Mb</label>
                         <input name="image" type="file" id="image"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     </div>
@@ -116,7 +116,7 @@
                             >
                     </div>
                     <div class="">
-                        <label for="video" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">D I Y 影片</label>
+                        <label for="video" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">D I Y 影片 <br><span class="text-red-500">副檔名(avi ,flv ,wmv ,mov ,mp4 ,mpg)  限制大小為50Mb</span></label>
                         <input name="video" type="file" id="video"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             >

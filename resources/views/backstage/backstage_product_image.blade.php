@@ -9,7 +9,9 @@
         </div>
         <form action="{{ route("backstage-product-image-store") }}" enctype="multipart/form-data" method="POST">
             @csrf
+            <br><span class="text-red-500">副檔名(jpg ,png ,jpeg ,gif ,svg)  限制大小為2Mb</span>
         <div class="flex justify-between flex-wrap pt-10">
+            
                 <input hidden type="text" id="id" name="id" value="{{ $product->id }}"/>
                 @for($i = 1; $i <= 8; $i++)
                     <div class="w-1/4 h-full text-center">
