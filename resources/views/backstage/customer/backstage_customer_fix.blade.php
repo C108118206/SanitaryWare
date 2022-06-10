@@ -54,32 +54,34 @@
                 </div>
                 <!-- Modal body -->
                 <form action="{{ route('backstage-fix-store') }}" method="POST">
+                    <span class="text-red-500"> 注意：「紅色星號 * 為必填項目」 </span>
+                    
                     @csrf
                     <input type="hidden" id="id" name="id" value="">
-
-                    <label for="declarer" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">申報人</label>
+                    <div></div>
+                    <label for="declarer" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">申報人<span class="text-red-500"> * </span></label>
                     <input name="declarer" type="text" id="declarer"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required>
 
-                    <label for="phone" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">連絡電話</label>
+                    <label for="phone" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">連絡電話<span class="text-red-500"> * </span></label>
                     <input name="phone" type="text" id="phone"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required>
 
-                    <label for="title" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">維修事項</label>
+                    <label for="title" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">維修事項<span class="text-red-500"> * </span></label>
                     <input name="title" type="text" id="title"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required>
 
 
-                    <label for="content" class="block mb-2 text- font-medium text-gray-900 dark:text-gray-400">維修原因</label>
+                    <label for="content" class="block mb-2 text- font-medium text-gray-900 dark:text-gray-400">維修原因<span class="text-red-500"> * </span></label>
 
                     <textarea id="content" rows="4" name="content" required
                         class="block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="寫下問題原因..."></textarea>
 
-                    <label for="status" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">目前狀態</label>
+                    <label for="status" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">目前狀態<span class="text-red-500"> * </span></label>
                     <input name="status" type="text" id="status" value="回報中"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required>

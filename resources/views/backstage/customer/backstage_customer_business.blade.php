@@ -82,11 +82,13 @@
                 <!-- Modal body -->
                 <span class=" text-2xl">營業項目類別</span>
                 <form action="{{ route('backstage-customer-business_type-store') }}" enctype="multipart/form-data" method="POST">
+                    <span class="text-red-500"> 注意：「紅色星號 * 為必填項目」 </span>
+                    
                     @csrf
                     <input type="hidden" id="type_id" name="id" value="">
 
                     <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">類別名稱</label>
+                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">類別名稱<span class="text-red-500"> * </span></label>
                         <input name="name" type="text" id="type_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
@@ -129,11 +131,13 @@
                 <!-- Modal body -->
                 <span class=" text-2xl">營業項目</span>
                 <form action="{{ route('backstage-customer-business_item-store') }}" enctype="multipart/form-data" method="POST">
+                    <span class="text-red-500"> 注意：「紅色星號 * 為必填項目」 </span>
+                    
                     @csrf
                     <input type="hidden" id="items_id" name="id" value="">
 
                     <div class="my-4">
-                        <label for="business_type_id" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">營業項目</label>
+                        <label for="business_type_id" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">營業項目<span class="text-red-500"> * </span></label>
                         <select name="business_type_id"  id="items_type_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
@@ -144,7 +148,7 @@
                     </div>
 
                     <div class="my-4">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">營業項目名稱</label>
+                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">營業項目名稱<span class="text-red-500"> * </span></label>
                         <input name="name" type="text" id="items_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
@@ -187,11 +191,12 @@
                 <!-- Modal body -->
                 <span class=" text-2xl">營業項目公司</span>
                 <form action="{{ route('backstage-customer-business-store') }}" enctype="multipart/form-data" method="POST">
+                    <span class="text-red-500"> 注意：「紅色星號 * 為必填項目」 </span>
                     @csrf
                     <input type="hidden" id="business_id" name="id" value="">
 
                     <div class="my-4">
-                        <label for="business_type_id" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">營業項目</label>
+                        <label for="business_type_id" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">營業項目<span class="text-red-500"> * </span></label>
                         <select name="business_type_id" id="business_type_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
@@ -202,7 +207,7 @@
                     </div>
 
                     <div class="my-4">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">公司名稱</label>
+                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">公司名稱<span class="text-red-500"> * </span></label>
                         <input name="name" type="text" id="business_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>

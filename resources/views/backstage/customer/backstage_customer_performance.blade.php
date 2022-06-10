@@ -48,11 +48,13 @@
                 </div>
                 <!-- Modal body -->
                 <form action="{{ route('backstage-performance-store') }}" enctype="multipart/form-data" method="POST">
+                    <span class="text-red-500"> 注意：「紅色星號 * 為必填項目」 </span>
+                    
                     @csrf
                     <input type="hidden" id="id" name="id" value="">
 
                     <div class="">
-                        <label for="title" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">實績說明</label>
+                        <label for="title" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">實績說明<span class="text-red-500"> * </span></label>
                         <input name="title" type="text" id="title"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>

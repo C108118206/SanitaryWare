@@ -54,22 +54,24 @@
                 </div>
                 <!-- Modal body -->
                 <form action="{{ route('backstage-diy-store') }}" enctype="multipart/form-data" method="POST">
+                    <span class="text-red-500"> 注意：「紅色星號 * 為必填項目」 </span>
+                    
                     @csrf
                     <input type="hidden" id="id" name="id" value="">
 
                     <div class="">
-                        <label for="title" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">標題</label>
+                        <label for="title" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">標題<span class="text-red-500"> * </span></label>
                         <input name="title" type="text" id="title"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
                     </div>
                     <div class="">
-                        <label for="content" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">內容</label>
+                        <label for="content" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">內容<span class="text-red-500"> * </span></label>
                         <input name="content" type="text" id="content"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
                     </div>
-                    <label for="launch_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期</label>
+                    <label for="launch_date" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">上架日期<span class="text-red-500"> * </span></label>
 
                     <div class="relative">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -83,10 +85,10 @@
                         <input datepicker datepicker-autohide datepicker-format="yyyy-mm-dd" type="text" id="launch_date"
                             name="launch_date"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Select date">
+                            placeholder="Select date" required>
                     </div>
                     <label for="takedown_date"
-                        class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">下架日期</label>
+                        class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">下架日期<span class="text-red-500"> * </span></label>
 
                     <div class="relative">
                         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -100,7 +102,7 @@
                         <input datepicker datepicker-autohide datepicker-format="yyyy-mm-dd" type="text" id="takedown_date"
                             name="takedown_date"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Select date">
+                            placeholder="Select date" required>
                     </div>
                     <div class="form-group">
                         <label for="image" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">D I Y 圖片</label>

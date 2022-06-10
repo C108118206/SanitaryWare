@@ -52,6 +52,7 @@
                 </div>
                 <!-- Modal body -->
                 <form action="{{ route('backstage-news-store') }}" enctype="multipart/form-data" method="POST">
+                    <span class="text-red-500"> 注意：「紅色星號 * 為必填項目」 </span>
                     @csrf
                     <input type="hidden" id="id" name="id" value="">
 
