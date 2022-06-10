@@ -39,46 +39,73 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="w-full">
-                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                            @if(isset($business_items->where("business_type_id",$type->id)->take(1)->first()->name))
-                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                                {{$business_items->where("business_type_id",$type->id)->take(1)->first()->name}}
-                            @endif
+                    @if (isset($business_items->where("business_type_id",$type->id)->skip(1)->take(1)->first()->name))
+                        <div class="w-full">
+                            <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                                @if(isset($business_items->where("business_type_id",$type->id)->take(1)->first()->name))
+                                    <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                    {{$business_items->where("business_type_id",$type->id)->take(1)->first()->name}}
+                                @endif
+                            </div>
+                            <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                                @if(isset($business_items->where("business_type_id",$type->id)->skip(1)->take(1)->first()->name))
+                                    <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                    {{$business_items->where("business_type_id",$type->id)->skip(1)->take(1)->first()->name}}
+                                @endif
+                            </div>
+                            <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                                @if(isset($business_items->where("business_type_id",$type->id)->skip(2)->take(1)->first()->name))
+                                    <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                    {{$business_items->where("business_type_id",$type->id)->skip(2)->take(1)->first()->name}}
+                                @endif
+                            </div>
                         </div>
-                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                            @if(isset($business_items->where("business_type_id",$type->id)->skip(1)->take(1)->first()->name))
-                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                                {{$business_items->where("business_type_id",$type->id)->skip(1)->take(1)->first()->name}}
-                            @endif
+                    @endif
+                    @if (isset($business_items->where("business_type_id",$type->id)->skip(3)->take(1)->first()->name))
+                        <div class="w-full">
+                            <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                                @if(isset($business_items->where("business_type_id",$type->id)->skip(3)->take(1)->first()->name))
+                                    <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                    {{$business_items->where("business_type_id",$type->id)->skip(3)->take(1)->first()->name}}
+                                @endif
+                            </div>
+                            <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                                @if(isset($business_items->where("business_type_id",$type->id)->skip(4)->take(1)->first()->name))
+                                    <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                    {{$business_items->where("business_type_id",$type->id)->skip(4)->take(1)->first()->name}}
+                                @endif
+                            </div>
+                            <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                                @if(isset($business_items->where("business_type_id",$type->id)->skip(5)->take(1)->first()->name))
+                                    <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                    {{$business_items->where("business_type_id",$type->id)->skip(5)->take(1)->first()->name}}
+                                @endif
+                            </div>
                         </div>
-                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                            @if(isset($business_items->where("business_type_id",$type->id)->skip(2)->take(1)->first()->name))
-                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                                {{$business_items->where("business_type_id",$type->id)->skip(2)->take(1)->first()->name}}
-                            @endif
+                    @endif
+                    @if (isset($business_items->where("business_type_id",$type->id)->skip(6)->take(1)->first()->name))
+                        <div class="w-full">
+                            <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                                @if(isset($business_items->where("business_type_id",$type->id)->skip(6)->take(1)->first()->name))
+                                    <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                    {{$business_items->where("business_type_id",$type->id)->skip(6)->take(1)->first()->name}}
+                                @endif
+                            </div>
+                            <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                                @if(isset($business_items->where("business_type_id",$type->id)->skip(7)->take(1)->first()->name))
+                                    <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                    {{$business_items->where("business_type_id",$type->id)->skip(7)->take(1)->first()->name}}
+                                @endif
+                            </div>
+                            <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
+                                @if(isset($business_items->where("business_type_id",$type->id)->skip(8)->take(1)->first()->name))
+                                    <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
+                                    {{$business_items->where("business_type_id",$type->id)->skip(8)->take(1)->first()->name}}
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                    <div class="w-full">
-                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                            @if(isset($business_items->where("business_type_id",$type->id)->skip(3)->take(1)->first()->name))
-                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                                {{$business_items->where("business_type_id",$type->id)->skip(3)->take(1)->first()->name}}
-                            @endif
-                        </div>
-                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                            @if(isset($business_items->where("business_type_id",$type->id)->skip(4)->take(1)->first()->name))
-                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                                {{$business_items->where("business_type_id",$type->id)->skip(4)->take(1)->first()->name}}
-                            @endif
-                        </div>
-                        <div class="flex text-center py-2 my-4 text-2xl   text-side_bg tracking-widest font-bold ">
-                            @if(isset($business_items->where("business_type_id",$type->id)->skip(5)->take(1)->first()->name))
-                                <div class="flex mx-4 z-10 justify-center items-center w-4 h-4 bg-dot rounded-full ring-0 ring-white dark:bg-blue-900  dark:ring-gray-900 shrink-0"></div>
-                                {{$business_items->where("business_type_id",$type->id)->skip(5)->take(1)->first()->name}}
-                            @endif
-                        </div>
-                    </div>
+                    @endif
+                    
                 </div>
             @endforeach
             {{--  --}}

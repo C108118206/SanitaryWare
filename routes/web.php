@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::post('/imageCKF',[App\Http\Controllers\productController::class,'imageProcess'])->name('imageCKF');
 
 Route::get('/', [App\Http\Controllers\newsController::class,'index'])->name('dashboard');
 

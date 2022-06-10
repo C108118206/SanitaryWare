@@ -160,6 +160,15 @@ class productController extends Controller
         return redirect()->route('backstage-product-product_type_id',$table['main_product_type_id']);
     }
 
+    public function imageProcess(Request $request){
+        if($request->hasFile('upload')){
+            $path = $request->file('upload')->store('public/uploads/products');
+            $url = "/storage".str_replace('public','',$path);
+            $filename = str_replace('public/uploads/products/','',$path);
+            return response()->json(['fileName' => $filename, 'uploaded'=> 1, 'url' => $url]);
+        }
+    }
+
     public function store_image(Request $request){
 
         $content = $request->validate([

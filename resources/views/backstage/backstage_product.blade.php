@@ -4,6 +4,7 @@
 @section('content')
 
     <script>
+        
         function product_clear() {
             $('#id').val('0');
             $('#name').val('');
@@ -113,7 +114,7 @@
                     <input type="hidden" id="main_type_id" name="main_type_id" value="">
 
                     <div class="">
-                        <label for="type_name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品類別名稱</label>
+                        <label for="type_name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品類別名稱<span class="text-red-500"> * </span></label>
                         <input name="type_name" type="text" id="type_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
@@ -159,7 +160,7 @@
                     <input type="hidden" id="id" name="id" value="">
                     <div class="">
                         <label for="product_type_id"
-                            class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品類別</label>
+                            class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品類別<span class="text-red-500"> * </span></label>
                         <select name="product_type_id" id="product_type_id"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required>
@@ -174,7 +175,7 @@
                     
 
                     <div class="">
-                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品名稱</label>
+                        <label for="name" class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">產品名稱<span class="text-red-500"> * </span></label>
                         <input name="name" type="text" id="name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required>
@@ -186,7 +187,7 @@
                             class="mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">注意事項</label>
                         <input name="Precautions" type="text" id="Precautions"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required>
+                            >
                     </div>
 
 
@@ -358,15 +359,31 @@
         </div>
     </div>
 
-
     <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+
     <script>
+        // let YourEditor;
+        // ClassicEditor
+        //     .create(document.querySelector('#details_introduction'))
+        //     .then(editor => {
+        //         window.editor = editor;
+        //         YourEditor = editor;
+        //     })
+        
         let YourEditor;
+
         ClassicEditor
-            .create(document.querySelector('#details_introduction'))
+            .create( document.querySelector( '#details_introduction' ),{
+                ckfinder: {
+                    uploadUrl: '{{ route('imageCKF').'?_token='.csrf_token() }}',
+                }
+            })
             .then(editor => {
                 window.editor = editor;
                 YourEditor = editor;
+            })
+            .catch( error => {
+                console.error(error);
             })
     </script>
 
