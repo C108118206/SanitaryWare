@@ -942,8 +942,8 @@ input[type=file]::file-selector-button:hover {
 .w-full {
   width: 100%;
 }
-.w-1\/2 {
-  width: 50%;
+.w-1\/6 {
+  width: 16.666667%;
 }
 .w-4 {
   width: 1rem;
