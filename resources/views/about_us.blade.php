@@ -26,7 +26,7 @@
             {{-- 第1間企業 --}}
             @foreach ($business_types as $type)
                 <div class="lg:flex w-full space-x-12 justify-between">
-                    <div class="w-1/2">
+                    <div class="w-10/12">
                         <div class="flex text-center py-2 my-4 text-2xl w-1/6  text-white tracking-widest font-bold bg-dot">
                             <div class="flex mx-4 justify-center items-center text-center w-full bg-dot">
                                 {{$type->name}}
