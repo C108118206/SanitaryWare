@@ -60,6 +60,21 @@
                 }
             });
         }
+        function del_business_type(url,name){
+            if(confirm('確定要刪除 '+name+' 營業類別\n並包含他底下的營業項目公司及營業項目嗎？')){
+                window.location.href=url;
+            }
+        }
+        function del_business(url,name){
+            if(confirm('確定要刪除 '+name+' 營業項目公司嗎？')){
+                window.location.href=url;
+            }
+        }
+        function del_business_item(url,name){
+            if(confirm('確定要刪除 '+name+' 營業項目嗎？')){
+                window.location.href=url;
+            }
+        }
     </script>
     <!-- Main modal business_type -->
     <div id="business_type-modal" tabindex="-1" aria-hidden="true"
@@ -265,7 +280,7 @@
                                             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                             <a data-modal-toggle="business_type-modal"
                                             onclick="get_business_type_value({{ $item->id }},'{{ route('get-business_type-json', ['id' => $item->id]) }}')">編輯</a>
-                                            ｜ <a href="{{ route('backstage-customer-business_type-destroy', ['id' => $item->id]) }}">刪除</a>
+                                            ｜ <a onclick="del_business_type('{{ route('backstage-customer-business_type-destroy', ['id' => $item->id]) }}','{{ $item->name }}')" >刪除</a>
                                         </th>
                                         <td class="px-6 py-4">
                                             {{$item->name}}
@@ -312,7 +327,7 @@
                                             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                             <a data-modal-toggle="business-modal"
                                             onclick="get_business_value({{ $item->id }},'{{ route('get-business-json', ['id' => $item->id]) }}')">編輯</a>
-                                            ｜ <a href="{{ route('backstage-customer-business-destroy', ['id' => $item->id]) }}">刪除</a>
+                                            ｜ <a onclick="del_business('{{ route('backstage-customer-business-destroy', ['id' => $item->id]) }}','{{ $item->business_name }}')">刪除</a>
                                         </th>
                                         <td class="px-6 py-4">
                                             {{$item->business_type_name}}
@@ -363,7 +378,7 @@
                                             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                             <a data-modal-toggle="business_items-modal"
                                             onclick="get_business_item_value({{ $item->id }},'{{ route('get-business_item-json', ['id' => $item->id]) }}')">編輯</a>
-                                            ｜ <a href="{{ route('backstage-customer-business_item-destroy', ['id' => $item->id]) }}">刪除</a>
+                                            ｜ <a onclick="del_business_item('{{ route('backstage-customer-business_item-destroy', ['id' => $item->id]) }}','{{ $item->items_name }}')">刪除</a>
                                         </th>
                                         <td class="px-6 py-4">
                                             {{$item->business_type_name}}

@@ -86,6 +86,16 @@
             });
             $('div.toolbar').html('');
         });
+        function del_product_type(url,name){
+            if(confirm('確定要刪除 '+name+' 產品類別並包含他底下的產品嗎？')){
+                window.location.href=url;
+            }
+        }
+        function del_product(url,name){
+            if(confirm('確定要刪除 '+name+' 產品嗎？')){
+                window.location.href=url;
+            }
+        }
     </script>
 
     <!-- 產品類別Modal -->
@@ -270,7 +280,8 @@
                                         class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                         <a data-modal-toggle="product_type-modal"
                                             onclick="get_product_type_value({{ $p_sub->id }},'{{ route('get-product-type-json', ['id' => $p_sub->id]) }}')">編輯</a>
-                                        ｜ <a href="{{ route('backstage-product-type-drop', ['id' => $p_sub->id]) }}">刪除</a>
+                                        ｜ <a
+                                        onclick="del_product_type('{{ route('backstage-product-type-drop', ['id' => $p_sub->id]) }}','{{ $p_sub->name }}')">刪除</a>
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ $p_sub->name }}
@@ -333,7 +344,8 @@
                                         class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                         <a data-modal-toggle="authentication-modal"
                                             onclick="get_product_value({{ $p->product_id }},'{{ route('get-product-json', ['id' => $p->product_id]) }}')">編輯</a>
-                                        ｜ <a href="{{ route('backstage-product-drop', ['id' => $p->product_id]) }}">刪除</a>
+                                        ｜ <a 
+                                        onclick="del_product('{{ route('backstage-product-drop', ['id' => $p->product_id]) }}','{{ $p->product_name }}')">刪除</a>
                                         ｜ <a href="{{ route('backstage-product-image', ['id' => $p->product_id]) }}">修改圖片</a>
                                     </th>
                                     <td class="px-6 py-4">

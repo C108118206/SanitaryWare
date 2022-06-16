@@ -409,6 +409,13 @@ class customerController extends Controller
         return redirect()->route('backstage-customer-performance');
     }
 
+    public function story_destroy($id)
+    {
+        //
+        $story = story::find($id)->delete();
+        return redirect()->route('backstage-customer-story');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

@@ -25,7 +25,11 @@
             }
         });
     }
-
+    function del_performance(url,name){
+        if(confirm('確定要刪除 '+name+' 工程實績嗎？')){
+            window.location.href=url;
+        }
+    }
 </script>
 
     <!-- Main modal -->
@@ -136,7 +140,8 @@
                                             編輯
                                         </a>
                                         ｜ <a
-                                            href="{{ route('backstage-performance-drop', ['id' => $performance->id]) }}">刪除</a>
+                                            onclick="del_performance('{{ route('backstage-performance-drop', ['id' => $performance->id]) }}','{{ $performance->title }}')"
+                                            >刪除</a>
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ $performance->title }}

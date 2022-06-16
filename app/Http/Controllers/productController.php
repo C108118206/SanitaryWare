@@ -278,7 +278,9 @@ class productController extends Controller
     {
         //
         $product = product::find($id);
-        $product_type_id = $product->product_type_id;
+        $product_type = product_type::find($product->product_type_id);
+        $product_type_id = is_null($product_type->main_product_type_id) ? $product_type->id : $product_type->main_product_type_id;
+
         $product->delete();
 
         return redirect()->route('backstage-product-product_type_id',$product_type_id);

@@ -32,6 +32,12 @@
                 }
             });
         }
+
+        function del_fix(url,name){
+            if(confirm('確定要刪除 '+name+' 維修通報嗎？')){
+                window.location.href=url;
+            }
+        }
     </script>
 
     <!-- Main modal -->
@@ -157,7 +163,9 @@
                                         class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                         <a href="{{ route('backstage-fix-finish', ['id' => $fix->id]) }}">完工</a> ｜ <a data-modal-toggle="authentication-modal"
                                             onclick="get_fix_value({{ $fix->id }},'{{ route('get-fix-json', ['id' => $fix->id]) }}')">編輯</a>
-                                        ｜ <a href="{{ route('backstage-fix-drop', ['id' => $fix->id]) }}">刪除</a>
+                                        ｜ <a 
+                                        onclick="del_fix('{{ route('backstage-fix-drop', ['id' => $fix->id]) }}','{{ $fix->declarer . ' - ' . $fix->title }}')"
+                                        >刪除</a>
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ $fix->status }}

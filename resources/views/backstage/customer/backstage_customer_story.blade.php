@@ -28,6 +28,11 @@
         });
     }
 
+    function del_story(url,name){
+        if(confirm('確定要刪除 '+name+' 品牌故事嗎？')){
+            window.location.href=url;
+        }
+    }
 </script>
 
     <!-- Main modal -->
@@ -138,7 +143,7 @@
                                             編輯
                                         </a>
                                         ｜ <a
-                                            href="{{ route('backstage-performance-drop', ['id' => $story->id]) }}">刪除</a>
+                                        onclick="del_story('{{route('backstage-story-drop', ['id' => $story->id]) }}','{{ $story->title }}')">刪除</a>
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ $story->title }}

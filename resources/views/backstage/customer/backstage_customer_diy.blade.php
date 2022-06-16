@@ -31,7 +31,11 @@
             }
         });
     }
-
+    function del_diy(url,name){
+            if(confirm('確定要刪除 '+name+' diy內容嗎？')){
+                window.location.href=url;
+            }
+        }
 </script>
 
     <!-- Main modal -->
@@ -194,7 +198,7 @@
                                             編輯
                                         </a>
                                         ｜ <a
-                                            href="{{ route('backstage-diy-drop', ['id' => $diy->id]) }}">刪除</a>
+                                            onclick="del_diy('{{ route('backstage-diy-drop', ['id' => $diy->id]) }}','{{ $diy->title }}')">刪除</a>
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ $diy->title }}

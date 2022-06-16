@@ -30,6 +30,11 @@
                 }
             });
         }
+        function del_news(url,name){
+            if(confirm('確定要刪除 '+name+' 最新消息嗎？')){
+                window.location.href=url;
+            }
+        }
     </script>
 
     <!-- Main modal -->
@@ -228,7 +233,8 @@
                                             onclick="get_news_value({{ $new->id }},'{{ route('get-news-json', ['id' => $new->id]) }}')">
                                             編輯
                                         </a>
-                                        ｜ <a href="{{ route('backstage-news-drop', ['id' => $new->id]) }}">刪除</a>
+                                        ｜ <a 
+                                        onclick="del_news('{{ route('backstage-news-drop', ['id' => $new->id]) }}','{{ $new->title}} ')">刪除</a>
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ $new->title }}

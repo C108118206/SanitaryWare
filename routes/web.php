@@ -139,6 +139,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::post('/backstage/customer/story',[App\Http\Controllers\customerController::class,'story_store']
     )->name('backstage-story-store');
+    
+    Route::get('/backstage/story/drop/{id}',[App\Http\Controllers\customerController::class,'story_destroy']
+    )->name('backstage-story-drop');
     // backstage business
     Route::get('/backstage/customer/business',[App\Http\Controllers\customerController::class,'index_business']
     )->name('backstage-customer-business');
